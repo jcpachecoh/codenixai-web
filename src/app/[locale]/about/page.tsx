@@ -2,9 +2,14 @@ import { getTranslations } from 'next-intl/server';
 import { Metadata } from 'next';
 import AboutSection from '@/components/sections/AboutSection';
 
-export async function generateMetadata({ params }: { params: { locale: string } }): Promise<Metadata> {
+type PageParams = {
+  params: Promise<{ locale: string }>
+}
+
+export async function generateMetadata({ params }: PageParams): Promise<Metadata> {
   // First await the entire params object before accessing its properties
-  const { locale } = await Promise.resolve(params);
+  const paramsObj = await params;
+  const locale = paramsObj.locale;
   const t = await getTranslations({ locale, namespace: 'about' });
 
   return {
@@ -13,7 +18,10 @@ export async function generateMetadata({ params }: { params: { locale: string } 
   };
 }
 
-export default function AboutPage() {
+export default async function AboutPage({ params }: PageParams) {
+  // Await params to satisfy the Promise constraint
+  await params;
+  
   return (
     <div className="pt-24">
       <AboutSection />

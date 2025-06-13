@@ -3,7 +3,14 @@ import { Metadata } from 'next';
 import ServicesSection from '@/components/sections/ServicesSection';
 import FeaturesSection from '@/components/sections/FeaturesSection';
 
-export async function generateMetadata({ params: { locale } }: { params: { locale: string } }): Promise<Metadata> {
+type PageParams = {
+  params: Promise<{ locale: string }>
+}
+
+export async function generateMetadata({ params }: PageParams): Promise<Metadata> {
+  // First await the entire params object before accessing its properties
+  const paramsObj = await params;
+  const locale = paramsObj.locale;
   const t = await getTranslations({ locale, namespace: 'services' });
 
   return {
@@ -12,7 +19,10 @@ export async function generateMetadata({ params: { locale } }: { params: { local
   };
 }
 
-export default function ServicesPage() {
+export default async function ServicesPage({ params }: PageParams) {
+  // Await params to satisfy the Promise constraint
+  await params;
+  
   return (
     <div className="pt-24">
       <ServicesSection />

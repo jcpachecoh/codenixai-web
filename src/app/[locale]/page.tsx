@@ -7,9 +7,14 @@ import ServicesSection from '@/components/sections/ServicesSection';
 import FeaturesSection from '@/components/sections/FeaturesSection';
 import ContactSection from '@/components/sections/ContactSection';
 
-export async function generateMetadata({ params }: { params: { locale: string } }): Promise<Metadata> {
-  // In Next.js App Router, we need to await params in metadata functions
-  const { locale } = await Promise.resolve(params);
+type PageParams = {
+  params: Promise<{ locale: string }>
+}
+
+export async function generateMetadata({ params }: PageParams): Promise<Metadata> {
+  // First await the entire params object before accessing its properties
+  const paramsObj = await params;
+  const locale = paramsObj.locale;
   const t = await getTranslations({ locale, namespace: 'hero' });
 
   return {
@@ -18,7 +23,10 @@ export async function generateMetadata({ params }: { params: { locale: string } 
   };
 }
 
-export default function Home() {
+export default async function Home({ params }: PageParams) {
+  // Await params to satisfy the Promise constraint
+  await params;
+  
   return (
     <>
       <HeroSection />
