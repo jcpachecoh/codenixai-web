@@ -1,20 +1,15 @@
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
+import { Geist, Geist_Mono, Poppins } from 'next/font/google';
 import { NextIntlClientProvider } from 'next-intl';
 
-import '../../app/globals.css';
+import '../globals.css';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { getMessages } from 'next-intl/server';
 
-const geistSans = Geist({
-  variable: '--font-geist-sans',
+const roboto = Poppins({
+  weight: '400',
   subsets: ['latin'],
-});
-
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
+  display: 'swap',
 });
 
 export const metadata: Metadata = {
@@ -25,18 +20,26 @@ export const metadata: Metadata = {
 
 export default async function RootLayout({
   children,
-  params: { locale },
+  params,
 }: {
   children: React.ReactNode;
   params: { locale: string };
 }) {
-  // In Next.js App Router, we need to await params in server components
-
-  const messages = await getMessages({ locale });
+  // First await the entire params object before accessing its properties
+  const { locale } = await Promise.resolve(params);
+  // Load messages for the current locale
+  let messages;
+  try {
+    messages = (await import(`../../locales/${locale}.json`)).default;
+  } catch (error) {
+    console.error(`Could not load messages for locale: ${locale}`, error);
+    // Fallback to empty messages object
+    messages = {};
+  }
 
   return (
-    <html lang={locale} className="scroll-smooth">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+    <html lang={locale}>
+      <body className={`${roboto.className} antialiased`}>
         <NextIntlClientProvider locale={locale} messages={messages}>
           <div className="flex flex-col min-h-screen">
             <Header />

@@ -1,12 +1,11 @@
-/** @type {import('next').NextConfig} */
+import createNextIntlPlugin from 'next-intl/plugin';
 
-// next.config.mjs
-const withNextIntl = (await import('next-intl/plugin')).default;
+const withNextIntl = createNextIntlPlugin('./src/i18n.ts');
 
-export default withNextIntl('./next-intl.config.js')({
-  // your Next.js config here
-  i18nRequestConfigPath: './i18n/request.ts',
+export default withNextIntl({
   experimental: {
     serverActions: {},
   },
+  // Remove the invalid webpack configuration
+  // webpack: true,
 });

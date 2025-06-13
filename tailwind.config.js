@@ -1,42 +1,26 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  darkMode: 'class',
   content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    './src/app/**/*.{js,ts,jsx,tsx,mdx}',
+    './src/components/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
     extend: {
       colors: {
-        // Dark background colors
-        dark: {
-          DEFAULT: "#0a0a0a",
-          secondary: "#111111",
-        },
-        // Accent colors
-        accent: {
-          blue: "#00d4ff",
-          purple: "#8b5cf6",
-        },
-        // Trust colors
-        trust: {
-          white: "#ffffff",
-          gray: {
-            100: "#f5f5f5",
-            200: "#e5e5e5",
-            300: "#d4d4d4",
-            400: "#a3a3a3",
-            500: "#737373",
-            600: "#525252",
-            700: "#404040",
-            800: "#262626",
-            900: "#171717",
-          },
+        'accent-blue': 'var(--accent-blue)',
+        'accent-purple': 'var(--accent-purple)',
+        'dark': '#0a0a0a',
+        'white': '#ffffff',
+        'trust-gray': {
+          300: '#d4d4d4',
+          400: '#a3a3a3',
+          700: '#404040',
         },
       },
       fontFamily: {
-        sans: ["var(--font-geist-sans)", "Inter", "sans-serif"],
-        mono: ["var(--font-geist-mono)", "monospace"],
+        sans: ['var(--font-geist-sans)', 'sans-serif'],
+        mono: ['var(--font-geist-mono)', 'monospace'],
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
@@ -52,11 +36,8 @@ module.exports = {
           '50%': { transform: 'translateY(-10px)' },
         },
       },
-      backdropBlur: {
-        xs: '2px',
-      },
     },
   },
   plugins: [],
-  darkMode: 'media',
+  darkMode: 'class',
 }

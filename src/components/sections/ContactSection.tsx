@@ -49,24 +49,42 @@ export default function ContactSection() {
   };
   
   return (
-    <section ref={sectionRef} id="contact" className="section relative overflow-hidden">
+    <section ref={sectionRef} id="contact" className="section relative">
       {/* Background elements */}
-      <div className="absolute inset-0">
-        <div className="absolute bottom-0 right-0 w-1/2 h-1/2 bg-accent-blue/10 rounded-full blur-3xl" />
-        <div className="absolute top-0 left-0 w-1/2 h-1/2 bg-accent-purple/10 rounded-full blur-3xl" />
+      <div style={{ position: 'absolute', inset: 0 }}>
+        <div style={{ 
+          position: 'absolute', 
+          bottom: 0, 
+          right: 0, 
+          width: '50%', 
+          height: '50%', 
+          background: 'rgba(0, 212, 255, 0.1)', 
+          borderRadius: '50%', 
+          filter: 'blur(100px)' 
+        }} />
+        <div style={{ 
+          position: 'absolute', 
+          top: 0, 
+          left: 0, 
+          width: '50%', 
+          height: '50%', 
+          background: 'rgba(139, 92, 246, 0.1)', 
+          borderRadius: '50%', 
+          filter: 'blur(100px)' 
+        }} />
       </div>
       
-      <div className="container relative z-10">
+      <div className="container" style={{ position: 'relative', zIndex: 10 }}>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          style={{ textAlign: 'center', marginBottom: '4rem' }}
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 style={{ fontSize: '2.25rem', fontWeight: 'bold', marginBottom: '1rem' }}>
             <span className="gradient-text">{t('title')}</span>
           </h2>
-          <p className="text-xl text-trust-gray-300">{t('subtitle')}</p>
+          <p style={{ fontSize: '1.25rem', color: '#d4d4d4' }}>{t('subtitle')}</p>
         </motion.div>
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">

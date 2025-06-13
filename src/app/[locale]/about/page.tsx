@@ -4,10 +4,12 @@ import { Metadata } from 'next';
 import AboutSection from '@/components/sections/AboutSection';
 
 export async function generateMetadata({
-  params: { locale }
+  params
 }: {
   params: { locale: string };
 }): Promise<Metadata> {
+  // First await the entire params object before accessing its properties
+  const { locale } = await Promise.resolve(params);
   const t = await getTranslations({ locale, namespace: 'about' });
   
   return {

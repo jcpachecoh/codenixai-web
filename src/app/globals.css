@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Reset and base styles */
+html {
+  scroll-behavior: smooth;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -29,42 +34,98 @@
   }
 }
 
-@layer base {
-  body {
-    @apply bg-gradient-to-b from-[#0a0a0a] to-[#111111] text-white min-h-screen font-sans;
-    background-attachment: fixed;
+/* Base styles */
+body {
+  background: linear-gradient(to bottom, #0a0a0a, #111111);
+  background-attachment: fixed;
+  color: #ffffff;
+  min-height: 100vh;
+  font-family: var(--font-geist-sans), 'Inter', sans-serif;
+}
+
+/* Component styles */
+.glass {
+  backdrop-filter: blur(12px);
+  background-color: var(--glass-background);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 8px 32px var(--glass-shadow);
+}
+
+.gradient-text {
+  color: transparent;
+  background-clip: text;
+  background-image: linear-gradient(to right, var(--accent-blue), var(--accent-purple));
+}
+
+.btn-primary {
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  background-image: linear-gradient(to right, var(--accent-blue), var(--accent-purple));
+  color: white;
+  font-weight: 500;
+  transition: all 0.3s;
+}
+
+.btn-primary:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 212, 255, 0.2);
+  transform: scale(1.05);
+}
+
+.btn-secondary {
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  color: white;
+  font-weight: 500;
+  transition: all 0.3s;
+}
+
+.btn-secondary:hover {
+  background-color: rgba(0, 212, 255, 0.1);
+  border-color: var(--accent-blue);
+}
+
+.card {
+  border-radius: 1rem;
+  padding: 1.5rem;
+  transition: all 0.3s;
+  backdrop-filter: blur(12px);
+  background-color: var(--glass-background);
+  border: 1px solid var(--glass-border);
+}
+
+.card:hover {
+  box-shadow: 0 20px 25px -5px rgba(0, 212, 255, 0.1);
+}
+
+.section {
+  padding: 4rem 0;
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding: 6rem 0;
   }
 }
 
-@layer components {
-  .glass {
-    @apply backdrop-blur-xl bg-opacity-20 border border-opacity-20 shadow-lg;
-    background-color: var(--glass-background);
-    border-color: var(--glass-border);
-    box-shadow: 0 8px 32px var(--glass-shadow);
-  }
-  
-  .gradient-text {
-    @apply text-transparent bg-clip-text bg-gradient-to-r from-accent-blue to-accent-purple;
-  }
-  
-  .btn-primary {
-    @apply px-6 py-3 rounded-full bg-gradient-to-r from-accent-blue to-accent-purple text-white font-medium transition-all duration-300 hover:shadow-lg hover:shadow-accent-blue/20 hover:scale-105;
-  }
-  
-  .btn-secondary {
-    @apply px-6 py-3 rounded-full border border-accent-blue/30 text-white font-medium transition-all duration-300 hover:bg-accent-blue/10 hover:border-accent-blue;
-  }
-  
-  .card {
-    @apply glass rounded-2xl p-6 transition-all duration-300 hover:shadow-xl hover:shadow-accent-blue/10;
-  }
-  
-  .section {
-    @apply py-16 md:py-24;
-  }
-  
+.container {
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
   .container {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
 }
