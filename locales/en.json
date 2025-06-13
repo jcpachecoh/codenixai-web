@@ -1,0 +1,64 @@
+{
+  "navigation": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Next-Gen AI Solutions for Modern Businesses",
+    "subtitle": "Transforming ideas into intelligent software with cutting-edge AI technology",
+    "cta": "Get Started",
+    "secondary_cta": "Learn More"
+  },
+  "about": {
+    "title": "About CodenixAI",
+    "subtitle": "Pioneering AI-Driven Development",
+    "description": "CodenixAI is a forward-thinking software development company specializing in artificial intelligence solutions. We combine technical expertise with innovative thinking to create powerful, intelligent applications that solve real-world problems.",
+    "vision_title": "Our Vision",
+    "vision_description": "To lead the AI revolution by creating software that enhances human capabilities and transforms businesses.",
+    "mission_title": "Our Mission",
+    "mission_description": "Delivering cutting-edge AI solutions that empower organizations to achieve more through intelligent automation and data-driven insights."
+  },
+  "services": {
+    "title": "Our Services",
+    "subtitle": "AI-Powered Solutions",
+    "description": "We offer a comprehensive range of AI development services tailored to your business needs.",
+    "service_1_title": "Custom AI Development",
+    "service_1_description": "Bespoke AI solutions designed specifically for your unique business challenges and opportunities.",
+    "service_2_title": "Machine Learning Integration",
+    "service_2_description": "Implement advanced machine learning models to extract valuable insights from your data.",
+    "service_3_title": "Natural Language Processing",
+    "service_3_description": "Create intelligent systems that understand, interpret, and generate human language.",
+    "service_4_title": "Computer Vision Solutions",
+    "service_4_description": "Develop applications that can analyze and interpret visual information from the world."
+  },
+  "features": {
+    "title": "Why Choose Us",
+    "subtitle": "Our Advantages",
+    "feature_1_title": "Cutting-Edge Technology",
+    "feature_1_description": "We leverage the latest advancements in AI and machine learning.",
+    "feature_2_title": "Expert Team",
+    "feature_2_description": "Our specialists have deep expertise in AI development and implementation.",
+    "feature_3_title": "Tailored Solutions",
+    "feature_3_description": "Custom-built solutions designed for your specific business requirements.",
+    "feature_4_title": "Ongoing Support",
+    "feature_4_description": "Continuous assistance and updates to ensure optimal performance."
+  },
+  "contact": {
+    "title": "Get in Touch",
+    "subtitle": "Start Your AI Journey",
+    "name_label": "Name",
+    "email_label": "Email",
+    "message_label": "Message",
+    "submit_button": "Send Message",
+    "address": "123 Tech Avenue, Silicon Valley, CA",
+    "phone": "+1 (555) 123-4567",
+    "email": "info@codenixai.com"
+  },
+  "footer": {
+    "company": "© 2025 CodenixAI. All rights reserved.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service"
+  }
+}

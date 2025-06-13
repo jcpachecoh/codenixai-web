@@ -1,26 +1,70 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  
+  /* Accent colors */
+  --accent-blue: #00d4ff;
+  --accent-purple: #8b5cf6;
+  
+  /* Glassmorphism variables */
+  --glass-background: rgba(255, 255, 255, 0.1);
+  --glass-border: rgba(255, 255, 255, 0.2);
+  --glass-shadow: rgba(0, 0, 0, 0.05);
+  --glass-blur: 12px;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+    
+    /* Dark mode glassmorphism */
+    --glass-background: rgba(18, 18, 18, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --glass-shadow: rgba(0, 0, 0, 0.2);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer base {
+  body {
+    @apply bg-gradient-to-b from-[#0a0a0a] to-[#111111] text-white min-h-screen font-sans;
+    background-attachment: fixed;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply backdrop-blur-xl bg-opacity-20 border border-opacity-20 shadow-lg;
+    background-color: var(--glass-background);
+    border-color: var(--glass-border);
+    box-shadow: 0 8px 32px var(--glass-shadow);
+  }
+  
+  .gradient-text {
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-accent-blue to-accent-purple;
+  }
+  
+  .btn-primary {
+    @apply px-6 py-3 rounded-full bg-gradient-to-r from-accent-blue to-accent-purple text-white font-medium transition-all duration-300 hover:shadow-lg hover:shadow-accent-blue/20 hover:scale-105;
+  }
+  
+  .btn-secondary {
+    @apply px-6 py-3 rounded-full border border-accent-blue/30 text-white font-medium transition-all duration-300 hover:bg-accent-blue/10 hover:border-accent-blue;
+  }
+  
+  .card {
+    @apply glass rounded-2xl p-6 transition-all duration-300 hover:shadow-xl hover:shadow-accent-blue/10;
+  }
+  
+  .section {
+    @apply py-16 md:py-24;
+  }
+  
+  .container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
 }

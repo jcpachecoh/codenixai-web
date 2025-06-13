@@ -1,0 +1,64 @@
+{
+  "navigation": {
+    "home": "Inicio",
+    "about": "Nosotros",
+    "services": "Servicios",
+    "contact": "Contacto"
+  },
+  "hero": {
+    "title": "Soluciones de IA de Próxima Generación para Empresas Modernas",
+    "subtitle": "Transformando ideas en software inteligente con tecnología de IA de vanguardia",
+    "cta": "Comenzar",
+    "secondary_cta": "Saber Más"
+  },
+  "about": {
+    "title": "Sobre CodenixAI",
+    "subtitle": "Pioneros en Desarrollo Impulsado por IA",
+    "description": "CodenixAI es una empresa de desarrollo de software visionaria especializada en soluciones de inteligencia artificial. Combinamos experiencia técnica con pensamiento innovador para crear aplicaciones inteligentes y potentes que resuelven problemas del mundo real.",
+    "vision_title": "Nuestra Visión",
+    "vision_description": "Liderar la revolución de la IA creando software que mejore las capacidades humanas y transforme las empresas.",
+    "mission_title": "Nuestra Misión",
+    "mission_description": "Ofrecer soluciones de IA de vanguardia que permitan a las organizaciones lograr más a través de la automatización inteligente y los conocimientos basados en datos."
+  },
+  "services": {
+    "title": "Nuestros Servicios",
+    "subtitle": "Soluciones Impulsadas por IA",
+    "description": "Ofrecemos una amplia gama de servicios de desarrollo de IA adaptados a las necesidades de su empresa.",
+    "service_1_title": "Desarrollo de IA Personalizado",
+    "service_1_description": "Soluciones de IA a medida diseñadas específicamente para los desafíos y oportunidades únicos de su negocio.",
+    "service_2_title": "Integración de Machine Learning",
+    "service_2_description": "Implementamos modelos avanzados de aprendizaje automático para extraer información valiosa de sus datos.",
+    "service_3_title": "Procesamiento de Lenguaje Natural",
+    "service_3_description": "Creamos sistemas inteligentes que entienden, interpretan y generan lenguaje humano.",
+    "service_4_title": "Soluciones de Visión por Computadora",
+    "service_4_description": "Desarrollamos aplicaciones que pueden analizar e interpretar información visual del mundo."
+  },
+  "features": {
+    "title": "Por Qué Elegirnos",
+    "subtitle": "Nuestras Ventajas",
+    "feature_1_title": "Tecnología de Vanguardia",
+    "feature_1_description": "Aprovechamos los últimos avances en IA y aprendizaje automático.",
+    "feature_2_title": "Equipo Experto",
+    "feature_2_description": "Nuestros especialistas tienen amplia experiencia en desarrollo e implementación de IA.",
+    "feature_3_title": "Soluciones a Medida",
+    "feature_3_description": "Soluciones personalizadas diseñadas para sus requisitos empresariales específicos.",
+    "feature_4_title": "Soporte Continuo",
+    "feature_4_description": "Asistencia y actualizaciones continuas para garantizar un rendimiento óptimo."
+  },
+  "contact": {
+    "title": "Contáctanos",
+    "subtitle": "Inicia Tu Viaje con IA",
+    "name_label": "Nombre",
+    "email_label": "Correo Electrónico",
+    "message_label": "Mensaje",
+    "submit_button": "Enviar Mensaje",
+    "address": "123 Avenida Tech, Silicon Valley, CA",
+    "phone": "+1 (555) 123-4567",
+    "email": "info@codenixai.com"
+  },
+  "footer": {
+    "company": "© 2025 CodenixAI. Todos los derechos reservados.",
+    "privacy": "Política de Privacidad",
+    "terms": "Términos de Servicio"
+  }
+}
