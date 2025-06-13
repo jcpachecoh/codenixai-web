@@ -2,7 +2,6 @@
 import { useTranslations } from 'next-intl';
 import { motion, useInView, easeInOut } from 'framer-motion';
 import { useRef } from 'react';
-import Image from 'next/image';
 
 export default function AboutSection() {
   const t = useTranslations('about');

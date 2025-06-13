@@ -2,7 +2,6 @@
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 import { usePathname } from 'next/navigation';
-import { motion } from 'framer-motion';
 
 export default function Footer() {
   const t = useTranslations('footer');

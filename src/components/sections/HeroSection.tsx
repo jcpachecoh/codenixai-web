@@ -1,15 +1,15 @@
 'use client';
+import { Variants } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useTranslations } from 'next-intl';
-import { motion, Variants } from 'framer-motion';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import Image from 'next/image';
 
 export default function HeroSection() {
   const t = useTranslations('hero');
   const pathname = usePathname();
   const locale = pathname.split('/')[1];
-  
+
   // Animation variants
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
@@ -21,27 +21,16 @@ export default function HeroSection() {
       },
     },
   };
-  
+
   const itemVariants: Variants = {
     hidden: { y: 20, opacity: 0 },
     visible: {
       y: 0,
       opacity: 1,
-      transition: { duration: 0.8, ease: "easeInOut" },
+      transition: { duration: 0.8, ease: 'easeInOut' },
     },
   };
-  
-  // Floating animation for the AI elements
-  const floatingAnimation = {
-    y: [0, -10, 0],
-    transition: {
-      duration: 4,
-      repeat: Infinity,
-      repeatType: "reverse" as const,
-      ease: "easeInOut",
-    },
-  };
-  
+
   return (
     <section className="relative min-h-screen flex items-center pt-24 overflow-hidden">
       {/* Background gradient elements */}
@@ -49,10 +38,10 @@ export default function HeroSection() {
         <div className="absolute -top-40 -right-40 w-96 h-96 rounded-full bg-accent-blue/20 blur-3xl" />
         <div className="absolute top-1/3 -left-40 w-96 h-96 rounded-full bg-accent-purple/20 blur-3xl" />
       </div>
-      
+
       {/* Animated grid pattern */}
       <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] bg-repeat opacity-10" />
-      
+
       {/* Floating particles */}
       <div className="absolute inset-0 overflow-hidden">
         {Array.from({ length: 20 }).map((_, i) => (
@@ -76,34 +65,20 @@ export default function HeroSection() {
           />
         ))}
       </div>
-      
+
       <div className="container mx-auto px-4 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Hero content */}
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-            className="max-w-2xl"
-          >
-            <motion.h1 
-              variants={itemVariants}
-              className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
-            >
+          <motion.div variants={containerVariants} initial="hidden" animate="visible" className="max-w-2xl">
+            <motion.h1 variants={itemVariants} className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
               <span className="gradient-text">{t('title')}</span>
             </motion.h1>
-            
-            <motion.p 
-              variants={itemVariants}
-              className="text-lg md:text-xl text-trust-gray-300 mb-8"
-            >
+
+            <motion.p variants={itemVariants} className="text-lg md:text-xl text-trust-gray-300 mb-8">
               {t('subtitle')}
             </motion.p>
-            
-            <motion.div 
-              variants={itemVariants}
-              className="flex flex-col sm:flex-row gap-4"
-            >
+
+            <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4">
               <Link href={`/${locale}/contact`} className="btn-primary">
                 {t('cta')}
               </Link>
@@ -112,7 +87,7 @@ export default function HeroSection() {
               </Link>
             </motion.div>
           </motion.div>
-          
+
           {/* Hero illustration */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
@@ -122,15 +97,15 @@ export default function HeroSection() {
           >
             {/* Main AI brain visualization */}
             <motion.div
-              animate={{ 
-              y: [0, -10, 0],
-              transition: {
-                duration: 4,
-                repeat: Infinity,
-                repeatType: "reverse" as const,
-                ease: "easeInOut",
-              },
-            }}
+              animate={{
+                y: [0, -10, 0],
+                transition: {
+                  duration: 4,
+                  repeat: Infinity,
+                  repeatType: 'reverse' as const,
+                  ease: 'easeInOut',
+                },
+              }}
               className="relative w-64 h-64 md:w-80 md:h-80 bg-gradient-to-br from-accent-blue/30 to-accent-purple/30 rounded-full flex items-center justify-center glass"
             >
               <div className="absolute inset-4 rounded-full border border-accent-blue/30 flex items-center justify-center">
@@ -155,7 +130,7 @@ export default function HeroSection() {
                       }}
                     />
                   ))}
-                  
+
                   {/* Connection lines */}
                   <svg className="absolute inset-0 w-full h-full">
                     <motion.path
@@ -183,7 +158,7 @@ export default function HeroSection() {
                       </linearGradient>
                     </defs>
                   </svg>
-                  
+
                   {/* Central AI core */}
                   <motion.div
                     className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-16 h-16 md:w-24 md:h-24 bg-gradient-to-r from-accent-blue to-accent-purple rounded-full flex items-center justify-center"
@@ -201,7 +176,7 @@ export default function HeroSection() {
                 </div>
               </div>
             </motion.div>
-            
+
             {/* Floating code snippets */}
             <motion.div
               className="absolute top-10 right-10 glass p-3 rounded-lg text-xs font-mono text-trust-gray-300 w-40"
@@ -214,7 +189,7 @@ export default function HeroSection() {
               <div className="pl-2">return model.analyze(data);</div>
               <div>&#125;</div>
             </motion.div>
-            
+
             <motion.div
               className="absolute bottom-10 left-10 glass p-3 rounded-lg text-xs font-mono text-trust-gray-300 w-40"
               initial={{ opacity: 0, y: 20 }}
@@ -229,22 +204,22 @@ export default function HeroSection() {
           </motion.div>
         </div>
       </div>
-      
+
       {/* Scroll indicator */}
       <motion.div
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-        animate={{ 
+        animate={{
           y: [0, 10, 0],
-          transition: { 
-            duration: 2, 
-            repeat: Infinity, 
-            ease: "easeInOut" 
-          }
+          transition: {
+            duration: 2,
+            repeat: Infinity,
+            ease: 'easeInOut',
+          },
         }}
       >
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M7 13L12 18L17 13" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-          <path d="M7 7L12 12L17 7" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+          <path d="M7 13L12 18L17 13" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+          <path d="M7 7L12 12L17 7" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
       </motion.div>
     </section>
