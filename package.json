@@ -12,6 +12,7 @@
     "commit": "git-cz"
   },
   "dependencies": {
+    "@vercel/analytics": "^1.5.0",
     "framer-motion": "^12.18.1",
     "next": "15.3.3",
     "next-intl": "^4.1.0",
