@@ -1,0 +1,23 @@
+# Allow all crawlers to access all parts of the site
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://codenixai.com/sitemap.xml
+
+# Crawl-delay parameter to limit the number of requests per second
+Crawl-delay: 10
+
+# Disallow crawling of admin and API routes
+Disallow: /admin/
+Disallow: /api/
+Disallow: /_next/
+
+# Allow all other paths
+Allow: /*
+
+# Host directive to specify the preferred domain
+Host: codenixai.com
+
+# Default language
+Clean-param: hl /

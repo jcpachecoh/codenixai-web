@@ -93,18 +93,6 @@ export default function Footer() {
             <ul className="space-y-2">
               <li className="flex items-start space-x-2">
                 <span className="text-accent-blue mt-1">
-                  <LocationIcon />
-                </span>
-                <span className="text-trust-gray-400 text-sm">{useTranslations('contact')('address')}</span>
-              </li>
-              <li className="flex items-start space-x-2">
-                <span className="text-accent-blue mt-1">
-                  <PhoneIcon />
-                </span>
-                <span className="text-trust-gray-400 text-sm">{useTranslations('contact')('phone')}</span>
-              </li>
-              <li className="flex items-start space-x-2">
-                <span className="text-accent-blue mt-1">
                   <EmailIcon />
                 </span>
                 <span className="text-trust-gray-400 text-sm">{useTranslations('contact')('email')}</span>
@@ -159,25 +147,6 @@ function SocialIcon({ type }: { type: string }) {
     default:
       return null;
   }
-}
-
-function LocationIcon() {
-  return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-      <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z" />
-    </svg>
-  );
-}
-
-function PhoneIcon() {
-  return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
-      <path
-        fillRule="evenodd"
-        d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"
-      />
-    </svg>
-  );
 }
 
 function EmailIcon() {
