@@ -1,14 +1,15 @@
 import type { Metadata } from 'next';
-import { Poppins } from 'next/font/google';
+import { Roboto } from 'next/font/google';
 import { NextIntlClientProvider } from 'next-intl';
 
 import '../globals.css';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
-const roboto = Poppins({
-  weight: '400',
-  subsets: ['latin'],
+const roboto = Roboto({
+  subsets: ["latin"],
+  weight: ["300","400","500","600","700"],
+  variable: "--font-roboto",
   display: 'swap',
 });
 
@@ -39,7 +40,7 @@ export default async function RootLayout({
 
   return (
     <html lang={locale}>
-      <body className={`${roboto.className} antialiased`}>
+      <body className={`${roboto.variable} font-roboto antialiased`}>
         <NextIntlClientProvider locale={locale} messages={messages}>
           <div className="flex flex-col min-h-screen">
             <Header />

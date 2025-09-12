@@ -16,190 +16,185 @@ export default function HeroSection() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.3,
+        staggerChildren: 0.15,
+        delayChildren: 0.2,
       },
     },
   };
 
   const itemVariants: Variants = {
+    hidden: { y: 30, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: { duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] },
+    },
+  };
+
+  const ctaVariants: Variants = {
     hidden: { y: 20, opacity: 0 },
     visible: {
       y: 0,
       opacity: 1,
-      transition: { duration: 0.8, ease: 'easeInOut' },
+      transition: { duration: 0.6, ease: 'easeOut' },
     },
   };
 
   return (
-    <section className="relative min-h-screen flex items-center pt-24 overflow-hidden">
-      {/* Background gradient elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-40 -right-40 w-96 h-96 rounded-full bg-accent-blue/20 blur-3xl" />
-        <div className="absolute top-1/3 -left-40 w-96 h-96 rounded-full bg-accent-purple/20 blur-3xl" />
+    <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
+      {/* Modern Background with brand colors */}
+      <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-black to-gray-900">
+        {/* Animated gradient blobs */}
+        <motion.div
+          className="absolute -top-40 -right-40 w-96 h-96 rounded-full opacity-30 blur-3xl"
+          style={{
+            background: 'radial-gradient(circle, #01A9FA 0%, transparent 70%)',
+          }}
+          animate={{
+            scale: [1, 1.2, 1],
+            opacity: [0.3, 0.5, 0.3],
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+        />
+        <motion.div
+          className="absolute top-1/3 -left-40 w-96 h-96 rounded-full opacity-25 blur-3xl"
+          style={{
+            background: 'radial-gradient(circle, #4E3BE7 0%, transparent 70%)',
+          }}
+          animate={{
+            scale: [1.2, 1, 1.2],
+            opacity: [0.25, 0.4, 0.25],
+          }}
+          transition={{
+            duration: 10,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 2
+          }}
+        />
+        <motion.div
+          className="absolute bottom-20 right-1/4 w-80 h-80 rounded-full opacity-20 blur-3xl"
+          style={{
+            background: 'radial-gradient(circle, #F81EBD 0%, transparent 70%)',
+          }}
+          animate={{
+            scale: [1, 1.3, 1],
+            opacity: [0.2, 0.35, 0.2],
+          }}
+          transition={{
+            duration: 12,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 4
+          }}
+        />
       </div>
 
-      {/* Animated grid pattern */}
-      <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] bg-repeat opacity-10" />
-
-      {/* Floating particles */}
+      {/* Animated geometric shapes */}
       <div className="absolute inset-0 overflow-hidden">
-        {Array.from({ length: 20 }).map((_, i) => (
+        {Array.from({ length: 15 }).map((_, i) => (
           <motion.div
             key={i}
-            className="absolute w-2 h-2 rounded-full bg-accent-blue/30"
+            className="absolute w-1 h-1 rounded-full"
             style={{
+              background: i % 3 === 0 ? '#01A9FA' : i % 3 === 1 ? '#4E3BE7' : '#F81EBD',
               top: `${Math.random() * 100}%`,
               left: `${Math.random() * 100}%`,
             }}
             animate={{
-              y: [0, Math.random() * 30 - 15],
-              opacity: [0.2, 0.8, 0.2],
+              y: [0, Math.random() * 50 - 25],
+              x: [0, Math.random() * 30 - 15],
+              opacity: [0.3, 0.8, 0.3],
+              scale: [1, 1.5, 1],
             }}
             transition={{
-              duration: 3 + Math.random() * 5,
+              duration: 4 + Math.random() * 6,
               repeat: Infinity,
               repeatType: 'reverse',
               ease: 'easeInOut',
+              delay: Math.random() * 2,
             }}
           />
         ))}
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="max-w-6xl mx-auto text-center">
           {/* Hero content */}
-          <motion.div variants={containerVariants} initial="hidden" animate="visible" className="max-w-2xl">
-            <motion.h1 variants={itemVariants} className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-              <span className="gradient-text">{t('title')}</span>
+          <motion.div variants={containerVariants} initial="hidden" animate="visible" className="max-w-4xl mx-auto">
+            <motion.h1 
+              variants={itemVariants} 
+              className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight"
+            >
+              <span className="block text-white mb-2">Build faster with</span>
+              <span className="block gradient-text">{t('title').split('Build faster with ')[1] || 'AI-powered software'}</span>
             </motion.h1>
 
-            <motion.p variants={itemVariants} className="text-lg md:text-xl text-trust-gray-300 mb-8">
+            <motion.p 
+              variants={itemVariants} 
+              className="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed"
+            >
               {t('subtitle')}
             </motion.p>
 
-            <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4">
-              <Link href={`/${locale}/contact`} className="btn-primary">
-                {t('cta')}
-              </Link>
-              <Link href={`/${locale}/services`} className="btn-secondary">
-                {t('secondary_cta')}
-              </Link>
-            </motion.div>
-          </motion.div>
-
-          {/* Hero illustration */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            className="relative h-[400px] lg:h-[500px] flex items-center justify-center"
-          >
-            {/* Main AI brain visualization */}
-            <motion.div
-              animate={{
-                y: [0, -10, 0],
-                transition: {
-                  duration: 4,
-                  repeat: Infinity,
-                  repeatType: 'reverse' as const,
-                  ease: 'easeInOut',
-                },
-              }}
-              className="relative w-64 h-64 md:w-80 md:h-80 bg-gradient-to-br from-accent-blue/30 to-accent-purple/30 rounded-full flex items-center justify-center glass"
+            {/* Strong CTAs */}
+            <motion.div 
+              variants={ctaVariants} 
+              className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16"
             >
-              <div className="absolute inset-4 rounded-full border border-accent-blue/30 flex items-center justify-center">
-                <div className="w-full h-full relative">
-                  {/* Neural network connections */}
-                  {Array.from({ length: 8 }).map((_, i) => (
-                    <motion.div
-                      key={i}
-                      className="absolute w-1 h-1 bg-accent-blue rounded-full"
-                      style={{
-                        top: `${30 + Math.random() * 40}%`,
-                        left: `${30 + Math.random() * 40}%`,
-                      }}
-                      animate={{
-                        scale: [1, 1.5, 1],
-                        opacity: [0.7, 1, 0.7],
-                      }}
-                      transition={{
-                        duration: 2 + Math.random() * 2,
-                        repeat: Infinity,
-                        ease: 'easeInOut',
-                      }}
-                    />
-                  ))}
-
-                  {/* Connection lines */}
-                  <svg className="absolute inset-0 w-full h-full">
-                    <motion.path
-                      d="M40,40 C60,80 100,30 120,90"
-                      stroke="url(#gradient)"
-                      strokeWidth="1"
-                      fill="none"
-                      initial={{ pathLength: 0, opacity: 0 }}
-                      animate={{ pathLength: 1, opacity: 0.5 }}
-                      transition={{ duration: 2, repeat: Infinity, repeatType: 'loop', ease: 'easeInOut' }}
-                    />
-                    <motion.path
-                      d="M80,30 C100,50 60,90 120,100"
-                      stroke="url(#gradient)"
-                      strokeWidth="1"
-                      fill="none"
-                      initial={{ pathLength: 0, opacity: 0 }}
-                      animate={{ pathLength: 1, opacity: 0.5 }}
-                      transition={{ duration: 3, repeat: Infinity, repeatType: 'loop', ease: 'easeInOut', delay: 0.5 }}
-                    />
-                    <defs>
-                      <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stopColor="#00d4ff" />
-                        <stop offset="100%" stopColor="#8b5cf6" />
-                      </linearGradient>
-                    </defs>
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Link 
+                  href={`/${locale}/contact`} 
+                  className="inline-flex items-center px-8 py-4 text-lg font-semibold text-white bg-gradient-to-r from-primary-blue via-primary-purple to-primary-pink rounded-full shadow-2xl hover:shadow-primary-blue/25 transition-all duration-300"
+                >
+                  <span>{t('ctaPrimary')}</span>
+                  <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
+                </Link>
+              </motion.div>
+              
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Link 
+                  href={`/${locale}/services`} 
+                  className="inline-flex items-center px-8 py-4 text-lg font-semibold text-white border-2 border-primary-blue/50 rounded-full hover:bg-primary-blue/10 hover:border-primary-blue transition-all duration-300"
+                >
+                  <span>{t('ctaSecondary')}</span>
+                  <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                  </svg>
+                </Link>
+              </motion.div>
+            </motion.div>
 
-                  {/* Central AI core */}
-                  <motion.div
-                    className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-16 h-16 md:w-24 md:h-24 bg-gradient-to-r from-accent-blue to-accent-purple rounded-full flex items-center justify-center"
-                    animate={{
-                      boxShadow: [
-                        '0 0 10px rgba(0, 212, 255, 0.5)',
-                        '0 0 20px rgba(0, 212, 255, 0.7)',
-                        '0 0 10px rgba(0, 212, 255, 0.5)',
-                      ],
-                    }}
-                    transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
-                  >
-                    <span className="text-white font-bold text-xl">AI</span>
-                  </motion.div>
-                </div>
+            {/* Trust indicators */}
+            <motion.div 
+              variants={itemVariants}
+              className="flex flex-col sm:flex-row items-center justify-center gap-8 text-gray-400 text-base"
+            >
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 bg-primary-blue rounded-full"></div>
+                <span>24/7 Support</span>
               </div>
-            </motion.div>
-
-            {/* Floating code snippets */}
-            <motion.div
-              className="absolute top-10 right-10 glass p-3 rounded-lg text-xs font-mono text-trust-gray-300 w-40"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1, duration: 0.8 }}
-              whileHover={{ scale: 1.05 }}
-            >
-              <div className="text-accent-blue">function predict() &#123;</div>
-              <div className="pl-2">return model.analyze(data);</div>
-              <div>&#125;</div>
-            </motion.div>
-
-            <motion.div
-              className="absolute bottom-10 left-10 glass p-3 rounded-lg text-xs font-mono text-trust-gray-300 w-40"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 1.2, duration: 0.8 }}
-              whileHover={{ scale: 1.05 }}
-            >
-              <div className="text-accent-purple">class NeuralNetwork &#123;</div>
-              <div className="pl-2">constructor() &#123; ... &#125;</div>
-              <div>&#125;</div>
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 bg-primary-purple rounded-full"></div>
+                <span>Enterprise Ready</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 bg-primary-pink rounded-full"></div>
+                <span>Scalable Solutions</span>
+              </div>
             </motion.div>
           </motion.div>
         </div>
@@ -217,10 +212,19 @@ export default function HeroSection() {
           },
         }}
       >
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M7 13L12 18L17 13" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-          <path d="M7 7L12 12L17 7" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-        </svg>
+        <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
+          <motion.div
+            className="w-1 h-3 bg-white/60 rounded-full mt-2"
+            animate={{
+              y: [0, 6, 0],
+              transition: {
+                duration: 2,
+                repeat: Infinity,
+                ease: 'easeInOut',
+              },
+            }}
+          />
+        </div>
       </motion.div>
     </section>
   );

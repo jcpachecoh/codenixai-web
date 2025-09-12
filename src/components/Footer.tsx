@@ -29,7 +29,7 @@ export default function Footer() {
                 <span className="text-white">AI</span>
               </span>
             </Link>
-            <p className="text-trust-gray-400 text-sm mb-4">
+            <p className="text-trust-gray-400 text-base mb-4">
               Transforming ideas into intelligent software with cutting-edge AI technology
             </p>
             <div className="flex space-x-4">
@@ -55,7 +55,7 @@ export default function Footer() {
               <li>
                 <Link
                   href={`/${locale}`}
-                  className="text-trust-gray-400 hover:text-accent-blue transition-colors duration-300 text-sm"
+                  className="text-trust-gray-400 hover:text-accent-blue transition-colors duration-300 text-base"
                 >
                   {useTranslations('navigation')('home')}
                 </Link>
@@ -63,7 +63,7 @@ export default function Footer() {
               <li>
                 <Link
                   href={`/${locale}/about`}
-                  className="text-trust-gray-400 hover:text-accent-blue transition-colors duration-300 text-sm"
+                  className="text-trust-gray-400 hover:text-accent-blue transition-colors duration-300 text-base"
                 >
                   {useTranslations('navigation')('about')}
                 </Link>
@@ -71,7 +71,7 @@ export default function Footer() {
               <li>
                 <Link
                   href={`/${locale}/services`}
-                  className="text-trust-gray-400 hover:text-accent-blue transition-colors duration-300 text-sm"
+                  className="text-trust-gray-400 hover:text-accent-blue transition-colors duration-300 text-base"
                 >
                   {useTranslations('navigation')('services')}
                 </Link>
@@ -79,7 +79,7 @@ export default function Footer() {
               <li>
                 <Link
                   href={`/${locale}/contact`}
-                  className="text-trust-gray-400 hover:text-accent-blue transition-colors duration-300 text-sm"
+                  className="text-trust-gray-400 hover:text-accent-blue transition-colors duration-300 text-base"
                 >
                   {useTranslations('navigation')('contact')}
                 </Link>
@@ -95,24 +95,24 @@ export default function Footer() {
                 <span className="text-accent-blue mt-1">
                   <EmailIcon />
                 </span>
-                <span className="text-trust-gray-400 text-sm">{useTranslations('contact')('email')}</span>
+                <span className="text-trust-gray-400 text-base">{useTranslations('contact')('email')}</span>
               </li>
             </ul>
           </div>
         </div>
 
         <div className="border-t border-trust-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-trust-gray-500 text-sm mb-4 md:mb-0">{t('company')}</p>
+          <p className="text-trust-gray-500 text-base mb-4 md:mb-0">{t('company')}</p>
           <div className="flex space-x-6">
             <Link
               href={`/${locale}/privacy`}
-              className="text-trust-gray-500 hover:text-accent-blue transition-colors duration-300 text-sm"
+              className="text-trust-gray-500 hover:text-accent-blue transition-colors duration-300 text-base"
             >
               {t('privacy')}
             </Link>
             <Link
               href={`/${locale}/terms`}
-              className="text-trust-gray-500 hover:text-accent-blue transition-colors duration-300 text-sm"
+              className="text-trust-gray-500 hover:text-accent-blue transition-colors duration-300 text-base"
             >
               {t('terms')}
             </Link>

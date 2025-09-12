@@ -200,5 +200,5 @@ export default function AboutSection() {
 
 // Tech badge component
 function TechBadge({ name }: { name: string }) {
-  return <div className="px-4 py-2 glass rounded-full text-sm">{name}</div>;
+  return <div className="px-4 py-2 glass rounded-full text-base">{name}</div>;
 }

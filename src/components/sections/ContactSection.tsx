@@ -97,7 +97,7 @@ export default function ContactSection() {
           >
             <form onSubmit={handleSubmit}>
               <div className="mb-6">
-                <label htmlFor="name" className="block text-sm font-medium text-trust-gray-300 mb-2">
+                <label htmlFor="name" className="block text-base font-medium text-trust-gray-300 mb-2">
                   {t('name_label')}
                 </label>
                 <input
@@ -112,7 +112,7 @@ export default function ContactSection() {
               </div>
               
               <div className="mb-6">
-                <label htmlFor="email" className="block text-sm font-medium text-trust-gray-300 mb-2">
+                <label htmlFor="email" className="block text-base font-medium text-trust-gray-300 mb-2">
                   {t('email_label')}
                 </label>
                 <input
@@ -127,7 +127,7 @@ export default function ContactSection() {
               </div>
               
               <div className="mb-6">
-                <label htmlFor="message" className="block text-sm font-medium text-trust-gray-300 mb-2">
+                <label htmlFor="message" className="block text-base font-medium text-trust-gray-300 mb-2">
                   {t('message_label')}
                 </label>
                 <textarea
@@ -188,7 +188,7 @@ export default function ContactSection() {
             transition={{ duration: 0.8 }}
           >
             <div className="glass p-8 rounded-2xl mb-8">
-              <h3 className="text-2xl font-semibold mb-6 gradient-text">Contact Information</h3>
+              <h3 className="text-2xl font-semibold mb-6 gradient-text">{t('contact.title')}</h3>
               
               <div className="space-y-6">
                 <div className="flex items-start space-x-4">
@@ -196,8 +196,8 @@ export default function ContactSection() {
                     <LocationIcon />
                   </div>
                   <div>
-                    <h4 className="text-lg font-medium text-white mb-1">Address</h4>
-                    <p className="text-trust-gray-400">{t('address')}</p>
+                    <h4 className="text-lg font-medium text-white mb-1">{t('address.label')}</h4>
+                    <p className="text-trust-gray-400">{t('address.value')}</p>
                   </div>
                 </div>
                 
@@ -206,8 +206,8 @@ export default function ContactSection() {
                     <PhoneIcon />
                   </div>
                   <div>
-                    <h4 className="text-lg font-medium text-white mb-1">Phone</h4>
-                    <p className="text-trust-gray-400">{t('phone')}</p>
+                    <h4 className="text-lg font-medium text-white mb-1">{t('phone.label')}</h4>
+                    <p className="text-trust-gray-400">{t('phone.value')}</p>
                   </div>
                 </div>
                 
@@ -216,8 +216,8 @@ export default function ContactSection() {
                     <EmailIcon />
                   </div>
                   <div>
-                    <h4 className="text-lg font-medium text-white mb-1">Email</h4>
-                    <p className="text-trust-gray-400">{t('email')}</p>
+                    <h4 className="text-lg font-medium text-white mb-1">{t('email.label')}</h4>
+                    <p className="text-trust-gray-400">{t('email.value')}</p>
                   </div>
                 </div>
               </div>

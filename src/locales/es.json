@@ -1,4 +1,10 @@
 {
+  "nav": {
+    "home": "Inicio",
+    "about": "Nosotros",
+    "services": "Servicios",
+    "contact": "Contacto"
+  },
   "navigation": {
     "home": "Inicio",
     "about": "Nosotros",
@@ -6,10 +12,10 @@
     "contact": "Contacto"
   },
   "hero": {
-    "title": "Soluciones de IA de Próxima Generación para Empresas Modernas",
-    "subtitle": "Transformando ideas en software inteligente con tecnología de IA de vanguardia",
-    "cta": "Comenzar",
-    "secondary_cta": "Saber Más"
+    "title": "Construye más rápido con software impulsado por IA",
+    "subtitle": "De MVPs a plataformas escalables — diseñamos, construimos y automatizamos tu producto para crecer.",
+    "ctaPrimary": "Agenda una llamada",
+    "ctaSecondary": "Ver proyectos"
   },
   "about": {
     "title": "Sobre CodenixAI",
@@ -20,18 +26,141 @@
     "mission_title": "Nuestra Misión",
     "mission_description": "Ofrecer soluciones de IA de vanguardia que permitan a las organizaciones lograr más a través de la automatización inteligente y los conocimientos basados en datos."
   },
-  "services": {
+   "services": {
     "title": "Nuestros Servicios",
     "subtitle": "Soluciones Impulsadas por IA",
-    "description": "Ofrecemos una amplia gama de servicios de desarrollo de IA adaptados a las necesidades de su empresa.",
-    "service_1_title": "Desarrollo de IA Personalizado",
-    "service_1_description": "Soluciones de IA a medida diseñadas específicamente para los desafíos y oportunidades únicos de su negocio.",
+    "description": "Ofrecemos una gama completa de servicios de desarrollo de IA adaptados a las necesidades de tu negocio.",
+    "common": {
+      "ctaPrimary": "Agenda una llamada",
+      "ctaSecondary": "Pedir propuesta"
+    },
+    "aiAutomation": {
+      "title": "IA & Automatización",
+      "subtitle": "Agentes, flujos y integraciones que eliminan trabajo manual.",
+      "features": [
+        "Chatbots & copilotos (web/WhatsApp)",
+        "Automatización de procesos & RPA",
+        "Bases de conocimiento & retrieval",
+        "Integración de modelos (OpenAI, Gemini, etc.)"
+      ],
+      "outcomes": [
+        "Menores costos operativos",
+        "Soporte más rápido",
+        "Calificación consistente de leads",
+        "ROI medible en automatización"
+      ],
+      "process": ["Descubrimiento", "Diseño de solución", "Construcción & integración", "Medir & optimizar"]
+    },
+    "customSoftware": {
+      "title": "Desarrollo de Software a Medida",
+      "subtitle": "Web, APIs y plataformas hechas para tu negocio.",
+      "features": [
+        "Next.js, Node.js, NestJS",
+        "APIs seguras & microservicios",
+        "Arquitecturas escalables",
+        "QA, CI/CD & observabilidad"
+      ],
+      "outcomes": [
+        "Mayor velocidad al mercado",
+        "Código mantenible",
+        "Listo para la nube",
+        "Menor costo total"
+      ],
+      "process": ["Alcance", "Arquitectura", "Implementación", "Lanzamiento"]
+    },
+    "ecommerceMarketplaces": {
+      "title": "E-commerce & Marketplaces",
+      "subtitle": "Tiendas, marketplaces multi-tenant e integraciones de pago.",
+      "features": [
+        "Storefronts & headless commerce",
+        "Integraciones Shopify/Tiendanube",
+        "Pagos (Wompi, MercadoPago)",
+        "Catálogo, carrito & órdenes"
+      ],
+      "outcomes": [
+        "Mayor conversión",
+        "Catálogo unificado",
+        "Pagos confiables",
+        "Analítica para crecer"
+      ],
+      "process": ["Auditoría", "Construcción", "Integración", "Optimización"]
+    },
+    "cloudDevops": {
+      "title": "Cloud & DevOps",
+      "subtitle": "Arquitecturas en AWS/GCP/Azure con CI/CD y seguridad.",
+      "features": [
+        "IaC & pipelines",
+        "Escalabilidad & confiabilidad",
+        "Monitoreo & alertas",
+        "Optimización de costos"
+      ],
+      "outcomes": [
+        "Infraestructura resiliente",
+        "Menos incidentes",
+        "Releases predecibles",
+        "Menor gasto en nube"
+      ],
+      "process": ["Evaluar", "Diseñar", "Implementar", "Operar"]
+    },
+    "dataAnalytics": {
+      "title": "Datos & Analítica",
+      "subtitle": "Desde pipelines a dashboards y datasets listos para ML.",
+      "features": [
+        "Pipelines ETL/ELT",
+        "Data warehousing",
+        "Dashboards de BI",
+        "Feature stores para ML"
+      ],
+      "outcomes": [
+        "Fuente única de verdad",
+        "Insights accionables",
+        "Decisiones rápidas",
+        "Datos listos para ML"
+      ],
+      "process": ["Mapear fuentes", "Ingesta & modelado", "Visualizar", "Iterar"]
+    },
+    "uiUxBranding": {
+      "title": "UI/UX & Branding",
+      "subtitle": "Interfaces y marcas que convierten.",
+      "features": [
+        "Design systems & tokens",
+        "Investigación UX & wireframes",
+        "UI de alta fidelidad",
+        "Branding & assets"
+      ],
+      "outcomes": [
+        "Diseño consistente",
+        "Mejor usabilidad",
+        "Mayor recordación",
+        "Más engagement"
+      ],
+      "process": ["Descubrir", "Diseñar", "Validar", "Entrega"]
+    },
+    "trainingWorkshops": {
+      "title": "Capacitaciones & Workshops",
+      "subtitle": "Sesiones prácticas de IA, nube y stacks web modernos.",
+      "features": [
+        "Currículos a medida",
+        "Habilitación de equipos",
+        "Laboratorios con código",
+        "Playbooks & plantillas"
+      ],
+      "outcomes": [
+        "Equipos actualizados",
+        "Mejores prácticas compartidas",
+        "Onboarding más rápido",
+        "Velocidad sostenible"
+      ],
+      "process": ["Diagnóstico", "Diseño", "Entrega", "Seguimiento"]
+    },
+    "service_1_title": "Desarrollo de IA Personalizada",
+    "service_1_description": "Soluciones de IA hechas a medida diseñadas específicamente para los desafíos y oportunidades únicos de tu negocio.",
     "service_2_title": "Integración de Machine Learning",
-    "service_2_description": "Implementamos modelos avanzados de aprendizaje automático para extraer información valiosa de sus datos.",
+    "service_2_description": "Implementa modelos avanzados de machine learning para extraer información valiosa de tus datos.",
     "service_3_title": "Procesamiento de Lenguaje Natural",
-    "service_3_description": "Creamos sistemas inteligentes que entienden, interpretan y generan lenguaje humano.",
+    "service_3_description": "Crea sistemas inteligentes que entienden, interpretan y generan lenguaje humano.",
     "service_4_title": "Soluciones de Visión por Computadora",
-    "service_4_description": "Desarrollamos aplicaciones que pueden analizar e interpretar información visual del mundo."
+    "service_4_description": "Desarrolla aplicaciones que pueden analizar e interpretar información visual del mundo."
   },
   "features": {
     "title": "Por Qué Elegirnos",
@@ -52,9 +181,18 @@
     "email_label": "Correo Electrónico",
     "message_label": "Mensaje",
     "submit_button": "Enviar Mensaje",
-    "address": "123 Avenida Tech, Silicon Valley, CA",
-    "phone": "+1 (555) 123-4567",
-    "email": "info@codenixai.com"
+    "address": {
+      "label": "Dirección",
+      "value": "Calle 97 70c-89 Bogotá, Colombia"
+    },
+    "phone": {
+      "label": "Teléfono",
+      "value": "+57 (1) 234-5678"
+    },
+    "email": {
+      "label": "Correo Electrónico",
+      "value": "sales@codenixai.com"
+    }
   },
   "footer": {
     "company": "© 2025 CodenixAI. Todos los derechos reservados.",

@@ -31,7 +31,7 @@ export default function LanguageSwitcher() {
     <div className="relative">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center space-x-1 text-sm text-white hover:text-accent-blue transition-colors duration-300"
+        className="flex items-center space-x-1 text-base text-white hover:text-accent-blue transition-colors duration-300"
         aria-expanded={isOpen}
         aria-haspopup="listbox"
       >
@@ -61,7 +61,7 @@ export default function LanguageSwitcher() {
                 <li key={lang.code}>
                   <button
                     onClick={() => handleLanguageChange(lang.code)}
-                    className={`block w-full text-left px-4 py-2 text-sm ${
+                    className={`block w-full text-left px-4 py-2 text-base ${
                       locale === lang.code ? 'text-accent-blue font-medium' : 'text-white hover:text-accent-blue'
                     }`}
                     role="option"

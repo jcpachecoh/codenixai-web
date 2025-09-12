@@ -1,15 +1,63 @@
+# Vibe Coding Prompt — Update Navigation, Services Pages, Fonts (Roboto), and Hero (EN/ES)
+
+## Objective
+Implement a **Services** menu with 7 service pages (EN/ES translations), set **Roboto** as the global font, slightly increase base font size, and enhance the home **Hero** with strong CTAs and a modern background. Keep accessibility and performance (Lighthouse/LCP) in mind.
+
+## Tech Assumptions
+- Next.js (App Router), TypeScript, Tailwind CSS
+- i18n via `next-intl` (or equivalent)
+- Fonts via `next/font/google`
+
+---
+
+## Tasks
+
+## 1) Improve landing page
+- Improve landing page be more engagement and hero specific strong CTAs and a modern background
+- Improve SEO right - left strategy with nextjs features
+- Update landing page to add a carorousel with startup developmnet add inmuebli.io and emprendyup as main core put cool images
+
+
+### 1) Navigation — Add “Services” + Dropdown
+- Update header nav (e.g., `app/(site)/_components/MainNav.tsx`) to include **Services** with a dropdown that maps i18n keys.
+- Routes (create pages listed in Task 2):
+  - `/services/ai-automation`
+  - `/services/custom-software`
+  - `/services/ecommerce-marketplaces`
+  - `/services/cloud-devops`
+  - `/services/data-analytics`
+  - `/services/ui-ux-branding`
+  - `/services/training-workshops`
+
+### 2) Create Pages — One per Service
+Create `app/services/<slug>/page.tsx` with:
+- Metadata (from i18n)
+- Hero (title, subtitle, primary/secondary CTA)
+- Features grid (3–6 items)
+- Outcomes list (3–6 items)
+- Process timeline (4 steps)
+- Secondary CTA block
+- Optional: JSON-LD `<script type="application/ld+json">` (see below)
+
+**Slugs → i18n namespace**
+- ai-automation → `services.aiAutomation.*`
+- custom-software → `services.customSoftware.*`
+- ecommerce-marketplaces → `services.ecommerceMarketplaces.*`
+- cloud-devops → `services.cloudDevops.*`
+- data-analytics → `services.dataAnalytics.*`
+- ui-ux-branding → `services.uiUxBranding.*`
+- training-workshops → `services.trainingWorkshops.*`
+
+### 3) Internationalization — `messages/en.json` & `messages/es.json`
+Create/merge the following keys (keep structure). Use exact keys to avoid missing translations.
+
+**`messages/en.json`**
+```json
 {
   "nav": {
-    "home": "Home",
-    "about": "About",
     "services": "Services",
-    "contact": "Contact"
-  },
-  "navigation": {
-    "home": "Home",
-    "about": "About",
-    "services": "Services",
-    "contact": "Contact"
+    "contact": "Contact",
+    "about": "About"
   },
   "hero": {
     "title": "Build faster with AI-powered software",
@@ -17,19 +65,7 @@
     "ctaPrimary": "Book a call",
     "ctaSecondary": "See our work"
   },
-  "about": {
-    "title": "About CodenixAI",
-    "subtitle": "Pioneering AI-Driven Development",
-    "description": "CodenixAI is a forward-thinking software development company specializing in artificial intelligence solutions. We combine technical expertise with innovative thinking to create powerful, intelligent applications that solve real-world problems.",
-    "vision_title": "Our Vision",
-    "vision_description": "To lead the AI revolution by creating software that enhances human capabilities and transforms businesses.",
-    "mission_title": "Our Mission",
-    "mission_description": "Delivering cutting-edge AI solutions that empower organizations to achieve more through intelligent automation and data-driven insights."
-  },
   "services": {
-    "title": "Our Services",
-    "subtitle": "AI-Powered Solutions",
-    "description": "We offer a comprehensive range of AI development services tailored to your business needs.",
     "common": {
       "ctaPrimary": "Book a call",
       "ctaSecondary": "Get a proposal"
@@ -152,51 +188,6 @@
         "Sustainable velocity"
       ],
       "process": ["Assess needs", "Design program", "Deliver", "Follow-up"]
-    },
-    "service_1_title": "Custom AI Development",
-    "service_1_description": "Bespoke AI solutions designed specifically for your unique business challenges and opportunities.",
-    "service_2_title": "Machine Learning Integration",
-    "service_2_description": "Implement advanced machine learning models to extract valuable insights from your data.",
-    "service_3_title": "Natural Language Processing",
-    "service_3_description": "Create intelligent systems that understand, interpret, and generate human language.",
-    "service_4_title": "Computer Vision Solutions",
-    "service_4_description": "Develop applications that can analyze and interpret visual information from the world."
-  },
-  "features": {
-    "title": "Why Choose Us",
-    "subtitle": "Our Advantages",
-    "feature_1_title": "Cutting-Edge Technology",
-    "feature_1_description": "We leverage the latest advancements in AI and machine learning.",
-    "feature_2_title": "Expert Team",
-    "feature_2_description": "Our specialists have deep expertise in AI development and implementation.",
-    "feature_3_title": "Tailored Solutions",
-    "feature_3_description": "Custom-built solutions designed for your specific business requirements.",
-    "feature_4_title": "Ongoing Support",
-    "feature_4_description": "Continuous assistance and updates to ensure optimal performance."
-  },
-  "contact": {
-    "title": "Get in Touch",
-    "subtitle": "Start Your AI Journey",
-    "name_label": "Name",
-    "email_label": "Email",
-    "message_label": "Message",
-    "submit_button": "Send Message",
-    "address": {
-      "label": "Address",
-      "value": "Calle 97 70c-89 Bogotá, Colombia"
-    },
-    "phone": {
-      "label": "Phone",
-      "value": "+57 (1) 234-5678"
-    },
-    "email": {
-      "label": "Email",
-      "value": "sales@codenixai.com"
     }
-  },
-  "footer": {
-    "company": "© 2025 CodenixAI. All rights reserved.",
-    "privacy": "Privacy Policy",
-    "terms": "Terms of Service"
   }
 }

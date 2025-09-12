@@ -11,9 +11,15 @@ html {
   --background: #ffffff;
   --foreground: #171717;
   
-  /* Accent colors */
-  --accent-blue: #00d4ff;
-  --accent-purple: #8b5cf6;
+  /* Brand colors from logo */
+  --primary-blue: #01A9FA;
+  --primary-purple: #4E3BE7;
+  --primary-pink: #F81EBD;
+  --primary-white: #ffffff;
+  
+  /* Legacy accent colors for backward compatibility */
+  --accent-blue: #01A9FA;
+  --accent-purple: #4E3BE7;
   
   /* Glassmorphism variables */
   --glass-background: rgba(255, 255, 255, 0.1);
@@ -38,9 +44,11 @@ html {
 body {
   background: linear-gradient(to bottom, #0a0a0a, #111111);
   background-attachment: fixed;
-  color: #ffffff;
+  color: var(--primary-white);
   min-height: 100vh;
-  font-family: var(--font-geist-sans), 'Inter', sans-serif;
+  font-family: var(--font-roboto), 'Roboto', sans-serif;
+  font-size: 16px; /* Slightly increased from typical 14px */
+  line-height: 1.6;
 }
 
 /* Component styles */
@@ -54,35 +62,37 @@ body {
 .gradient-text {
   color: transparent;
   background-clip: text;
-  background-image: linear-gradient(to right, var(--accent-blue), var(--accent-purple));
+  background-image: linear-gradient(to right, var(--primary-blue), var(--primary-purple), var(--primary-pink));
 }
 
 .btn-primary {
   padding: 0.75rem 1.5rem;
   border-radius: 9999px;
-  background-image: linear-gradient(to right, var(--accent-blue), var(--accent-purple));
+  background-image: linear-gradient(to right, var(--primary-blue), var(--primary-purple));
   color: white;
   font-weight: 500;
   transition: all 0.3s;
+  font-size: 1rem; /* Slightly larger button text */
 }
 
 .btn-primary:hover {
-  box-shadow: 0 10px 15px -3px rgba(0, 212, 255, 0.2);
+  box-shadow: 0 10px 15px -3px rgba(1, 169, 250, 0.3);
   transform: scale(1.05);
 }
 
 .btn-secondary {
   padding: 0.75rem 1.5rem;
   border-radius: 9999px;
-  border: 1px solid rgba(0, 212, 255, 0.3);
+  border: 1px solid rgba(1, 169, 250, 0.3);
   color: white;
   font-weight: 500;
   transition: all 0.3s;
+  font-size: 1rem; /* Slightly larger button text */
 }
 
 .btn-secondary:hover {
-  background-color: rgba(0, 212, 255, 0.1);
-  border-color: var(--accent-blue);
+  background-color: rgba(1, 169, 250, 0.1);
+  border-color: var(--primary-blue);
 }
 
 .card {
@@ -95,7 +105,7 @@ body {
 }
 
 .card:hover {
-  box-shadow: 0 20px 25px -5px rgba(0, 212, 255, 0.1);
+  box-shadow: 0 20px 25px -5px rgba(1, 169, 250, 0.1);
 }
 
 .section {

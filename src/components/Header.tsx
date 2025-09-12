@@ -1,5 +1,6 @@
 'use client';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { usePathname } from 'next/navigation';
 import { useState, useEffect } from 'react';
@@ -11,9 +12,21 @@ export default function Header() {
   const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isServicesDropdownOpen, setIsServicesDropdownOpen] = useState(false);
 
   // Get the current locale from the pathname
   const locale = pathname.split('/')[1];
+
+  // Services dropdown items
+  const serviceItems = [
+    { href: `/${locale}/services/ai-automation`, label: 'AI & Automation' },
+    { href: `/${locale}/services/custom-software`, label: 'Custom Software' },
+    { href: `/${locale}/services/ecommerce-marketplaces`, label: 'E-commerce' },
+    { href: `/${locale}/services/cloud-devops`, label: 'Cloud & DevOps' },
+    { href: `/${locale}/services/data-analytics`, label: 'Data Analytics' },
+    { href: `/${locale}/services/ui-ux-branding`, label: 'UI/UX Design' },
+    { href: `/${locale}/services/training-workshops`, label: 'Training' },
+  ];
 
   // Handle scroll effect for the header
   useEffect(() => {
@@ -29,11 +42,10 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Navigation links
+  // Navigation links (excluding services since it will be a dropdown)
   const navLinks = [
     { href: `/${locale}`, label: t('home') },
     { href: `/${locale}/about`, label: t('about') },
-    { href: `/${locale}/services`, label: t('services') },
     { href: `/${locale}/contact`, label: t('contact') },
   ];
 
@@ -48,10 +60,16 @@ export default function Header() {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-2xl font-bold"
+            className="flex items-center"
           >
-            <span className="gradient-text">Codenix</span>
-            <span className="text-white">AI</span>
+            <Image
+              src="/logo.svg"
+              alt="CodenixAI Logo"
+              width={480}
+              height={120}
+              priority
+              className="h-24 w-auto"
+            />
           </motion.div>
         </Link>
 
@@ -66,14 +84,61 @@ export default function Header() {
             >
               <Link
                 href={link.href}
-                className={`text-sm font-medium transition-colors duration-300 hover:text-accent-blue ${
-                  pathname === link.href ? 'text-accent-blue' : 'text-white'
+                className={`text-base font-medium transition-colors duration-300 hover:text-primary-blue ${
+                  pathname === link.href ? 'text-primary-blue' : 'text-white'
                 }`}
               >
                 {link.label}
               </Link>
             </motion.div>
           ))}
+          
+          {/* Services Dropdown */}
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 * navLinks.length }}
+            className="relative"
+            onMouseEnter={() => setIsServicesDropdownOpen(true)}
+            onMouseLeave={() => setIsServicesDropdownOpen(false)}
+          >
+            <button
+              className={`text-base font-medium transition-colors duration-300 hover:text-primary-blue flex items-center space-x-1 ${
+                pathname.includes('/services') ? 'text-primary-blue' : 'text-white'
+              }`}
+            >
+              <span>{t('services')}</span>
+              <svg
+                className={`w-4 h-4 transition-transform duration-200 ${isServicesDropdownOpen ? 'rotate-180' : ''}`}
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+            
+            {/* Dropdown Menu */}
+            {isServicesDropdownOpen && (
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 10 }}
+                className="absolute top-full left-0 mt-2 w-56 bg-black/90 backdrop-blur-lg rounded-lg shadow-xl border border-gray-700 py-2 z-50"
+              >
+                {serviceItems.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="block px-4 py-2 text-base text-white hover:bg-primary-blue/20 hover:text-primary-blue transition-colors duration-200"
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </motion.div>
+            )}
+          </motion.div>
+          
           <LanguageSwitcher />
         </nav>
 
@@ -113,14 +178,32 @@ export default function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`text-sm font-medium transition-colors duration-300 hover:text-accent-blue ${
-                  pathname === link.href ? 'text-accent-blue' : 'text-white'
+                className={`text-base font-medium transition-colors duration-300 hover:text-primary-blue ${
+                  pathname === link.href ? 'text-primary-blue' : 'text-white'
                 }`}
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {link.label}
               </Link>
             ))}
+            
+            {/* Mobile Services Menu */}
+            <div className="border-t border-gray-700 pt-4">
+              <div className="text-base font-medium text-white mb-2">{t('services')}</div>
+              <div className="ml-4 space-y-2">
+                {serviceItems.map(item => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="block text-base text-gray-300 hover:text-primary-blue transition-colors duration-200"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
+            
             <div className="pt-2">
               <LanguageSwitcher />
             </div>

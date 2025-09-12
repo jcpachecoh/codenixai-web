@@ -8,8 +8,14 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'accent-blue': 'var(--accent-blue)',
-        'accent-purple': 'var(--accent-purple)',
+        // New brand colors
+        'primary-blue': '#01A9FA',
+        'primary-purple': '#4E3BE7',
+        'primary-pink': '#F81EBD',
+        'primary-white': '#ffffff',
+        // Legacy colors for backward compatibility
+        'accent-blue': '#01A9FA',
+        'accent-purple': '#4E3BE7',
         'dark': '#0a0a0a',
         'white': '#ffffff',
         'trust-gray': {
@@ -19,8 +25,13 @@ module.exports = {
         },
       },
       fontFamily: {
-        sans: ['var(--font-geist-sans)', 'sans-serif'],
-        mono: ['var(--font-geist-mono)', 'monospace'],
+        'roboto': ['var(--font-roboto)', 'Roboto', 'system-ui', 'sans-serif'],
+        sans: ['var(--font-roboto)', 'Roboto', 'system-ui', 'ui-sans-serif', 'sans-serif']
+      },
+      fontSize: {
+        base: "16px", // Increased from typical 14px
+        lg: "18px",   
+        xl: "20px"    
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
