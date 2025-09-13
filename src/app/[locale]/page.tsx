@@ -8,6 +8,7 @@ import PortfolioCarousel from '@/components/sections/PortfolioCarousel';
 import FeaturesSection from '@/components/sections/FeaturesSection';
 import ContactSection from '@/components/sections/ContactSection';
 import OrganizationStructuredData from '@/components/seo/OrganizationStructuredData';
+import SitelinksStructuredData from '@/components/seo/SitelinksStructuredData';
 
 type PageParams = {
   params: Promise<{ locale: string }>
@@ -40,7 +41,7 @@ export async function generateMetadata({ params }: PageParams): Promise<Metadata
       siteName: 'CodenixAI',
       images: [
         {
-          url: 'https://codenixai.com/logo-codenix.svg',
+          url: 'https://codenixai.com/logo.svg',
           width: 800,
           height: 600,
           alt: 'CodenixAI Logo',
@@ -51,7 +52,7 @@ export async function generateMetadata({ params }: PageParams): Promise<Metadata
       card: 'summary_large_image',
       title: title,
       description: description,
-      images: ['https://codenixai.com/logo-codenix.svg'],
+      images: ['https://codenixai.com/logo.svg'],
       creator: '@codenixai',
     },
     robots: {
@@ -76,6 +77,7 @@ export default async function Home({ params }: PageParams) {
   return (
     <>
       <OrganizationStructuredData locale={locale} />
+      <SitelinksStructuredData locale={locale} />
       <HeroSection />
       <PortfolioCarousel />
       <AboutSection />

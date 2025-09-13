@@ -6,6 +6,7 @@ import ServiceOutcomes from '@/components/services/ServiceOutcomes';
 import ServiceProcess from '@/components/services/ServiceProcess';
 import ServiceCTA from '@/components/services/ServiceCTA';
 import ServiceStructuredData from '@/components/seo/ServiceStructuredData';
+import BreadcrumbStructuredData from '@/components/seo/BreadcrumbStructuredData';
 
 type PageParams = {
   params: Promise<{ locale: string }>
@@ -74,6 +75,11 @@ export default async function AIAutomationPage({ params }: PageParams) {
         serviceDescription={t('subtitle')}
         slug="ai-automation"
         locale={locale}
+      />
+      <BreadcrumbStructuredData 
+        locale={locale}
+        currentPage="/services/ai-automation"
+        currentPageTitle={t('title')}
       />
       <ServiceHero serviceData={serviceData} />
       <ServiceFeatures serviceData={serviceData} />

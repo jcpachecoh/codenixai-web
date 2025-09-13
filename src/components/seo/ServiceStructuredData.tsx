@@ -20,7 +20,7 @@ export default function ServiceStructuredData({
       "@type": "Organization",
       "name": "CodenixAI",
       "url": `https://codenixai.com/${locale}`,
-      "logo": "https://codenixai.com/logo-codenix.svg",
+      "logo": "https://codenixai.com/logo.svg",
       "contactPoint": {
         "@type": "ContactPoint",
         "telephone": "+57-1-234-5678",

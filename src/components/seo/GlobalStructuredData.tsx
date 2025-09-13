@@ -7,7 +7,7 @@ export default function GlobalStructuredData() {
     "url": "https://codenixai.com",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://codenixai.com/logo-codenix.svg",
+      "url": "https://codenixai.com/logo.svg",
       "width": "400",
       "height": "400"
     },

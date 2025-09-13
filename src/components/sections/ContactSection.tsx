@@ -188,7 +188,7 @@ export default function ContactSection() {
             transition={{ duration: 0.8 }}
           >
             <div className="glass p-8 rounded-2xl mb-8">
-              <h3 className="text-2xl font-semibold mb-6 gradient-text">{t('contact.title')}</h3>
+              <h3 className="text-2xl font-semibold mb-6 gradient-text">{t('title')}</h3>
               
               <div className="space-y-6">
                 <div className="flex items-start space-x-4">

@@ -194,9 +194,22 @@
       "value": "sales@codenixai.com"
     }
   },
+  "blog": {
+    "title": "AI Development Blog",
+    "description": "Insights, tutorials, and trends in AI software development, automation, and digital transformation.",
+    "hero": {
+      "title": "AI Development Insights",
+      "subtitle": "Stay ahead with the latest trends, tutorials, and best practices in AI software development."
+    }
+  },
   "footer": {
     "company": "© 2025 CodenixAI. All rights reserved.",
     "privacy": "Privacy Policy",
-    "terms": "Terms of Service"
+    "terms": "Terms of Service",
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "contact": "Contact",
+    "email": "info@codenixai.com"
   }
 }

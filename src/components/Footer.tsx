@@ -57,7 +57,7 @@ export default function Footer() {
                   href={`/${locale}`}
                   className="text-trust-gray-400 hover:text-accent-blue transition-colors duration-300 text-base"
                 >
-                  {useTranslations('navigation')('home')}
+                  {t('home')}
                 </Link>
               </li>
               <li>
@@ -65,7 +65,7 @@ export default function Footer() {
                   href={`/${locale}/about`}
                   className="text-trust-gray-400 hover:text-accent-blue transition-colors duration-300 text-base"
                 >
-                  {useTranslations('navigation')('about')}
+                  {t('about')}
                 </Link>
               </li>
               <li>
@@ -73,7 +73,7 @@ export default function Footer() {
                   href={`/${locale}/services`}
                   className="text-trust-gray-400 hover:text-accent-blue transition-colors duration-300 text-base"
                 >
-                  {useTranslations('navigation')('services')}
+                  {t('services')}
                 </Link>
               </li>
               <li>
@@ -81,7 +81,7 @@ export default function Footer() {
                   href={`/${locale}/contact`}
                   className="text-trust-gray-400 hover:text-accent-blue transition-colors duration-300 text-base"
                 >
-                  {useTranslations('navigation')('contact')}
+                  {t('contact')}
                 </Link>
               </li>
             </ul>
@@ -95,7 +95,7 @@ export default function Footer() {
                 <span className="text-accent-blue mt-1">
                   <EmailIcon />
                 </span>
-                <span className="text-trust-gray-400 text-base">{useTranslations('contact')('email')}</span>
+                <span className="text-trust-gray-400 text-base">{t('email')}</span>
               </li>
             </ul>
           </div>

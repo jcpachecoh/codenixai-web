@@ -9,7 +9,7 @@ export default function OrganizationStructuredData({ locale }: OrganizationStruc
     "name": "CodenixAI",
     "alternateName": "Codenix AI",
     "url": `https://codenixai.com/${locale}`,
-    "logo": "https://codenixai.com/logo-codenix.svg",
+    "logo": "https://codenixai.com/logo.svg",
     "description": "AI-powered software development company specializing in automation, custom software, and digital transformation solutions.",
     "foundingDate": "2024",
     "founder": {

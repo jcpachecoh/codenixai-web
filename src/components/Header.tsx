@@ -46,6 +46,7 @@ export default function Header() {
   const navLinks = [
     { href: `/${locale}`, label: t('home') },
     { href: `/${locale}/about`, label: t('about') },
+    { href: `/${locale}/blog`, label: 'Blog' },
     { href: `/${locale}/contact`, label: t('contact') },
   ];
 
@@ -68,7 +69,7 @@ export default function Header() {
               width={480}
               height={120}
               priority
-              className="h-24 w-auto"
+              className="h-16 md:h-24 w-auto"
             />
           </motion.div>
         </Link>

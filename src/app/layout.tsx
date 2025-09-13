@@ -64,7 +64,7 @@ export const metadata: Metadata = {
     siteName: 'CodenixAI',
     images: [
       {
-        url: '/logo-codenix.svg',
+        url: '/logo.svg',
         width: 1200,
         height: 630,
         alt: 'CodenixAI - AI-Powered Software Development',
@@ -77,7 +77,7 @@ export const metadata: Metadata = {
     title: 'CodenixAI - AI-Powered Software Development & Automation',
     description: 'Transform your business with AI automation, custom software, chatbots, and cutting-edge technology solutions.',
     creator: '@codenixai',
-    images: ['/logo-codenix.svg'],
+    images: ['/logo.svg'],
   },
   robots: {
     index: true,

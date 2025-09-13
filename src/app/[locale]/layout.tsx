@@ -26,22 +26,27 @@ export default async function RootLayout({
   children: React.ReactNode;
   params: { locale: string };
 }) {
-  // First await the entire params object before accessing its properties
+  // First await the entire params object before accessing properties
   const { locale } = await Promise.resolve(params);
-  // Load messages for the current locale
+  
+  // Validate locale - only allow valid locales, fallback to 'en' for invalid ones
+  const validLocales = ['en', 'es'];
+  const validatedLocale = validLocales.includes(locale) ? locale : 'en';
+  
+  // Load messages for the validated locale
   let messages;
   try {
-    messages = (await import(`../../locales/${locale}.json`)).default;
+    messages = (await import(`../../locales/${validatedLocale}.json`)).default;
   } catch (error) {
-    console.error(`Could not load messages for locale: ${locale}`, error);
+    console.error(`Could not load messages for locale: ${validatedLocale}`, error);
     // Fallback to empty messages object
     messages = {};
   }
 
   return (
-    <html lang={locale}>
+    <html lang={validatedLocale}>
       <body className={`${roboto.variable} font-roboto antialiased`}>
-        <NextIntlClientProvider locale={locale} messages={messages}>
+        <NextIntlClientProvider locale={validatedLocale} messages={messages}>
           <div className="flex flex-col min-h-screen">
             <Header />
             <main className="flex-grow">{children}</main>
