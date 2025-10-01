@@ -7,9 +7,9 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
 const roboto = Roboto({
-  subsets: ["latin"],
-  weight: ["300","400","500","600","700"],
-  variable: "--font-roboto",
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700'],
+  variable: '--font-roboto',
   display: 'swap',
 });
 
@@ -28,11 +28,11 @@ export default async function RootLayout({
 }) {
   // First await the entire params object before accessing properties
   const { locale } = await Promise.resolve(params);
-  
+
   // Validate locale - only allow valid locales, fallback to 'en' for invalid ones
   const validLocales = ['en', 'es'];
   const validatedLocale = validLocales.includes(locale) ? locale : 'en';
-  
+
   // Load messages for the validated locale
   let messages;
   try {

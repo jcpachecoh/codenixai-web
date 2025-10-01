@@ -8,8 +8,10 @@ import GlobalStructuredData from '@/components/seo/GlobalStructuredData';
 const roboto = Roboto({
   variable: '--font-roboto',
   subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700'],
+  weight: ['400', '500', '700'], // Reduced font weights for better performance
   display: 'swap',
+  preload: true,
+  fallback: ['system-ui', 'arial'],
 });
 
 export const metadata: Metadata = {
@@ -17,7 +19,8 @@ export const metadata: Metadata = {
     template: '%s | CodenixAI',
     default: 'CodenixAI - AI-Powered Software Development & Automation Solutions',
   },
-  description: 'CodenixAI specializes in AI automation, custom software development, chatbots, RPA, e-commerce solutions, cloud DevOps, data analytics, UI/UX design, and technical training. Transform your business with cutting-edge AI technology.',
+  description:
+    'CodenixAI specializes in AI automation, custom software development, chatbots, RPA, e-commerce solutions, cloud DevOps, data analytics, UI/UX design, and technical training. Transform your business with cutting-edge AI technology.',
   keywords: [
     'AI automation',
     'custom software development',
@@ -38,7 +41,7 @@ export const metadata: Metadata = {
     'software consulting',
     'AI copilots',
     'WhatsApp bots',
-    'enterprise solutions'
+    'enterprise solutions',
   ],
   authors: [{ name: 'CodenixAI Team' }],
   creator: 'CodenixAI',
@@ -60,7 +63,8 @@ export const metadata: Metadata = {
     alternateLocale: ['es_ES'],
     url: 'https://codenixai.com',
     title: 'CodenixAI - AI-Powered Software Development & Automation Solutions',
-    description: 'Transform your business with AI automation, custom software, chatbots, RPA, and cutting-edge technology solutions. Expert development team specializing in digital transformation.',
+    description:
+      'Transform your business with AI automation, custom software, chatbots, RPA, and cutting-edge technology solutions. Expert development team specializing in digital transformation.',
     siteName: 'CodenixAI',
     images: [
       {
@@ -75,7 +79,8 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'CodenixAI - AI-Powered Software Development & Automation',
-    description: 'Transform your business with AI automation, custom software, chatbots, and cutting-edge technology solutions.',
+    description:
+      'Transform your business with AI automation, custom software, chatbots, and cutting-edge technology solutions.',
     creator: '@codenixai',
     images: ['/logo.svg'],
   },
@@ -111,16 +116,31 @@ export default function RootLayout({
   return (
     <html lang="en" dir="ltr">
       <head>
+        {/* Performance optimization meta tags */}
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+        <meta httpEquiv="x-dns-prefetch-control" content="on" />
+        <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+        <link rel="dns-prefetch" href="//images.unsplash.com" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+
+        {/* Favicon and app icons */}
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/icon.svg" type="image/svg+xml" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/manifest.json" />
+
+        {/* Theme and UI optimization */}
         <meta name="theme-color" content="#01A9FA" />
         <meta name="color-scheme" content="dark light" />
         <meta name="format-detection" content="telephone=no" />
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+        {/* Performance hints */}
+        <link rel="preload" href="/logo.svg" as="image" type="image/svg+xml" />
+
         <Analytics />
         <SpeedInsights />
       </head>
