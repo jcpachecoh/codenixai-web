@@ -88,69 +88,29 @@
     "cloudDevops": {
       "title": "Cloud & DevOps",
       "subtitle": "AWS/GCP/Azure architectures with robust CI/CD and security.",
-      "features": [
-        "IaC & pipelines",
-        "Scalability & reliability",
-        "Monitoring & alerts",
-        "Cost optimization"
-      ],
-      "outcomes": [
-        "Resilient infrastructure",
-        "Fewer incidents",
-        "Predictable releases",
-        "Lower cloud spend"
-      ],
+      "features": ["IaC & pipelines", "Scalability & reliability", "Monitoring & alerts", "Cost optimization"],
+      "outcomes": ["Resilient infrastructure", "Fewer incidents", "Predictable releases", "Lower cloud spend"],
       "process": ["Assess", "Design", "Implement", "Operate"]
     },
     "dataAnalytics": {
       "title": "Data & Analytics",
       "subtitle": "From data pipelines to dashboards and ML-ready datasets.",
-      "features": [
-        "ETL/ELT pipelines",
-        "Data warehousing",
-        "BI dashboards",
-        "ML feature stores"
-      ],
-      "outcomes": [
-        "Single source of truth",
-        "Actionable insights",
-        "Faster decisions",
-        "ML-ready data"
-      ],
+      "features": ["ETL/ELT pipelines", "Data warehousing", "BI dashboards", "ML feature stores"],
+      "outcomes": ["Single source of truth", "Actionable insights", "Faster decisions", "ML-ready data"],
       "process": ["Map sources", "Ingest & model", "Visualize", "Iterate"]
     },
     "uiUxBranding": {
       "title": "UI/UX & Branding",
       "subtitle": "Delightful interfaces and brand systems that convert.",
-      "features": [
-        "Design systems & tokens",
-        "UX research & wireframes",
-        "High-fidelity UI",
-        "Branding & assets"
-      ],
-      "outcomes": [
-        "Consistent design",
-        "Better usability",
-        "Stronger brand recall",
-        "Higher engagement"
-      ],
+      "features": ["Design systems & tokens", "UX research & wireframes", "High-fidelity UI", "Branding & assets"],
+      "outcomes": ["Consistent design", "Better usability", "Stronger brand recall", "Higher engagement"],
       "process": ["Discover", "Design", "Validate", "Hand-off"]
     },
     "trainingWorkshops": {
       "title": "Training & Workshops",
       "subtitle": "Hands-on sessions on AI, cloud, and modern web stacks.",
-      "features": [
-        "Custom curricula",
-        "Team enablement",
-        "Live coding labs",
-        "Playbooks & templates"
-      ],
-      "outcomes": [
-        "Upskilled teams",
-        "Shared best practices",
-        "Faster onboarding",
-        "Sustainable velocity"
-      ],
+      "features": ["Custom curricula", "Team enablement", "Live coding labs", "Playbooks & templates"],
+      "outcomes": ["Upskilled teams", "Shared best practices", "Faster onboarding", "Sustainable velocity"],
       "process": ["Assess needs", "Design program", "Deliver", "Follow-up"]
     },
     "service_1_title": "Custom AI Development",
@@ -193,6 +153,10 @@
       "label": "Email",
       "value": "sales@codenixai.com"
     }
+  },
+  "careers": {
+    "title": "Careers",
+    "subtitle": "Join our team and build the future of AI-powered software development"
   },
   "blog": {
     "title": "AI Development Blog",

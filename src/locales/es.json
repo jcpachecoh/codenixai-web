@@ -26,7 +26,7 @@
     "mission_title": "Nuestra Misión",
     "mission_description": "Ofrecer soluciones de IA de vanguardia que permitan a las organizaciones lograr más a través de la automatización inteligente y los conocimientos basados en datos."
   },
-   "services": {
+  "services": {
     "title": "Nuestros Servicios",
     "subtitle": "Soluciones Impulsadas por IA",
     "description": "Ofrecemos una gama completa de servicios de desarrollo de IA adaptados a las necesidades de tu negocio.",
@@ -60,12 +60,7 @@
         "Arquitecturas escalables",
         "QA, CI/CD & observabilidad"
       ],
-      "outcomes": [
-        "Mayor velocidad al mercado",
-        "Código mantenible",
-        "Listo para la nube",
-        "Menor costo total"
-      ],
+      "outcomes": ["Mayor velocidad al mercado", "Código mantenible", "Listo para la nube", "Menor costo total"],
       "process": ["Alcance", "Arquitectura", "Implementación", "Lanzamiento"]
     },
     "ecommerceMarketplaces": {
@@ -77,46 +72,21 @@
         "Pagos (Wompi, MercadoPago)",
         "Catálogo, carrito & órdenes"
       ],
-      "outcomes": [
-        "Mayor conversión",
-        "Catálogo unificado",
-        "Pagos confiables",
-        "Analítica para crecer"
-      ],
+      "outcomes": ["Mayor conversión", "Catálogo unificado", "Pagos confiables", "Analítica para crecer"],
       "process": ["Auditoría", "Construcción", "Integración", "Optimización"]
     },
     "cloudDevops": {
       "title": "Cloud & DevOps",
       "subtitle": "Arquitecturas en AWS/GCP/Azure con CI/CD y seguridad.",
-      "features": [
-        "IaC & pipelines",
-        "Escalabilidad & confiabilidad",
-        "Monitoreo & alertas",
-        "Optimización de costos"
-      ],
-      "outcomes": [
-        "Infraestructura resiliente",
-        "Menos incidentes",
-        "Releases predecibles",
-        "Menor gasto en nube"
-      ],
+      "features": ["IaC & pipelines", "Escalabilidad & confiabilidad", "Monitoreo & alertas", "Optimización de costos"],
+      "outcomes": ["Infraestructura resiliente", "Menos incidentes", "Releases predecibles", "Menor gasto en nube"],
       "process": ["Evaluar", "Diseñar", "Implementar", "Operar"]
     },
     "dataAnalytics": {
       "title": "Datos & Analítica",
       "subtitle": "Desde pipelines a dashboards y datasets listos para ML.",
-      "features": [
-        "Pipelines ETL/ELT",
-        "Data warehousing",
-        "Dashboards de BI",
-        "Feature stores para ML"
-      ],
-      "outcomes": [
-        "Fuente única de verdad",
-        "Insights accionables",
-        "Decisiones rápidas",
-        "Datos listos para ML"
-      ],
+      "features": ["Pipelines ETL/ELT", "Data warehousing", "Dashboards de BI", "Feature stores para ML"],
+      "outcomes": ["Fuente única de verdad", "Insights accionables", "Decisiones rápidas", "Datos listos para ML"],
       "process": ["Mapear fuentes", "Ingesta & modelado", "Visualizar", "Iterar"]
     },
     "uiUxBranding": {
@@ -128,12 +98,7 @@
         "UI de alta fidelidad",
         "Branding & assets"
       ],
-      "outcomes": [
-        "Diseño consistente",
-        "Mejor usabilidad",
-        "Mayor recordación",
-        "Más engagement"
-      ],
+      "outcomes": ["Diseño consistente", "Mejor usabilidad", "Mayor recordación", "Más engagement"],
       "process": ["Descubrir", "Diseñar", "Validar", "Entrega"]
     },
     "trainingWorkshops": {
@@ -174,6 +139,10 @@
     "feature_4_title": "Soporte Continuo",
     "feature_4_description": "Asistencia y actualizaciones continuas para garantizar un rendimiento óptimo."
   },
+  "careers": {
+    "title": "Carreras",
+    "subtitle": "Únete a nuestro equipo y construye el futuro del desarrollo de software impulsado por IA"
+  },
   "contact": {
     "title": "Contáctanos",
     "subtitle": "Inicia Tu Viaje con IA",
@@ -194,7 +163,7 @@
       "value": "sales@codenixai.com"
     }
   },
-  
+
   "blog": {
     "title": "Blog de Desarrollo IA",
     "description": "Perspectivas, tutoriales y tendencias en desarrollo de software IA, automatización y transformación digital.",

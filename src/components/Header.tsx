@@ -10,6 +10,7 @@ import LanguageSwitcher from './LanguageSwitcher';
 export default function Header() {
   const t = useTranslations('navigation');
   const pathname = usePathname();
+  const [mounted, setMounted] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isServicesDropdownOpen, setIsServicesDropdownOpen] = useState(false);
@@ -28,8 +29,15 @@ export default function Header() {
     { href: `/${locale}/services/training-workshops`, label: 'Training' },
   ];
 
+  // Handle client-side mounting
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   // Handle scroll effect for the header
   useEffect(() => {
+    if (!mounted) return;
+
     const handleScroll = () => {
       if (window.scrollY > 10) {
         setIsScrolled(true);
@@ -40,13 +48,14 @@ export default function Header() {
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [mounted]);
 
   // Navigation links (excluding services since it will be a dropdown)
   const navLinks = [
     { href: `/${locale}`, label: t('home') },
     { href: `/${locale}/about`, label: t('about') },
     { href: `/${locale}/blog`, label: 'Blog' },
+    { href: `/${locale}/careers`, label: 'Careers' },
     { href: `/${locale}/contact`, label: t('contact') },
   ];
 
@@ -93,7 +102,7 @@ export default function Header() {
               </Link>
             </motion.div>
           ))}
-          
+
           {/* Services Dropdown */}
           <motion.div
             initial={{ opacity: 0, y: -10 }}
@@ -118,7 +127,7 @@ export default function Header() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
               </svg>
             </button>
-            
+
             {/* Dropdown Menu */}
             {isServicesDropdownOpen && (
               <motion.div
@@ -127,7 +136,7 @@ export default function Header() {
                 exit={{ opacity: 0, y: 10 }}
                 className="absolute top-full left-0 mt-2 w-56 bg-black/90 backdrop-blur-lg rounded-lg shadow-xl border border-gray-700 py-2 z-50"
               >
-                {serviceItems.map((item) => (
+                {serviceItems.map(item => (
                   <Link
                     key={item.href}
                     href={item.href}
@@ -139,7 +148,7 @@ export default function Header() {
               </motion.div>
             )}
           </motion.div>
-          
+
           <LanguageSwitcher />
         </nav>
 
@@ -187,7 +196,7 @@ export default function Header() {
                 {link.label}
               </Link>
             ))}
-            
+
             {/* Mobile Services Menu */}
             <div className="border-t border-gray-700 pt-4">
               <div className="text-base font-medium text-white mb-2">{t('services')}</div>
@@ -204,7 +213,7 @@ export default function Header() {
                 ))}
               </div>
             </div>
-            
+
             <div className="pt-2">
               <LanguageSwitcher />
             </div>

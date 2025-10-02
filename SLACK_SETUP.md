@@ -46,21 +46,25 @@ SLACK_WEBHOOK_URL=https://hooks.slack.com/services/YOUR/WEBHOOK/URL
 The Slack notifications include:
 
 ### 📋 Lead Information
+
 - Name and email (always included)
 - Phone and company (if provided)
 - Message content
 - Submission timestamp
 
 ### 🎯 Marketing Attribution
+
 - Source tracking (contact_form, etc.)
 - Language/locale
 - UTM parameters (source, medium, campaign)
 
 ### 🔗 Quick Actions
+
 - **Reply to Lead**: Opens email client with pre-filled reply
 - **View All Leads**: Links to your admin dashboard
 
 ### 💡 Rich Formatting
+
 - Emojis and structured blocks for easy reading
 - Color-coded sections
 - Clickable buttons for actions
@@ -82,6 +86,7 @@ body: JSON.stringify({
 ### Modify Message Template
 
 In `src/services/slackService.ts`, you can:
+
 - Add more fields to the notification
 - Change the message structure
 - Add conditional logic for different lead types
@@ -111,6 +116,7 @@ In your production environment (Vercel, Netlify, etc.):
 ### Error Handling
 
 The integration is designed to be non-blocking:
+
 - If Slack is down, leads still get saved to your database
 - Errors are logged but don't affect the user experience
 - Failed notifications can be retried manually if needed
@@ -120,15 +126,18 @@ The integration is designed to be non-blocking:
 ### Common Issues:
 
 1. **No notifications received**
+
    - Check that `SLACK_WEBHOOK_URL` is set correctly
    - Verify the webhook URL is valid in Slack
    - Check server logs for error messages
 
 2. **"invalid_payload" error**
+
    - Usually means the webhook URL is incorrect
    - Regenerate the webhook in Slack
 
 3. **"channel_not_found" error**
+
    - The webhook was created for a channel that no longer exists
    - Create a new webhook for an existing channel
 
@@ -139,6 +148,7 @@ The integration is designed to be non-blocking:
 ### Debug Mode:
 
 To see detailed logs, check your server console when submitting leads. Look for:
+
 - "Slack notification sent successfully" (success)
 - "Slack webhook not configured" (webhook URL missing)
 - "Slack webhook error:" (API errors)
@@ -148,7 +158,7 @@ To see detailed logs, check your server console when submitting leads. Look for:
 If you prefer other platforms, you can easily adapt the service:
 
 - **Discord**: Change the webhook format
-- **Microsoft Teams**: Use Teams webhook format  
+- **Microsoft Teams**: Use Teams webhook format
 - **Email**: Use services like SendGrid or Nodemailer
 - **Custom API**: Send to your own endpoint
 

@@ -28,20 +28,16 @@ export class LeadService {
     try {
       // Use admin client for creating leads to bypass RLS issues
       const client = supabaseAdmin || supabase;
-      
+
       if (!client) {
         console.warn('Supabase not configured. Lead data:', leadData);
-        return { 
-          success: false, 
-          error: 'Database connection not configured. Please set up your Supabase environment variables.' 
+        return {
+          success: false,
+          error: 'Database connection not configured. Please set up your Supabase environment variables.',
         };
       }
 
-      const { data, error } = await client
-        .from('leads')
-        .insert([leadData])
-        .select()
-        .single();
+      const { data, error } = await client.from('leads').insert([leadData]).select().single();
 
       if (error) {
         console.error('Error creating lead:', error);

@@ -32,23 +32,23 @@ export class SlackService {
       let message = `🎯 *New Lead Received!*\n\n`;
       message += `*Name:* ${leadData.name}\n`;
       message += `*Email:* ${leadData.email}\n`;
-      
+
       if (leadData.phone) {
         message += `*Phone:* ${leadData.phone}\n`;
       }
       if (leadData.company) {
         message += `*Company:* ${leadData.company}\n`;
       }
-      
+
       message += `*Message:* ${leadData.message}\n\n`;
-      
+
       if (leadData.source) {
         message += `*Source:* ${leadData.source}\n`;
       }
       if (leadData.locale) {
         message += `*Language:* ${leadData.locale.toUpperCase()}\n`;
       }
-      
+
       // Add UTM tracking if available
       if (leadData.utmSource || leadData.utmMedium || leadData.utmCampaign) {
         const utmInfo = [];
@@ -57,7 +57,7 @@ export class SlackService {
         if (leadData.utmCampaign) utmInfo.push(`Campaign: ${leadData.utmCampaign}`);
         message += `*UTM Tracking:* ${utmInfo.join(' | ')}\n`;
       }
-      
+
       message += `\n📅 Received at ${new Date().toLocaleString()}`;
       message += `\n📧 Reply: <mailto:${leadData.email}|${leadData.email}>`;
 
@@ -70,7 +70,7 @@ export class SlackService {
         body: JSON.stringify({
           text: message,
           username: 'CodenixAI Bot',
-          icon_emoji: ':robot_face:'
+          icon_emoji: ':robot_face:',
         }),
       });
 
@@ -82,7 +82,6 @@ export class SlackService {
 
       console.log('Slack notification sent successfully');
       return { success: true };
-
     } catch (error: unknown) {
       console.error('Error sending Slack notification:', error);
       const errorMessage = error instanceof Error ? error.message : 'Unknown error';
@@ -108,7 +107,7 @@ export class SlackService {
         body: JSON.stringify({
           text,
           username: 'CodenixAI Bot',
-          icon_emoji: ':robot_face:'
+          icon_emoji: ':robot_face:',
         }),
       });
 
@@ -119,7 +118,6 @@ export class SlackService {
       }
 
       return { success: true };
-
     } catch (error: unknown) {
       console.error('Error sending Slack notification:', error);
       const errorMessage = error instanceof Error ? error.message : 'Unknown error';
