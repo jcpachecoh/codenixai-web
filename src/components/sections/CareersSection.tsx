@@ -48,7 +48,7 @@ export default function CareersSection() {
   // Fetch jobs
   useEffect(() => {
     fetchJobs();
-  }, [filters, fetchJobs]);
+  }, [filters]);
 
   const handleFilterChange = (newFilters: JobSearchParams) => {
     setFilters(newFilters);

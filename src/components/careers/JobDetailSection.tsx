@@ -41,7 +41,7 @@ export default function JobDetailSection({ slug }: JobDetailSectionProps) {
     if (mounted) {
       fetchJob();
     }
-  }, [slug, mounted, fetchJob]);
+  }, [slug, mounted]);
 
   if (!mounted) {
     return (

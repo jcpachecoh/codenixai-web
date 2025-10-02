@@ -51,7 +51,8 @@ export default function JobApplicationForm({ slug }: JobApplicationFormProps) {
     if (mounted) {
       fetchJob();
     }
-  }, [slug, mounted, fetchJob()]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [slug, mounted]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
