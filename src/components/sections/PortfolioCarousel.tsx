@@ -106,13 +106,15 @@ export default function PortfolioCarousel() {
                   whileHover={{ scale: 1.02 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <div className="relative w-full h-[300px] flex items-center justify-center">
-                    <Image
-                      src={projects[currentSlide].image}
-                      alt={projects[currentSlide].name}
-                      fill
-                      className="object-contain max-w-[80%] max-h-[80%] rounded-xl"
-                    />
+                  <div className="relative w-full flex items-center justify-center">
+                    <div className="relative w-[250px] h-[250px] sm:w-[300px] sm:h-[300px] flex items-center justify-center">
+                      <Image
+                        src={projects[currentSlide].image}
+                        alt={projects[currentSlide].name}
+                        fill
+                        className="object-contain rounded-xl"
+                      />
+                    </div>
                   </div>
                 </motion.div>
               </div>
