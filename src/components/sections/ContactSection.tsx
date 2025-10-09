@@ -1,27 +1,31 @@
-'use client';
-import { useTranslations } from 'next-intl';
-import { useState } from 'react';
-import Link from 'next/link';
+"use client";
+import { useTranslations } from "next-intl";
+import { useState } from "react";
+import Link from "next/link";
 
 export default function ContactSection() {
-  const t = useTranslations('contact');
+  const t = useTranslations("contact");
 
   // Form state
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    company: '',
-    message: '',
+    name: "",
+    email: "",
+    phone: "",
+    company: "",
+    message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<null | 'success' | 'error'>(null);
-  const [errorMessage, setErrorMessage] = useState('');
+  const [submitStatus, setSubmitStatus] = useState<null | "success" | "error">(
+    null
+  );
+  const [errorMessage, setErrorMessage] = useState("");
 
   // Handle form input changes
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
   // Handle form submission
@@ -29,17 +33,17 @@ export default function ContactSection() {
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitStatus(null);
-    setErrorMessage('');
+    setErrorMessage("");
 
     try {
       // Get current locale from URL
-      const locale = window.location.pathname.split('/')[1] || 'en';
+      const locale = window.location.pathname.split("/")[1] || "en";
 
       // Get UTM parameters from URL
       const urlParams = new URLSearchParams(window.location.search);
-      const utmSource = urlParams.get('utm_source') || undefined;
-      const utmMedium = urlParams.get('utm_medium') || undefined;
-      const utmCampaign = urlParams.get('utm_campaign') || undefined;
+      const utmSource = urlParams.get("utm_source") || undefined;
+      const utmMedium = urlParams.get("utm_medium") || undefined;
+      const utmCampaign = urlParams.get("utm_campaign") || undefined;
 
       const leadData = {
         name: formData.name,
@@ -48,16 +52,16 @@ export default function ContactSection() {
         company: formData.company || undefined,
         message: formData.message,
         locale,
-        source: 'contact_form',
+        source: "contact_form",
         utmSource,
         utmMedium,
         utmCampaign,
       };
 
-      const response = await fetch('/api/leads', {
-        method: 'POST',
+      const response = await fetch("/api/leads", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(leadData),
       });
@@ -65,14 +69,14 @@ export default function ContactSection() {
       const result = await response.json();
 
       if (result.success) {
-        setSubmitStatus('success');
+        setSubmitStatus("success");
         // Reset form after success
         setFormData({
-          name: '',
-          email: '',
-          phone: '',
-          company: '',
-          message: '',
+          name: "",
+          email: "",
+          phone: "",
+          company: "",
+          message: "",
         });
 
         // Clear success message after 5 seconds
@@ -80,13 +84,17 @@ export default function ContactSection() {
           setSubmitStatus(null);
         }, 5000);
       } else {
-        setSubmitStatus('error');
-        setErrorMessage(result.error || 'An error occurred while submitting your message.');
+        setSubmitStatus("error");
+        setErrorMessage(
+          result.error || "An error occurred while submitting your message."
+        );
       }
     } catch (error) {
-      console.error('Form submission error:', error);
-      setSubmitStatus('error');
-      setErrorMessage('Network error. Please check your connection and try again.');
+      console.error("Form submission error:", error);
+      setSubmitStatus("error");
+      setErrorMessage(
+        "Network error. Please check your connection and try again."
+      );
     } finally {
       setIsSubmitting(false);
     }
@@ -107,7 +115,12 @@ export default function ContactSection() {
           <div className="flex items-center justify-center mb-6">
             <div className="flex items-center space-x-4">
               <div className="w-12 h-12 rounded-full bg-gradient-to-r from-accent-blue to-accent-purple flex items-center justify-center">
-                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg
+                  className="w-6 h-6 text-white"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -117,13 +130,12 @@ export default function ContactSection() {
                 </svg>
               </div>
               <h2 className="text-4xl md:text-5xl font-bold">
-                <span className="gradient-text">Let&apos;s Build Together</span>
+                <span className="gradient-text">{t("build_together")}</span>
               </h2>
             </div>
           </div>
           <p className="text-xl text-trust-gray-300 max-w-3xl mx-auto">
-            Ready to transform your ideas into reality? We&apos;re here to help you build the next generation of
-            AI-powered solutions.
+            {t("description")}
           </p>
         </div>
 
@@ -131,7 +143,12 @@ export default function ContactSection() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 animate-fade-in-up">
           <div className="glass p-6 rounded-2xl text-center hover:scale-105 transition-transform duration-300">
             <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-r from-accent-blue to-accent-purple flex items-center justify-center">
-              <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg
+                className="w-8 h-8 text-white"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -140,21 +157,28 @@ export default function ContactSection() {
                 />
               </svg>
             </div>
-            <h3 className="text-xl font-semibold text-white mb-2">Quick Chat</h3>
-            <p className="text-trust-gray-400 mb-4">Schedule a 15-minute discovery call</p>
+            <h3 className="text-xl font-semibold text-white mb-2">
+              {t("cards.quick.label")}
+            </h3>
+            <p className="text-trust-gray-400 mb-4">{t("cards.quick.value")}</p>
             <Link
               href="https://calendly.com/juan-codenixai/30min"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-secondary"
             >
-              Book Call
+              {t("cards.quick.cta")}
             </Link>
           </div>
 
           <div className="glass p-6 rounded-2xl text-center hover:scale-105 transition-transform duration-300">
             <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-r from-accent-purple to-primary-pink flex items-center justify-center">
-              <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg
+                className="w-8 h-8 text-white"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -163,16 +187,24 @@ export default function ContactSection() {
                 />
               </svg>
             </div>
-            <h3 className="text-xl font-semibold text-white mb-2">Email Us</h3>
-            <p className="text-trust-gray-400 mb-4">Send us your project details</p>
+            <h3 className="text-xl font-semibold text-white mb-2">
+              {" "}
+              {t("cards.email.label")}
+            </h3>
+            <p className="text-trust-gray-400 mb-4">{t("cards.email.value")}</p>
             <Link href="mailto:sales@codenixai.com" className="btn-secondary">
-              Send Email
+              {t("cards.email.cta")}
             </Link>
           </div>
 
           <div className="glass p-6 rounded-2xl text-center hover:scale-105 transition-transform duration-300">
             <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-r from-primary-pink to-accent-blue flex items-center justify-center">
-              <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg
+                className="w-8 h-8 text-white"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -181,13 +213,19 @@ export default function ContactSection() {
                 />
               </svg>
             </div>
-            <h3 className="text-xl font-semibold text-white mb-2">Get Proposal</h3>
-            <p className="text-trust-gray-400 mb-4">Receive a detailed project estimate</p>
+            <h3 className="text-xl font-semibold text-white mb-2">
+              {t("cards.get.label")}
+            </h3>
+            <p className="text-trust-gray-400 mb-4">{t("cards.get.value")}</p>
             <button
-              onClick={() => document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={() =>
+                document
+                  .getElementById("contact-form")
+                  ?.scrollIntoView({ behavior: "smooth" })
+              }
               className="btn-secondary"
             >
-              Start Project
+              {t("cards.get.cta")}
             </button>
           </div>
         </div>
@@ -195,10 +233,18 @@ export default function ContactSection() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
           {/* Contact form */}
           <div className="lg:col-span-2">
-            <div id="contact-form" className="glass p-8 rounded-2xl animate-fade-in-up">
+            <div
+              id="contact-form"
+              className="glass p-8 rounded-2xl animate-fade-in-up"
+            >
               <div className="flex items-center mb-6">
                 <div className="w-10 h-10 rounded-full bg-gradient-to-r from-accent-blue to-accent-purple flex items-center justify-center mr-4">
-                  <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg
+                    className="w-5 h-5 text-white"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
@@ -207,12 +253,17 @@ export default function ContactSection() {
                     />
                   </svg>
                 </div>
-                <h3 className="text-2xl font-semibold text-white">Tell Us About Your Project</h3>
+                <h3 className="text-2xl font-semibold text-white">
+                  {t("form.tell_us")}
+                </h3>
               </div>
               <form onSubmit={handleSubmit}>
                 <div className="mb-6">
-                  <label htmlFor="name" className="block text-base font-medium text-trust-gray-300 mb-2">
-                    {t('name_label')}
+                  <label
+                    htmlFor="name"
+                    className="block text-base font-medium text-trust-gray-300 mb-2"
+                  >
+                    {t("name_label")}
                   </label>
                   <input
                     type="text"
@@ -226,8 +277,11 @@ export default function ContactSection() {
                 </div>
 
                 <div className="mb-6">
-                  <label htmlFor="email" className="block text-base font-medium text-trust-gray-300 mb-2">
-                    {t('email_label')}
+                  <label
+                    htmlFor="email"
+                    className="block text-base font-medium text-trust-gray-300 mb-2"
+                  >
+                    {t("email_label")}
                   </label>
                   <input
                     type="email"
@@ -241,8 +295,11 @@ export default function ContactSection() {
                 </div>
 
                 <div className="mb-6">
-                  <label htmlFor="phone" className="block text-base font-medium text-trust-gray-300 mb-2">
-                    Phone (Optional)
+                  <label
+                    htmlFor="phone"
+                    className="block text-base font-medium text-trust-gray-300 mb-2"
+                  >
+                    {t("phone_label")}
                   </label>
                   <input
                     type="tel"
@@ -256,8 +313,11 @@ export default function ContactSection() {
                 </div>
 
                 <div className="mb-6">
-                  <label htmlFor="company" className="block text-base font-medium text-trust-gray-300 mb-2">
-                    Company (Optional)
+                  <label
+                    htmlFor="company"
+                    className="block text-base font-medium text-trust-gray-300 mb-2"
+                  >
+                    {t("company_label")}
                   </label>
                   <input
                     type="text"
@@ -266,13 +326,16 @@ export default function ContactSection() {
                     value={formData.company}
                     onChange={handleChange}
                     className="w-full px-4 py-3 bg-dark/50 border border-trust-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-blue/50 focus:border-accent-blue/50 text-white"
-                    placeholder="Your company name"
+                    placeholder={t("company_placeholder")}
                   />
                 </div>
 
                 <div className="mb-6">
-                  <label htmlFor="message" className="block text-base font-medium text-trust-gray-300 mb-2">
-                    {t('message_label')}
+                  <label
+                    htmlFor="message"
+                    className="block text-base font-medium text-trust-gray-300 mb-2"
+                  >
+                    {t("message_label")}
                   </label>
                   <textarea
                     id="message"
@@ -315,33 +378,57 @@ export default function ContactSection() {
                       Processing...
                     </span>
                   ) : (
-                    t('submit_button')
+                    t("submit_button")
                   )}
                 </button>
 
-                {submitStatus === 'success' && (
+                {submitStatus === "success" && (
                   <div className="mt-4 p-4 bg-green-500/20 border border-green-500/30 rounded-lg text-green-400 text-center animate-fade-in">
                     <div className="flex items-center justify-center mb-2">
-                      <svg className="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      <svg
+                        className="w-6 h-6 mr-2"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M5 13l4 4L19 7"
+                        />
                       </svg>
                       Success!
                     </div>
                     <p>
-                      Thank you! Your message has been sent successfully. We&apos;ll get back to you within 24 hours.
+                      Thank you! Your message has been sent successfully.
+                      We&apos;ll get back to you within 24 hours.
                     </p>
                   </div>
                 )}
 
-                {submitStatus === 'error' && (
+                {submitStatus === "error" && (
                   <div className="mt-4 p-4 bg-red-500/20 border border-red-500/30 rounded-lg text-red-400 text-center animate-fade-in">
                     <div className="flex items-center justify-center mb-2">
-                      <svg className="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                      <svg
+                        className="w-6 h-6 mr-2"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M6 18L18 6M6 6l12 12"
+                        />
                       </svg>
                       Error
                     </div>
-                    <p>{errorMessage || 'There was an error sending your message. Please try again.'}</p>
+                    <p>
+                      {errorMessage ||
+                        "There was an error sending your message. Please try again."}
+                    </p>
                   </div>
                 )}
               </form>
@@ -353,44 +440,98 @@ export default function ContactSection() {
             <div className="glass p-6 rounded-2xl">
               <h3 className="text-xl font-semibold text-white mb-4 flex items-center">
                 <div className="w-8 h-8 rounded-full bg-gradient-to-r from-accent-blue to-accent-purple flex items-center justify-center mr-3">
-                  <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  <svg
+                    className="w-4 h-4 text-white"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M13 10V3L4 14h7v7l9-11h-7z"
+                    />
                   </svg>
                 </div>
-                Why Work With Us?
+                {t("whyChooseUs.why_works")}
               </h3>
               <div className="space-y-4">
                 <div className="flex items-start space-x-3">
                   <div className="w-6 h-6 rounded-full bg-green-500/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <svg className="w-3 h-3 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                    <svg
+                      className="w-3 h-3 text-green-400"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={3}
+                        d="M5 13l4 4L19 7"
+                      />
                     </svg>
                   </div>
                   <div>
-                    <h4 className="text-white font-medium">Fast Response</h4>
-                    <p className="text-trust-gray-400 text-sm">We respond within 2 hours during business days</p>
+                    <h4 className="text-white font-medium">
+                      {t("whyChooseUs.reason_1_title")}
+                    </h4>
+                    <p className="text-trust-gray-400 text-sm">
+                      {t("whyChooseUs.reason_1_description")}
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
                   <div className="w-6 h-6 rounded-full bg-green-500/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <svg className="w-3 h-3 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                    <svg
+                      className="w-3 h-3 text-green-400"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={3}
+                        d="M5 13l4 4L19 7"
+                      />
                     </svg>
                   </div>
                   <div>
-                    <h4 className="text-white font-medium">Expert Team</h4>
-                    <p className="text-trust-gray-400 text-sm">5+ years experience in AI & software development</p>
+                    <h4 className="text-white font-medium">
+                      {" "}
+                      {t("whyChooseUs.reason_2_title")}
+                    </h4>
+                    <p className="text-trust-gray-400 text-sm">
+                      {t("whyChooseUs.reason_2_description")}
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
                   <div className="w-6 h-6 rounded-full bg-green-500/20 flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <svg className="w-3 h-3 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                    <svg
+                      className="w-3 h-3 text-green-400"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={3}
+                        d="M5 13l4 4L19 7"
+                      />
                     </svg>
                   </div>
                   <div>
-                    <h4 className="text-white font-medium">Proven Results</h4>
-                    <p className="text-trust-gray-400 text-sm">50+ successful projects delivered on time</p>
+                    <h4 className="text-white font-medium">
+                      {" "}
+                      {t("whyChooseUs.reason_3_title")}
+                    </h4>
+                    <p className="text-trust-gray-400 text-sm">
+                      {t("whyChooseUs.reason_3_description")}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -400,7 +541,12 @@ export default function ContactSection() {
             <div className="glass p-6 rounded-2xl">
               <h3 className="text-xl font-semibold text-white mb-4 flex items-center">
                 <div className="w-8 h-8 rounded-full bg-gradient-to-r from-accent-purple to-primary-pink flex items-center justify-center mr-3">
-                  <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg
+                    className="w-4 h-4 text-white"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
@@ -409,7 +555,7 @@ export default function ContactSection() {
                     />
                   </svg>
                 </div>
-                Recent Success
+                {t("recent.recent_success")}
               </h3>
               <div className="bg-dark/30 rounded-lg p-4">
                 <div className="flex items-center space-x-3 mb-3">
@@ -417,13 +563,22 @@ export default function ContactSection() {
                     <span className="text-white font-bold text-sm">AI</span>
                   </div>
                   <div>
-                    <h4 className="text-white font-medium">E-commerce Automation</h4>
-                    <p className="text-trust-gray-400 text-sm">AI-powered inventory management</p>
+                    <h4 className="text-white font-medium">
+                      {t("recent.reason_1_title")}
+                    </h4>
+                    <p className="text-trust-gray-400 text-sm">
+                      {t("recent.reason_2_title")}
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-center space-x-2 text-sm">
                   <div className="flex items-center text-green-400">
-                    <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg
+                      className="w-4 h-4 mr-1"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
                       <path
                         strokeLinecap="round"
                         strokeLinejoin="round"
@@ -431,17 +586,21 @@ export default function ContactSection() {
                         d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
                       />
                     </svg>
-                    40% efficiency increase
+                    {t("recent.reason_1_description")}
                   </div>
                   <span className="text-trust-gray-500">•</span>
-                  <span className="text-trust-gray-400">Completed in 6 weeks</span>
+                  <span className="text-trust-gray-400">
+                    {t("recent.reason_2_description")}
+                  </span>
                 </div>
               </div>
             </div>
 
             {/* Contact Info */}
             <div className="glass p-6 rounded-2xl">
-              <h3 className="text-lg font-semibold text-white mb-4">Connect Directly</h3>
+              <h3 className="text-lg font-semibold text-white mb-4">
+                Connect Directly
+              </h3>
               <div className="space-y-3">
                 <Link
                   href="mailto:sales@codenixai.com"
@@ -469,9 +628,11 @@ export default function ContactSection() {
         {/* Call to Action */}
         <div className="text-center mt-16 animate-fade-in-up">
           <div className="glass p-8 rounded-2xl max-w-4xl mx-auto">
-            <h3 className="text-2xl font-semibold text-white mb-4">Ready to Get Started?</h3>
+            <h3 className="text-2xl font-semibold text-white mb-4">
+              {t("call_to_action.title")}
+            </h3>
             <p className="text-trust-gray-300 mb-6 text-lg">
-              Join 50+ companies that trust us with their AI transformation journey
+              {t("call_to_action.subtitle")}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
@@ -480,10 +641,10 @@ export default function ContactSection() {
                 rel="noopener noreferrer"
                 className="btn-primary"
               >
-                Schedule Free Consultation
+                {t("call_to_action.ctaPrimary")}
               </Link>
               <Link href="mailto:sales@codenixai.com" className="btn-secondary">
-                Send Project Details
+                {t("call_to_action.ctaSecondary")}
               </Link>
             </div>
           </div>
@@ -496,7 +657,13 @@ export default function ContactSection() {
 // Icon components
 function LocationIcon() {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      fill="currentColor"
+      viewBox="0 0 24 24"
+    >
       <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
     </svg>
   );
@@ -504,7 +671,13 @@ function LocationIcon() {
 
 function PhoneIcon() {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      fill="currentColor"
+      viewBox="0 0 24 24"
+    >
       <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z" />
     </svg>
   );
@@ -512,7 +685,13 @@ function PhoneIcon() {
 
 function EmailIcon() {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      fill="currentColor"
+      viewBox="0 0 24 24"
+    >
       <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
     </svg>
   );

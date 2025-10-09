@@ -1,14 +1,14 @@
-'use client';
-import { Variants } from 'framer-motion';
-import { motion } from 'framer-motion';
-import { useTranslations } from 'next-intl';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+"use client";
+import { Variants } from "framer-motion";
+import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export default function HeroSection() {
-  const t = useTranslations('hero');
+  const t = useTranslations("hero");
   const pathname = usePathname();
-  const locale = pathname.split('/')[1];
+  const locale = pathname.split("/")[1];
 
   // Optimized animation variants
   const containerVariants: Variants = {
@@ -27,7 +27,7 @@ export default function HeroSection() {
     visible: {
       y: 0,
       opacity: 1,
-      transition: { duration: 0.4, ease: 'easeOut' },
+      transition: { duration: 0.4, ease: "easeOut" },
     },
   };
 
@@ -36,7 +36,7 @@ export default function HeroSection() {
     visible: {
       y: 0,
       opacity: 1,
-      transition: { duration: 0.3, ease: 'easeOut' },
+      transition: { duration: 0.3, ease: "easeOut" },
     },
   };
 
@@ -48,7 +48,7 @@ export default function HeroSection() {
         <motion.div
           className="absolute -top-40 -right-40 w-96 h-96 rounded-full opacity-30 blur-3xl will-change-transform"
           style={{
-            background: 'radial-gradient(circle, #01A9FA 0%, transparent 70%)',
+            background: "radial-gradient(circle, #01A9FA 0%, transparent 70%)",
           }}
           animate={{
             scale: [1, 1.1, 1],
@@ -57,13 +57,13 @@ export default function HeroSection() {
           transition={{
             duration: 12,
             repeat: Infinity,
-            ease: 'linear',
+            ease: "linear",
           }}
         />
         <motion.div
           className="absolute top-1/3 -left-40 w-96 h-96 rounded-full opacity-25 blur-3xl will-change-transform"
           style={{
-            background: 'radial-gradient(circle, #4E3BE7 0%, transparent 70%)',
+            background: "radial-gradient(circle, #4E3BE7 0%, transparent 70%)",
           }}
           animate={{
             scale: [1.1, 1, 1.1],
@@ -72,14 +72,14 @@ export default function HeroSection() {
           transition={{
             duration: 15,
             repeat: Infinity,
-            ease: 'linear',
+            ease: "linear",
             delay: 4,
           }}
         />
         <motion.div
           className="absolute bottom-20 right-1/4 w-80 h-80 rounded-full opacity-20 blur-3xl will-change-transform"
           style={{
-            background: 'radial-gradient(circle, #F81EBD 0%, transparent 70%)',
+            background: "radial-gradient(circle, #F81EBD 0%, transparent 70%)",
           }}
           animate={{
             scale: [1, 1.15, 1],
@@ -88,7 +88,7 @@ export default function HeroSection() {
           transition={{
             duration: 18,
             repeat: Infinity,
-            ease: 'linear',
+            ease: "linear",
             delay: 8,
           }}
         />
@@ -101,7 +101,8 @@ export default function HeroSection() {
             key={i}
             className="absolute w-1 h-1 rounded-full will-change-transform"
             style={{
-              background: i % 3 === 0 ? '#01A9FA' : i % 3 === 1 ? '#4E3BE7' : '#F81EBD',
+              background:
+                i % 3 === 0 ? "#01A9FA" : i % 3 === 1 ? "#4E3BE7" : "#F81EBD",
               top: `${20 + i * 15}%`,
               left: `${10 + i * 18}%`,
             }}
@@ -112,7 +113,7 @@ export default function HeroSection() {
             transition={{
               duration: 8 + i * 2,
               repeat: Infinity,
-              ease: 'linear',
+              ease: "linear",
               delay: i * 1.5,
             }}
           />
@@ -122,14 +123,19 @@ export default function HeroSection() {
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-6xl mx-auto text-center">
           {/* Hero content */}
-          <motion.div variants={containerVariants} initial="hidden" animate="visible" className="max-w-4xl mx-auto">
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            className="max-w-4xl mx-auto"
+          >
             <motion.h1
               variants={itemVariants}
               className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 leading-tight"
             >
-              <span className="block text-white mb-2">Build faster with</span>
+              <span className="block text-white mb-2">{t("title_prefix")}</span>
               <span className="block gradient-text">
-                {t('title').split('Build faster with ')[1] || 'AI-powered software'}
+                {t("title_highlight")}
               </span>
             </motion.h1>
 
@@ -137,7 +143,7 @@ export default function HeroSection() {
               variants={itemVariants}
               className="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed"
             >
-              {t('subtitle')}
+              {t("subtitle")}
             </motion.p>
 
             {/* Strong CTAs */}
@@ -145,25 +151,46 @@ export default function HeroSection() {
               variants={ctaVariants}
               className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16"
             >
-              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
                 <Link
                   href={`/${locale}/contact`}
                   className="inline-flex items-center px-8 py-4 text-lg font-semibold text-white bg-gradient-to-r from-primary-blue via-primary-purple to-primary-pink rounded-full shadow-2xl hover:shadow-primary-blue/25 transition-all duration-300"
                 >
-                  <span>{t('ctaPrimary')}</span>
-                  <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  <span>{t("ctaPrimary")}</span>
+                  <svg
+                    className="ml-2 w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M17 8l4 4m0 0l-4 4m4-4H3"
+                    />
                   </svg>
                 </Link>
               </motion.div>
 
-              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
                 <Link
                   href={`/${locale}/services`}
                   className="inline-flex items-center px-8 py-4 text-lg font-semibold text-white border-2 border-primary-blue/50 rounded-full hover:bg-primary-blue/10 hover:border-primary-blue transition-all duration-300"
                 >
-                  <span>{t('ctaSecondary')}</span>
-                  <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <span>{t("ctaSecondary")}</span>
+                  <svg
+                    className="ml-2 w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
@@ -188,15 +215,15 @@ export default function HeroSection() {
             >
               <div className="flex items-center gap-2">
                 <div className="w-2 h-2 bg-primary-blue rounded-full"></div>
-                <span>24/7 Support</span>
+                <span>{t("cta_1")}</span>
               </div>
               <div className="flex items-center gap-2">
                 <div className="w-2 h-2 bg-primary-purple rounded-full"></div>
-                <span>Enterprise Ready</span>
+                <span>{t("cta_2")}</span>
               </div>
               <div className="flex items-center gap-2">
                 <div className="w-2 h-2 bg-primary-pink rounded-full"></div>
-                <span>Scalable Solutions</span>
+                <span>{t("cta_3")}</span>
               </div>
             </motion.div>
           </motion.div>
@@ -211,7 +238,7 @@ export default function HeroSection() {
           transition: {
             duration: 2,
             repeat: Infinity,
-            ease: 'easeInOut',
+            ease: "easeInOut",
           },
         }}
       >
@@ -223,7 +250,7 @@ export default function HeroSection() {
               transition: {
                 duration: 2,
                 repeat: Infinity,
-                ease: 'easeInOut',
+                ease: "easeInOut",
               },
             }}
           />

@@ -8,14 +8,75 @@
   "navigation": {
     "home": "Home",
     "about": "About",
-    "services": "Services",
+    "services": {
+      "title": "Services",
+      "services_1": "AI & Automation",
+      "services_2": "Custom Software",
+      "services_3": "E-commerce",
+      "services_4": "Cloud & DevOps",
+      "services_5": "Data Analytics",
+      "services_6": "UI/UX Design",
+      "services_7": "Training "
+    },
+    "careers": "Careers",
+    "blog": "Blog",
     "contact": "Contact"
   },
   "hero": {
     "title": "Build faster with AI-powered software",
+    "title_prefix": "Build faster with",
+    "title_highlight": "AI-powered software",
     "subtitle": "From MVPs to scalable platforms — we design, build, and automate your product to grow.",
     "ctaPrimary": "Book a call",
-    "ctaSecondary": "See our work"
+    "ctaSecondary": "See our work",
+    "cta_1": "Support 24/7",
+    "cta_2": "Enterprise Ready",
+    "cta_3": "Scalable Solutions"
+  },
+  "portfolioCarousel": {
+    "title_prefix": "Our",
+    "title_highlight": "Success Stories",
+    "subtitle": " Transforming ideas into scalable platforms that drive real business impact.",
+    "ctaPrimary": "View project",
+    "technologies": "Technologies",
+    "projects": {
+      "inmuebli": {
+        "id": 1,
+        "name": "inmuebli.io",
+        "description": "Real estate platform with AI-powered property matching and automated valuation",
+        "category": "PropTech",
+        "features": [
+          "AI Property Valuation",
+          "Smart Matching Algorithm",
+          "Virtual Tours",
+          "Market Analytics"
+        ]
+      },
+      "emprendyup": {
+        "id": 2,
+        "name": "emprendyup",
+        "description": "Startup acceleration platform connecting entrepreneurs with investors and mentors",
+        "category": "Business Platform",
+        "features": [
+          "Investor Matching",
+          "Mentorship Programs",
+          "Pitch Deck Builder",
+          "Analytics Dashboard"
+        ]
+      },
+      "ecommerce": {
+        "id": 2,
+        "name": "AI Commerce Suite",
+        "description": "E-commerce automation suite with intelligent inventory management",
+        "category": "E-commerce",
+        "features": [
+          "Inventory Prediction",
+          "Dynamic Pricing",
+          "Customer Segmentation",
+          "Automated Marketing"
+        ]
+      }
+    }
   },
   "about": {
     "title": "About CodenixAI",
@@ -24,16 +85,53 @@
     "vision_title": "Our Vision",
     "vision_description": "To lead the AI revolution by creating software that enhances human capabilities and transforms businesses.",
     "mission_title": "Our Mission",
-    "mission_description": "Delivering cutting-edge AI solutions that empower organizations to achieve more through intelligent automation and data-driven insights."
+    "mission_description": "Delivering cutting-edge AI solutions that empower organizations to achieve more through intelligent automation and data-driven insights.",
+    "floating_card": {
+      "item": "Our Tech Stack",
+      "title": "Innovation",
+      "subtitle": "Pushing the boundaries of AI",
+      "title_2": "Excellence",
+      "subtitle_2": "Committed to quality"
+    }
   },
   "services": {
+    "outcomes": {
+      "title_1": "Expected",
+      "title_2": "Outcomes",
+      "subtitle": "Measurable results that drive your business forward"
+    },
+    "success_metrics": {
+      "metric_1": "Success Rate",
+      "metric_2": "Time Saved"
+    },
+    "process": {
+      "title_1": "Our",
+      "title_2": "Process",
+      "subtitle": "A proven methodology that ensures successful project delivery",
+      "step_description": " Detailed planning and execution to ensure optimal results and client satisfaction throughout the process.",
+      "bottom_title": "Ready to Start Your Project?",
+      "buttom_description": "Our proven process ensures successful delivery of your AI automation solution.",
+      "bottom_cta": "Begin Your Journey"
+    },
     "title": "Our Services",
     "subtitle": "AI-Powered Solutions",
     "description": "We offer a comprehensive range of AI development services tailored to your business needs.",
     "common": {
+      "title": "Transform Your Business with",
+      "subtitle": "Ready to implement cutting-edge solutions that drive real results? Let's discuss how we can help you achieve your goals.",
       "ctaPrimary": "Book a call",
-      "ctaSecondary": "Get a proposal"
+      "ctaSecondary": "Get a proposal",
+      "indicator_1": "Support Available",
+      "indicator_2": "Projects Delivered",
+      "indicator_3": "Client Satisfaction",
+      "suggestion": " Interested in other services? Explore our complete solution portfolio"
     },
+    "buttom_description": "Ready to implement these powerful features in your business?",
+    "buttom_cta": "Explore Solutions",
+    "deliver": "Deliver",
+    "feature_description": "Advanced implementation with cutting-edge technology and best practices.",
+    "what_we": "What We",
+    "description_prefix": "Comprehensive solutions designed to transform your business operations.",
     "aiAutomation": {
       "title": "AI & Automation",
       "subtitle": "Agents, workflows, and integrations that eliminate manual work.",
@@ -49,7 +147,12 @@
         "Consistent lead qualification",
         "Measurable automation ROI"
       ],
-      "process": ["Discovery", "Solution design", "Build & integrate", "Measure & optimize"]
+      "process": [
+        "Discovery",
+        "Solution design",
+        "Build & integrate",
+        "Measure & optimize"
+      ]
     },
     "customSoftware": {
       "title": "Custom Software Development",
@@ -88,29 +191,69 @@
     "cloudDevops": {
       "title": "Cloud & DevOps",
       "subtitle": "AWS/GCP/Azure architectures with robust CI/CD and security.",
-      "features": ["IaC & pipelines", "Scalability & reliability", "Monitoring & alerts", "Cost optimization"],
-      "outcomes": ["Resilient infrastructure", "Fewer incidents", "Predictable releases", "Lower cloud spend"],
+      "features": [
+        "IaC & pipelines",
+        "Scalability & reliability",
+        "Monitoring & alerts",
+        "Cost optimization"
+      ],
+      "outcomes": [
+        "Resilient infrastructure",
+        "Fewer incidents",
+        "Predictable releases",
+        "Lower cloud spend"
+      ],
       "process": ["Assess", "Design", "Implement", "Operate"]
     },
     "dataAnalytics": {
       "title": "Data & Analytics",
       "subtitle": "From data pipelines to dashboards and ML-ready datasets.",
-      "features": ["ETL/ELT pipelines", "Data warehousing", "BI dashboards", "ML feature stores"],
-      "outcomes": ["Single source of truth", "Actionable insights", "Faster decisions", "ML-ready data"],
+      "features": [
+        "ETL/ELT pipelines",
+        "Data warehousing",
+        "BI dashboards",
+        "ML feature stores"
+      ],
+      "outcomes": [
+        "Single source of truth",
+        "Actionable insights",
+        "Faster decisions",
+        "ML-ready data"
+      ],
       "process": ["Map sources", "Ingest & model", "Visualize", "Iterate"]
     },
     "uiUxBranding": {
       "title": "UI/UX & Branding",
       "subtitle": "Delightful interfaces and brand systems that convert.",
-      "features": ["Design systems & tokens", "UX research & wireframes", "High-fidelity UI", "Branding & assets"],
-      "outcomes": ["Consistent design", "Better usability", "Stronger brand recall", "Higher engagement"],
+      "features": [
+        "Design systems & tokens",
+        "UX research & wireframes",
+        "High-fidelity UI",
+        "Branding & assets"
+      ],
+      "outcomes": [
+        "Consistent design",
+        "Better usability",
+        "Stronger brand recall",
+        "Higher engagement"
+      ],
       "process": ["Discover", "Design", "Validate", "Hand-off"]
     },
     "trainingWorkshops": {
       "title": "Training & Workshops",
       "subtitle": "Hands-on sessions on AI, cloud, and modern web stacks.",
-      "features": ["Custom curricula", "Team enablement", "Live coding labs", "Playbooks & templates"],
-      "outcomes": ["Upskilled teams", "Shared best practices", "Faster onboarding", "Sustainable velocity"],
+      "features": [
+        "Custom curricula",
+        "Team enablement",
+        "Live coding labs",
+        "Playbooks & templates"
+      ],
+      "outcomes": [
+        "Upskilled teams",
+        "Shared best practices",
+        "Faster onboarding",
+        "Sustainable velocity"
+      ],
       "process": ["Assess needs", "Design program", "Deliver", "Follow-up"]
     },
     "service_1_title": "Custom AI Development",
@@ -132,15 +275,73 @@
     "feature_3_title": "Tailored Solutions",
     "feature_3_description": "Custom-built solutions designed for your specific business requirements.",
     "feature_4_title": "Ongoing Support",
-    "feature_4_description": "Continuous assistance and updates to ensure optimal performance."
+    "feature_4_description": "Continuous assistance and updates to ensure optimal performance.",
+    "stats": {
+      "projects_ai": "AI Projects",
+      "satisfied_clients": "Satisfied Clients",
+      "team_members": "Team Members",
+      "years_experence": "Years Experience"
+    }
   },
   "contact": {
+    "build_together": "Let's Build Together",
+    "description": "Ready to transform your ideas into reality? We're here to help you build the next generation of AI-powered solutions.",
     "title": "Get in Touch",
     "subtitle": "Start Your AI Journey",
     "name_label": "Name",
     "email_label": "Email",
+    "company_label": "Company (Optional)",
+    "company_placeholder": "Your company name",
+    "phone_label": "Phone (Optional)",
     "message_label": "Message",
     "submit_button": "Send Message",
+    "form": {
+      "tell_us": "Tell us about your project",
+      "success": "Thank you for reaching out! We'll get back to you soon.",
+      "error": "Oops! Something went wrong. Please try again later."
+    },
+    "whyChooseUs": {
+      "why_works": "Why Work With Us?",
+      "reason_1_title": "Fast Response",
+      "reason_1_description": "We respond within 2 hours during business days.",
+      "reason_2_title": "Expert Team",
+      "reason_2_description": "5+ years experience in AI & software development.",
+      "reason_3_title": "Proven Results",
+      "reason_3_description": "50+ successful projects delivered on time."
+    },
+    "recent": {
+      "recent_success": "Recent Success",
+      "reason_1_title": "E-commerce Automation",
+      "reason_2_title": "AI-powered inventory management",
+      "reason_1_description": "40% efficiency increase",
+      "reason_2_description": "Completed in 6 weeks"
+    },
+    "contact_info": {
+      "title": "Connect Directly"
+    },
+    "call_to_action": {
+      "title": "Ready to Get Started?",
+      "subtitle": "Join 50+ companies that trust us with their AI transformation journey.",
+      "ctaPrimary": "Schedule Free Consultation",
+      "ctaSecondary": " Send Project Details"
+    },
+    "cards": {
+      "quick": {
+        "label": "Quick Chat",
+        "value": "Schedule a 15-minute discovery call",
+        "cta": "Book a call"
+      },
+      "email": {
+        "label": "Email Us",
+        "value": "Send us your project details",
+        "cta": "Send Email"
+      },
+      "get": {
+        "label": "Get Proposal",
+        "value": "Receive a detailed project estimate",
+        "cta": "Start Project"
+      }
+    },
     "address": {
       "label": "Address",
       "value": "Calle 97 70c-89 Bogotá, Colombia"
@@ -156,7 +357,31 @@
   },
   "careers": {
     "title": "Careers",
-    "subtitle": "Join our team and build the future of AI-powered software development"
+    "title_prefix": "Join Our Team",
+    "subtitle": "Join our team and build the future of AI-powered software development",
+    "description": " Build the future of AI-powered software development with us.",
+    "description_large": " Build the future of AI-powered software development with us. We're looking for passionate individuals who want to make a difference.",
+    "company_values": {
+      "value_1_title": "Innovation First",
+      "value_1_description": "We push boundaries and embrace cutting-edge technologies to solve complex problems.",
+      "value_2_title": "Collaborative Culture",
+      "value_2_description": "We believe in teamwork, knowledge sharing, and supporting each other's growth.",
+      "value_3_title": "Remote-First",
+      "value_3_description": "Work from anywhere while maintaining work-life balance and flexibility."
+    },
+    "open_positions": {
+      "title": "Open Positions",
+      "location": "Location",
+      "again": "Try Again",
+      "no_founds": "No positions found",
+      "clear_filters": "Clear Filters",
+      "try_filters": "Try adjusting your filters or check back later for new opportunities."
+    },
+    "call_to_action": {
+      "title": " Don't see the perfect role?",
+      "description": "We're always looking for talented individuals to join our team. Send us your resume and let us know how you&apos;d like to contribute to our mission.",
+      "bottom": "Send General Application"
+    }
   },
   "blog": {
     "title": "AI Development Blog",
@@ -169,6 +394,8 @@
   "footer": {
     "company": "© 2025 CodenixAI. All rights reserved.",
     "privacy": "Privacy Policy",
+    "quick_links": "Quick Links",
+    "description": "Transforming ideas into intelligent software with cutting-edge AI technology.",
     "terms": "Terms of Service",
     "home": "Home",
     "about": "About",

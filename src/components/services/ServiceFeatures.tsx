@@ -1,6 +1,6 @@
-'use client';
-import { motion, Variants } from 'framer-motion';
-import { useTranslations } from 'next-intl';
+"use client";
+import { motion, Variants } from "framer-motion";
+import { useTranslations } from "next-intl";
 
 interface ServiceData {
   namespace: string;
@@ -14,9 +14,10 @@ interface ServiceFeaturesProps {
 
 export default function ServiceFeatures({ serviceData }: ServiceFeaturesProps) {
   const t = useTranslations(serviceData.namespace);
-  
+  const deliver = useTranslations("services");
+
   // Get features from translations
-  const features = t.raw('features') as string[];
+  const features = t.raw("features") as string[];
 
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
@@ -49,10 +50,11 @@ export default function ServiceFeatures({ serviceData }: ServiceFeaturesProps) {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            What We <span className="gradient-text">Deliver</span>
+            {deliver("what_we")}{" "}
+            <span className="gradient-text">{deliver("deliver")}</span>
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Comprehensive solutions designed to transform your business operations
+            {deliver("description_prefix")}
           </p>
         </motion.div>
 
@@ -67,20 +69,30 @@ export default function ServiceFeatures({ serviceData }: ServiceFeaturesProps) {
             <motion.div
               key={index}
               variants={itemVariants}
-              whileHover={{ 
+              whileHover={{
                 scale: 1.02,
-                transition: { duration: 0.2 }
+                transition: { duration: 0.2 },
               }}
               className="group relative bg-gradient-to-br from-gray-900/50 to-gray-800/30 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-8 hover:border-primary-blue/50 transition-all duration-300"
             >
               {/* Background glow effect */}
               <div className="absolute inset-0 bg-gradient-to-r from-primary-blue/5 to-primary-purple/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              
+
               <div className="relative z-10">
                 {/* Feature icon */}
                 <div className="w-12 h-12 bg-gradient-to-r from-primary-blue to-primary-purple rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  <svg
+                    className="w-6 h-6 text-white"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M5 13l4 4L19 7"
+                    />
                   </svg>
                 </div>
 
@@ -91,7 +103,7 @@ export default function ServiceFeatures({ serviceData }: ServiceFeaturesProps) {
 
                 {/* Feature description */}
                 <p className="text-gray-400 leading-relaxed">
-                  Advanced implementation with cutting-edge technology and best practices
+                  {deliver("feature_description")}
                 </p>
 
                 {/* Decorative element */}
@@ -109,17 +121,25 @@ export default function ServiceFeatures({ serviceData }: ServiceFeaturesProps) {
           viewport={{ once: true }}
           className="text-center mt-16"
         >
-          <p className="text-gray-300 mb-6">
-            Ready to implement these powerful features in your business?
-          </p>
+          <p className="text-gray-300 mb-6">{deliver("buttom_description")}</p>
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="inline-flex items-center px-6 py-3 text-primary-blue border-2 border-primary-blue rounded-lg hover:bg-primary-blue hover:text-white transition-all duration-300"
           >
-            <span>Explore Solutions</span>
-            <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            <span>{deliver("buttom_cta")}</span>
+            <svg
+              className="ml-2 w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M17 8l4 4m0 0l-4 4m4-4H3"
+              />
             </svg>
           </motion.button>
         </motion.div>

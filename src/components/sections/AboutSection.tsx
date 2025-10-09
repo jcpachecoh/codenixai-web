@@ -1,10 +1,10 @@
-'use client';
-import { useTranslations } from 'next-intl';
-import { motion, useInView, easeInOut } from 'framer-motion';
-import { useRef } from 'react';
+"use client";
+import { useTranslations } from "next-intl";
+import { motion, useInView, easeInOut } from "framer-motion";
+import { useRef } from "react";
 
 export default function AboutSection() {
-  const t = useTranslations('about');
+  const t = useTranslations("about");
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, amount: 0.2 });
 
@@ -30,7 +30,11 @@ export default function AboutSection() {
   };
 
   return (
-    <section ref={sectionRef} id="about" className="section relative overflow-hidden">
+    <section
+      ref={sectionRef}
+      id="about"
+      className="section relative overflow-hidden"
+    >
       {/* Background elements */}
       <div className="absolute inset-0">
         <div className="absolute top-1/4 right-0 w-1/3 h-1/3 bg-accent-purple/10 rounded-full blur-3xl" />
@@ -45,33 +49,55 @@ export default function AboutSection() {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            <span className="gradient-text">{t('title')}</span>
+            <span className="gradient-text">{t("title")}</span>
           </h2>
-          <p className="text-xl text-trust-gray-300">{t('subtitle')}</p>
+          <p className="text-xl text-trust-gray-300">{t("subtitle")}</p>
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* About content */}
-          <motion.div variants={containerVariants} initial="hidden" animate={isInView ? 'visible' : 'hidden'}>
-            <motion.p variants={itemVariants} className="text-trust-gray-300 mb-6">
-              {t('description')}
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
+          >
+            <motion.p
+              variants={itemVariants}
+              className="text-trust-gray-300 mb-6"
+            >
+              {t("description")}
             </motion.p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-              <motion.div variants={itemVariants} className="glass p-6 rounded-xl">
-                <h3 className="text-xl font-semibold mb-3 text-accent-blue">{t('vision_title')}</h3>
-                <p className="text-trust-gray-400">{t('vision_description')}</p>
+              <motion.div
+                variants={itemVariants}
+                className="glass p-6 rounded-xl"
+              >
+                <h3 className="text-xl font-semibold mb-3 text-accent-blue">
+                  {t("vision_title")}
+                </h3>
+                <p className="text-trust-gray-400">{t("vision_description")}</p>
               </motion.div>
 
-              <motion.div variants={itemVariants} className="glass p-6 rounded-xl">
-                <h3 className="text-xl font-semibold mb-3 text-accent-purple">{t('mission_title')}</h3>
-                <p className="text-trust-gray-400">{t('mission_description')}</p>
+              <motion.div
+                variants={itemVariants}
+                className="glass p-6 rounded-xl"
+              >
+                <h3 className="text-xl font-semibold mb-3 text-accent-purple">
+                  {t("mission_title")}
+                </h3>
+                <p className="text-trust-gray-400">
+                  {t("mission_description")}
+                </p>
               </motion.div>
             </div>
 
             {/* Tech stack */}
             <motion.div variants={itemVariants}>
-              <h3 className="text-xl font-semibold mb-4">Our Tech Stack</h3>
+              <h3 className="text-xl font-semibold mb-4">
+                {" "}
+                {t("floating_card.item")}
+              </h3>
               <div className="flex flex-wrap gap-4">
                 <TechBadge name="TensorFlow" />
                 <TechBadge name="PyTorch" />
@@ -86,7 +112,9 @@ export default function AboutSection() {
           {/* About illustration */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
-            animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
+            animate={
+              isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }
+            }
             transition={{ duration: 0.8, delay: 0.5 }}
             className="relative h-[400px] lg:h-[500px] flex items-center justify-center"
           >
@@ -100,7 +128,7 @@ export default function AboutSection() {
                   transition={{
                     duration: 50,
                     repeat: Infinity,
-                    ease: 'linear',
+                    ease: "linear",
                   }}
                   className="w-64 h-64 md:w-80 md:h-80 border border-accent-blue/30 rounded-full"
                 />
@@ -112,7 +140,7 @@ export default function AboutSection() {
                   transition={{
                     duration: 30,
                     repeat: Infinity,
-                    ease: 'linear',
+                    ease: "linear",
                   }}
                   className="absolute w-48 h-48 md:w-64 md:h-64 border border-accent-purple/30 rounded-full"
                 />
@@ -124,7 +152,7 @@ export default function AboutSection() {
                   transition={{
                     duration: 20,
                     repeat: Infinity,
-                    ease: 'linear',
+                    ease: "linear",
                   }}
                   className="absolute w-32 h-32 md:w-48 md:h-48 border border-accent-blue/30 rounded-full"
                 />
@@ -145,7 +173,7 @@ export default function AboutSection() {
                     transition={{
                       duration: 2 + Math.random() * 2,
                       repeat: Infinity,
-                      ease: 'easeInOut',
+                      ease: "easeInOut",
                     }}
                   />
                 ))}
@@ -155,15 +183,15 @@ export default function AboutSection() {
                   className="absolute w-16 h-16 bg-gradient-to-r from-accent-blue to-accent-purple rounded-full flex items-center justify-center"
                   animate={{
                     boxShadow: [
-                      '0 0 10px rgba(0, 212, 255, 0.5)',
-                      '0 0 20px rgba(0, 212, 255, 0.7)',
-                      '0 0 10px rgba(0, 212, 255, 0.5)',
+                      "0 0 10px rgba(0, 212, 255, 0.5)",
+                      "0 0 20px rgba(0, 212, 255, 0.7)",
+                      "0 0 10px rgba(0, 212, 255, 0.5)",
                     ],
                   }}
                   transition={{
                     duration: 3,
                     repeat: Infinity,
-                    ease: 'easeInOut',
+                    ease: "easeInOut",
                   }}
                 >
                   <span className="text-white font-bold">AI</span>
@@ -174,21 +202,33 @@ export default function AboutSection() {
               <motion.div
                 className="absolute top-10 right-10 glass p-3 rounded-lg w-40 text-center"
                 initial={{ opacity: 0, y: 20 }}
-                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                animate={
+                  isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
+                }
                 transition={{ delay: 0.8, duration: 0.8 }}
               >
-                <div className="text-accent-blue font-semibold mb-1">Innovation</div>
-                <div className="text-xs text-trust-gray-400">Pushing the boundaries of AI</div>
+                <div className="text-accent-blue font-semibold mb-1">
+                  {t("floating_card.title")}
+                </div>
+                <div className="text-xs text-trust-gray-400">
+                  {t("floating_card.subtitle")}
+                </div>
               </motion.div>
 
               <motion.div
                 className="absolute bottom-10 left-10 glass p-3 rounded-lg w-40 text-center"
                 initial={{ opacity: 0, y: 20 }}
-                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                animate={
+                  isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
+                }
                 transition={{ delay: 1, duration: 0.8 }}
               >
-                <div className="text-accent-purple font-semibold mb-1">Excellence</div>
-                <div className="text-xs text-trust-gray-400">Committed to quality</div>
+                <div className="text-accent-purple font-semibold mb-1">
+                  {t("floating_card.title_2")}
+                </div>
+                <div className="text-xs text-trust-gray-400">
+                  {t("floating_card.subtitle_2")}
+                </div>
               </motion.div>
             </div>
           </motion.div>

@@ -1,6 +1,6 @@
-'use client';
-import { motion, Variants } from 'framer-motion';
-import { useTranslations } from 'next-intl';
+"use client";
+import { motion, Variants } from "framer-motion";
+import { useTranslations } from "next-intl";
 
 interface ServiceData {
   namespace: string;
@@ -14,9 +14,10 @@ interface ServiceOutcomesProps {
 
 export default function ServiceOutcomes({ serviceData }: ServiceOutcomesProps) {
   const t = useTranslations(serviceData.namespace);
-  
+  const to = useTranslations("services");
+
   // Get outcomes from translations
-  const outcomes = t.raw('outcomes') as string[];
+  const outcomes = t.raw("outcomes") as string[];
 
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
@@ -51,7 +52,7 @@ export default function ServiceOutcomes({ serviceData }: ServiceOutcomesProps) {
           transition={{
             duration: 12,
             repeat: Infinity,
-            ease: "easeInOut"
+            ease: "easeInOut",
           }}
         />
       </div>
@@ -65,10 +66,11 @@ export default function ServiceOutcomes({ serviceData }: ServiceOutcomesProps) {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Expected <span className="gradient-text">Outcomes</span>
+            {to("outcomes.title_1")}{" "}
+            <span className="gradient-text">{to("outcomes.title_2")}</span>
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Measurable results that drive your business forward
+            {to("outcomes.subtitle")}
           </p>
         </motion.div>
 
@@ -98,14 +100,25 @@ export default function ServiceOutcomes({ serviceData }: ServiceOutcomesProps) {
                     {outcome}
                   </h3>
                   <p className="text-gray-400 leading-relaxed">
-                    Proven strategies and implementation that deliver tangible business value
+                    Proven strategies and implementation that deliver tangible
+                    business value
                   </p>
                 </div>
 
                 {/* Arrow indicator */}
                 <div className="flex-shrink-0 text-primary-blue opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  <svg
+                    className="w-6 h-6"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M17 8l4 4m0 0l-4 4m4-4H3"
+                    />
                   </svg>
                 </div>
               </motion.div>
@@ -130,7 +143,7 @@ export default function ServiceOutcomes({ serviceData }: ServiceOutcomesProps) {
                 transition={{
                   duration: 20,
                   repeat: Infinity,
-                  ease: "linear"
+                  ease: "linear",
                 }}
               >
                 <div className="w-32 h-32 bg-black rounded-full flex items-center justify-center">
@@ -143,8 +156,8 @@ export default function ServiceOutcomes({ serviceData }: ServiceOutcomesProps) {
                     key={index}
                     className="absolute w-4 h-4 bg-primary-pink rounded-full"
                     style={{
-                      top: '50%',
-                      left: '50%',
+                      top: "50%",
+                      left: "50%",
                       transformOrigin: `${60 + index * 20}px 0px`,
                     }}
                     animate={{
@@ -155,13 +168,13 @@ export default function ServiceOutcomes({ serviceData }: ServiceOutcomesProps) {
                       rotate: {
                         duration: 8 + index * 2,
                         repeat: Infinity,
-                        ease: "linear"
+                        ease: "linear",
                       },
                       scale: {
                         duration: 2,
                         repeat: Infinity,
                         delay: index * 0.5,
-                      }
+                      },
                     }}
                   />
                 ))}
@@ -175,7 +188,9 @@ export default function ServiceOutcomes({ serviceData }: ServiceOutcomesProps) {
                 transition={{ delay: 0.8 }}
                 viewport={{ once: true }}
               >
-                <div className="text-green-400 text-base font-semibold">Success Rate</div>
+                <div className="text-green-400 text-base font-semibold">
+                  {to("success_metrics.metric_1")}
+                </div>
                 <div className="text-green-300 text-2xl font-bold">98%</div>
               </motion.div>
 
@@ -186,7 +201,9 @@ export default function ServiceOutcomes({ serviceData }: ServiceOutcomesProps) {
                 transition={{ delay: 1 }}
                 viewport={{ once: true }}
               >
-                <div className="text-blue-400 text-base font-semibold">Time Saved</div>
+                <div className="text-blue-400 text-base font-semibold">
+                  {to("success_metrics.metric_2")}
+                </div>
                 <div className="text-blue-300 text-2xl font-bold">65%</div>
               </motion.div>
             </div>
