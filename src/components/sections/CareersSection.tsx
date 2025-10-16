@@ -1,8 +1,9 @@
-'use client';
-import { useState, useEffect } from 'react';
-import { Job, JobSearchParams } from '@/types/careers';
-import JobCard from '@/components/careers/JobCard';
-import JobFilters from '@/components/careers/JobFilters';
+"use client";
+import { useState, useEffect } from "react";
+import { Job, JobSearchParams } from "@/types/careers";
+import JobCard from "@/components/careers/JobCard";
+import JobFilters from "@/components/careers/JobFilters";
+import { useTranslations } from "next-intl";
 
 export default function CareersSection() {
   const [mounted, setMounted] = useState(false);
@@ -11,7 +12,7 @@ export default function CareersSection() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [filters, setFilters] = useState<JobSearchParams>({});
-
+  const t = useTranslations("careers");
   // Handle hydration
   useEffect(() => {
     setMounted(true);
@@ -24,7 +25,7 @@ export default function CareersSection() {
 
       const queryParams = new URLSearchParams();
       Object.entries(filters).forEach(([key, value]) => {
-        if (value !== undefined && value !== null && value !== '') {
+        if (value !== undefined && value !== null && value !== "") {
           queryParams.append(key, value.toString());
         }
       });
@@ -35,11 +36,11 @@ export default function CareersSection() {
       if (result.success) {
         setJobs(result.data || []);
       } else {
-        setError(result.error || 'Failed to fetch jobs');
+        setError(result.error || "Failed to fetch jobs");
       }
     } catch (err) {
-      console.error('Error fetching jobs:', err);
-      setError('Network error. Please try again.');
+      console.error("Error fetching jobs:", err);
+      setError("Network error. Please try again.");
     } finally {
       setLoading(false);
     }
@@ -48,6 +49,7 @@ export default function CareersSection() {
   // Fetch jobs
   useEffect(() => {
     fetchJobs();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filters]);
 
   const handleFilterChange = (newFilters: JobSearchParams) => {
@@ -60,9 +62,11 @@ export default function CareersSection() {
       <section className="section">
         <div className="container">
           <div className="text-center">
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">Join Our Team</h1>
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
+              {t("title_prefix")}
+            </h1>
             <p className="text-xl text-trust-gray-400 mb-12 max-w-3xl mx-auto">
-              Build the future of AI-powered software development with us.
+              {t("description")}
             </p>
           </div>
         </div>
@@ -74,15 +78,27 @@ export default function CareersSection() {
     <section id="careers" className="section relative">
       {/* Background elements */}
 
-      <div className="container" style={{ position: 'relative', zIndex: 10 }}>
+      <div className="container" style={{ position: "relative", zIndex: 10 }}>
         {/* Header */}
         <div className="text-center mb-16 animate-fade-in">
-          <h1 style={{ fontSize: '3rem', fontWeight: 'bold', marginBottom: '1rem' }}>
-            <span className="gradient-text">Join Our Team</span>
+          <h1
+            style={{
+              fontSize: "3rem",
+              fontWeight: "bold",
+              marginBottom: "1rem",
+            }}
+          >
+            <span className="gradient-text">{t("title_prefix")}</span>
           </h1>
-          <p style={{ fontSize: '1.25rem', color: '#d4d4d4', maxWidth: '600px', margin: '0 auto' }}>
-            Build the future of AI-powered software development with us. We&apos;re looking for passionate individuals
-            who want to make a difference.
+          <p
+            style={{
+              fontSize: "1.25rem",
+              color: "#d4d4d4",
+              maxWidth: "600px",
+              margin: "0 auto",
+            }}
+          >
+            {t("description_large")}
           </p>
         </div>
 
@@ -90,23 +106,29 @@ export default function CareersSection() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 animate-fade-in-up">
           <div className="glass p-6 rounded-2xl text-center">
             <div className="text-accent-blue text-3xl mb-4">🚀</div>
-            <h3 className="text-xl font-semibold text-white mb-2">Innovation First</h3>
+            <h3 className="text-xl font-semibold text-white mb-2">
+              {t("company_values.value_1_title")}
+            </h3>
             <p className="text-trust-gray-400">
-              We push boundaries and embrace cutting-edge technologies to solve complex problems.
+              {t("company_values.value_1_description")}
             </p>
           </div>
           <div className="glass p-6 rounded-2xl text-center">
             <div className="text-accent-blue text-3xl mb-4">🤝</div>
-            <h3 className="text-xl font-semibold text-white mb-2">Collaborative Culture</h3>
+            <h3 className="text-xl font-semibold text-white mb-2">
+              {t("company_values.value_2_title")}
+            </h3>
             <p className="text-trust-gray-400">
-              We believe in teamwork, knowledge sharing, and supporting each other&apos;s growth.
+              {t("company_values.value_2_description")}
             </p>
           </div>
           <div className="glass p-6 rounded-2xl text-center">
             <div className="text-accent-blue text-3xl mb-4">🌍</div>
-            <h3 className="text-xl font-semibold text-white mb-2">Remote-First</h3>
+            <h3 className="text-xl font-semibold text-white mb-2">
+              {t("company_values.value_3_title")}
+            </h3>
             <p className="text-trust-gray-400">
-              Work from anywhere while maintaining work-life balance and flexibility.
+              {t("company_values.value_3_description")}
             </p>
           </div>
         </div>
@@ -119,7 +141,10 @@ export default function CareersSection() {
         {/* Jobs Section */}
         <div className="animate-fade-in-up">
           <h2 className="text-2xl font-bold text-white mb-8">
-            Open Positions {jobs.length > 0 && <span className="text-accent-blue">({jobs.length})</span>}
+            {t("open_positions.title")}{" "}
+            {jobs.length > 0 && (
+              <span className="text-accent-blue">({jobs.length})</span>
+            )}
           </h2>
 
           {loading && (
@@ -132,7 +157,7 @@ export default function CareersSection() {
             <div className="glass p-6 rounded-2xl text-center text-red-400 mb-8">
               <p>{error}</p>
               <button onClick={fetchJobs} className="btn-secondary mt-4">
-                Try Again
+                {t("open_positions.again")}
               </button>
             </div>
           )}
@@ -140,12 +165,14 @@ export default function CareersSection() {
           {!loading && !error && jobs.length === 0 && (
             <div className="glass p-12 rounded-2xl text-center">
               <div className="text-accent-blue text-4xl mb-4">🔍</div>
-              <h3 className="text-xl font-semibold text-white mb-2">No positions found</h3>
+              <h3 className="text-xl font-semibold text-white mb-2">
+                {t("open_positions.no_founds")}
+              </h3>
               <p className="text-trust-gray-400 mb-6">
-                Try adjusting your filters or check back later for new opportunities.
+                {t("open_positions.try_filters")}
               </p>
               <button onClick={() => setFilters({})} className="btn-secondary">
-                Clear Filters
+                {t("open_positions.clear_filters")}
               </button>
             </div>
           )}
@@ -153,7 +180,11 @@ export default function CareersSection() {
           {!loading && !error && jobs.length > 0 && (
             <div className="space-y-6">
               {jobs.map((job, index) => (
-                <div key={job.id} className="animate-fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
+                <div
+                  key={job.id}
+                  className="animate-fade-in"
+                  style={{ animationDelay: `${index * 0.1}s` }}
+                >
                   <JobCard job={job} />
                 </div>
               ))}
@@ -163,13 +194,17 @@ export default function CareersSection() {
 
         {/* Call to Action */}
         <div className="glass p-8 rounded-2xl text-center mt-16 animate-fade-in-up">
-          <h3 className="text-2xl font-semibold text-white mb-4">Don&apos;t see the perfect role?</h3>
+          <h3 className="text-2xl font-semibold text-white mb-4">
+            {t("call_to_action.title")}
+          </h3>
           <p className="text-trust-gray-400 mb-6 max-w-2xl mx-auto">
-            We&apos;re always looking for talented individuals to join our team. Send us your resume and let us know how
-            you&apos;d like to contribute to our mission.
+            {t("call_to_action.description")}
           </p>
-          <a href="mailto:careers@codenixai.com?subject=General Application" className="btn-primary">
-            Send General Application
+          <a
+            href="mailto:careers@codenixai.com?subject=General Application"
+            className="btn-primary"
+          >
+            {t("call_to_action.bottom")}
           </a>
         </div>
       </div>

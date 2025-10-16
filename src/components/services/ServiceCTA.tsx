@@ -1,8 +1,8 @@
-'use client';
-import { motion } from 'framer-motion';
-import { useTranslations } from 'next-intl';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+"use client";
+import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 interface ServiceData {
   namespace: string;
@@ -16,9 +16,9 @@ interface ServiceCTAProps {
 
 export default function ServiceCTA({ serviceData }: ServiceCTAProps) {
   const t = useTranslations(serviceData.namespace);
-  const tCommon = useTranslations('services.common');
+  const tCommon = useTranslations("services.common");
   const pathname = usePathname();
-  const locale = pathname.split('/')[1];
+  const locale = pathname.split("/")[1];
 
   return (
     <section className="py-20 bg-gradient-to-b from-gray-900 to-black relative overflow-hidden">
@@ -33,7 +33,7 @@ export default function ServiceCTA({ serviceData }: ServiceCTAProps) {
           transition={{
             duration: 20,
             repeat: Infinity,
-            ease: "linear"
+            ease: "linear",
           }}
         />
       </div>
@@ -53,14 +53,13 @@ export default function ServiceCTA({ serviceData }: ServiceCTAProps) {
 
             {/* Headline */}
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-              Transform Your Business with{' '}
-              <span className="gradient-text">{t('title')}</span>
+              {tCommon("title")}{" "}
+              <span className="gradient-text">{t("title")}</span>
             </h2>
 
             {/* Subheadline */}
             <p className="text-xl md:text-2xl text-gray-300 mb-12 leading-relaxed max-w-3xl mx-auto">
-              Ready to implement cutting-edge solutions that drive real results? 
-              Let&apos;s discuss how we can help you achieve your goals.
+              {tCommon("subtitle")}
             </p>
 
             {/* CTA Buttons */}
@@ -73,9 +72,19 @@ export default function ServiceCTA({ serviceData }: ServiceCTAProps) {
                   href={`/${locale}/contact`}
                   className="inline-flex items-center px-8 py-4 text-lg font-semibold text-white bg-gradient-to-r from-primary-blue via-primary-purple to-primary-pink rounded-full shadow-2xl hover:shadow-primary-blue/25 transition-all duration-300"
                 >
-                  <span>{tCommon('ctaPrimary')}</span>
-                  <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                  <span>{tCommon("ctaPrimary")}</span>
+                  <svg
+                    className="ml-2 w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
+                    />
                   </svg>
                 </Link>
               </motion.div>
@@ -88,9 +97,19 @@ export default function ServiceCTA({ serviceData }: ServiceCTAProps) {
                   href={`/${locale}/contact`}
                   className="inline-flex items-center px-8 py-4 text-lg font-semibold text-white border-2 border-primary-blue/50 rounded-full hover:bg-primary-blue/10 hover:border-primary-blue transition-all duration-300"
                 >
-                  <span>{tCommon('ctaSecondary')}</span>
-                  <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  <span>{tCommon("ctaSecondary")}</span>
+                  <svg
+                    className="ml-2 w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                    />
                   </svg>
                 </Link>
               </motion.div>
@@ -105,16 +124,18 @@ export default function ServiceCTA({ serviceData }: ServiceCTAProps) {
               className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-3xl mx-auto"
             >
               <div className="text-center">
-                <div className="text-3xl font-bold gradient-text mb-2">24/7</div>
-                <div className="text-gray-400">Support Available</div>
+                <div className="text-3xl font-bold gradient-text mb-2">
+                  24/7
+                </div>
+                <div className="text-gray-400">{tCommon("indicator_1")}</div>
               </div>
               <div className="text-center">
                 <div className="text-3xl font-bold gradient-text mb-2">30+</div>
-                <div className="text-gray-400">Projects Delivered</div>
+                <div className="text-gray-400">{tCommon("indicator_2")}</div>
               </div>
               <div className="text-center">
                 <div className="text-3xl font-bold gradient-text mb-2">98%</div>
-                <div className="text-gray-400">Client Satisfaction</div>
+                <div className="text-gray-400">{tCommon("indicator_3")}</div>
               </div>
             </motion.div>
           </motion.div>
@@ -128,14 +149,12 @@ export default function ServiceCTA({ serviceData }: ServiceCTAProps) {
           viewport={{ once: true }}
           className="mt-20 text-center"
         >
-          <p className="text-gray-400 mb-6">
-            Interested in other services? Explore our complete solution portfolio
-          </p>
+          <p className="text-gray-400 mb-6">{tCommon("suggestion")}</p>
           <div className="flex flex-wrap justify-center gap-4">
             {[
-              { name: 'Custom Software', href: 'custom-software' },
-              { name: 'Cloud & DevOps', href: 'cloud-devops' },
-              { name: 'Data Analytics', href: 'data-analytics' },
+              { name: "Custom Software", href: "custom-software" },
+              { name: "Cloud & DevOps", href: "cloud-devops" },
+              { name: "Data Analytics", href: "data-analytics" },
             ].map((service, index) => (
               <motion.div
                 key={index}
