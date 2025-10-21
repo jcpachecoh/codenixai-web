@@ -9,9 +9,12 @@
     "lint": "next lint",
     "prepare": "husky",
     "semantic-release": "semantic-release",
-    "commit": "git-cz"
+    "commit": "git-cz",
+    "setup:supabase": "node scripts/setup-supabase.js",
+    "check:env": "node scripts/setup-supabase.js"
   },
   "dependencies": {
+    "@supabase/ssr": "^0.7.0",
     "@supabase/supabase-js": "^2.58.0",
     "@vercel/analytics": "^1.5.0",
     "@vercel/speed-insights": "^1.2.0",

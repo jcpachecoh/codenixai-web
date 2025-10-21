@@ -48,6 +48,10 @@ export default function Header() {
       href: `/${locale}/services/training-workshops`,
       label: t("services.services_7"),
     },
+    {
+      href: `/${locale}/services/whatsapp-automations`,
+      label: t("services.services_8"),
+    },
   ];
 
   // Handle client-side mounting

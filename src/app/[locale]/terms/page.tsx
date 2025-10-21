@@ -16,7 +16,7 @@ export async function generateMetadata({
 
   return {
     title: "CodenixAI - " + t("title"),
-    description: t("subtitle"),
+    description: t("description"),
   };
 }
 

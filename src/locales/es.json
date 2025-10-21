@@ -8,6 +8,7 @@
   "navigation": {
     "home": "Inicio",
     "about": "Nosotros",
+    "whatsappAutomation": "WhatsApp",
     "services": {
       "title": "Servicios",
       "services_1": "IA y automatización",
@@ -16,7 +17,8 @@
       "services_4": "Nube y DevOps",
       "services_5": "Análisis de datos",
       "services_6": "Diseño UI/UX",
-      "services_7": "Formación"
+      "services_7": "Formación",
+      "services_8": "Chatbot WhatsApp"
     },
     "careers": "Carreras",
     "blog": "Blog",
@@ -408,98 +410,197 @@
     "contact": "Contacto",
     "email": "info@codenixai.com"
   },
-  "legal": {
-    "privacy": {
-      "title": "Política de Privacidad",
-      "description": "Descubre cómo protegemos y manejamos tu información personal en CodeNixAI",
-      "lastUpdated": "Última actualización: ",
-      "sections": {
-        "section1": {
-          "description": "Conoce qué datos recopilamos cuando interactúas con nuestros servicios de IA",
-          "title": "1. Información que recopilamos",
-          "content": "Recopilamos información que nos proporcionas directamente, como cuando creas una cuenta, utilizas nuestros servicios de IA, o nos contactas. Esto puede incluir tu nombre, dirección de email, y el contenido que generas usando nuestras herramientas de IA."
-        },
-        "section2": {
-          "description": "Entérate de cómo utilizamos tus datos para mejorar tu experiencia",
-          "title": "2. Cómo utilizamos tu información",
-          "content": "Utilizamos tu información para proporcionar, mantener y mejorar nuestros servicios, procesar transacciones, enviarte comunicaciones relacionadas con el servicio, y cumplir con obligaciones legales."
-        },
-        "section3": {
-          "description": "Transparencia sobre cómo compartimos tu información con terceros",
-          "title": "3. Compartir información",
-          "content": "No vendemos, intercambiamos ni transferimos tu información personal a terceros sin tu consentimiento, excepto como se describe en esta política o cuando sea requerido por ley."
-        },
-        "section4": {
-          "description": "Medidas de seguridad avanzadas para proteger tus datos",
-          "title": "4. Seguridad de datos",
-          "content": "Implementamos medidas de seguridad técnicas y organizativas apropiadas para proteger tu información personal contra acceso no autorizado, alteración, divulgación o destrucción."
-        },
-        "section5": {
-          "description": "Conoce tus derechos sobre tus datos personales y cómo ejercerlos",
-          "title": "5. Tus derechos",
-          "content": "Tienes derecho a acceder, actualizar, eliminar tu información personal, y retirar tu consentimiento. Puedes ejercer estos derechos contactándonos directamente."
-        },
-        "section6": {
-          "description": "Ponte en contacto con nosotros para cualquier duda sobre privacidad",
-          "title": "6. Contacto",
-          "content": "Si tienes preguntas sobre esta política de privacidad, puedes contactarnos en privacy@codenixai.com"
-        }
-      },
-      "copyright": "Todos los derechos reservados."
+  "whatsappAutomation": {
+    "hero": {
+      "title": "Automatizaciones WhatsApp a la medida con IA ",
+      "subtitle": "Conecta, responde y vende 24/7 con flujos inteligentes diseñados para tu negocio.",
+      "ctaDemo": "Solicitar demo",
+      "ctaConsult": "Agendar asesoría gratuita"
     },
-    "terms": {
-      "title": "Términos y Condiciones",
-      "description": "Revisa los términos bajo los cuales puedes usar nuestros servicios",
-      "lastUpdated": "Última actualización: ",
-      "sections": {
-        "section1": {
-          "description": "Comprende los términos que aceptas al usar CodeNixAI",
-          "title": "1. Aceptación de los términos",
-          "content": "Al acceder y utilizar CodeNixAI, aceptas estar sujeto a estos Términos y Condiciones y a todas las leyes y regulaciones aplicables. Si no estás de acuerdo con alguno de estos términos, no uses nuestros servicios."
-        },
-        "section2": {
-          "description": "Conoce lo que ofrecemos y nuestro derecho a modificar el servicio",
-          "title": "2. Descripción del servicio",
-          "content": "CodeNixAI proporciona herramientas de inteligencia artificial para generar código, asistencia en programación y servicios relacionados. Nos reservamos el derecho de modificar o descontinuar cualquier aspecto del servicio en cualquier momento."
-        },
-        "section3": {
-          "description": "Directrices sobre el uso adecuado de nuestros servicios",
-          "title": "3. Uso aceptable",
-          "content": "Te comprometes a usar nuestros servicios solo para propósitos legales y de acuerdo con estos términos. No debes usar el servicio para generar contenido dañino, ilegal o que viole derechos de terceros."
-        },
-        "section4": {
-          "description": "Claridad sobre la propiedad del contenido generado y la tecnología",
-          "title": "4. Propiedad intelectual",
-          "content": "El contenido generado por nuestras herramientas de IA es tuyo, pero CodeNixAI conserva todos los derechos sobre la tecnología, software y metodologías utilizadas para proporcionar el servicio."
-        },
-        "section5": {
-          "description": "Limitaciones de nuestra responsabilidad por daños",
-          "title": "5. Limitación de responsabilidad",
-          "content": "CodeNixAI no será responsable de daños directos, indirectos, incidentales o consecuentes que resulten del uso o la imposibilidad de usar nuestros servicios."
-        },
-        "section6": {
-          "description": "Disposiciones sobre la terminación de tu acceso",
-          "title": "6. Terminación",
-          "content": "Podemos terminar o suspender tu acceso a nuestros servicios inmediatamente, sin previo aviso, por cualquier motivo, incluyendo el incumplimiento de estos términos."
-        },
-        "section7": {
-          "description": "Ley aplicable y jurisdicción para resolver disputas",
-          "title": "7. Ley aplicable",
-          "content": "Estos términos se rigen por las leyes de España. Cualquier disputa será resuelta en los tribunales de Madrid."
-        },
-        "section8": {
-          "description": "Cómo ponerte en contacto para preguntas sobre nuestros términos",
-          "title": "8. Contacto",
-          "content": "Para preguntas sobre estos términos, contáctanos en legal@codenixai.com"
-        }
-      },
-      "copyright": "Todos los derechos reservados."
+    "problems": {
+      "title": "¿Tu negocio sufre estos problemas?",
+      "pain1": "Respuestas lentas que pierden clientes",
+      "pain2": "Leads que se escapan por falta de seguimiento",
+      "pain3": "Manejo manual de cientos de conversaciones",
+      "pain4": "Sin integración con tu CRM o base de datos"
     },
-    "cookies": {
-      "title": "Cookies & Privacidad",
-      "description": "Usamos cookies para mejorar tu experiencia. Al continuar, aceptas nuestra",
-      "privacyLink": "política de privacidad",
-      "acceptButton": "Aceptar cookies"
+    "solution": {
+      "title": "La Solución: WhatsApp IA Personalizada",
+      "subtitle": "Creamos automatizaciones inteligentes que entienden a tus clientes y manejan conversaciones como un experto de tu equipo.",
+      "feature1": "IA entrenada con tu negocio",
+      "feature2": "Integración directa con CRM",
+      "feature3": "Respuestas 24/7 automáticas",
+      "feature4": "Escalamiento sin límites"
+    },
+    "useCases": {
+      "title": "Casos de Uso Reales",
+      "subtitle": "Automatiza procesos específicos de tu industria",
+      "case1": {
+        "title": "Atención al Cliente",
+        "description": "Respuesta automática a preguntas frecuentes, escalación inteligente a humanos cuando es necesario."
+      },
+      "case2": {
+        "title": "Seguimiento de Ventas",
+        "description": "Recordatorios automáticos, confirmación de citas, seguimiento post-venta personalizado."
+      },
+      "case3": {
+        "title": "E-commerce",
+        "description": "Confirmación de pedidos, actualizaciones de envío, recuperación de carritos abandonados."
+      },
+      "case4": {
+        "title": "Integración CRM",
+        "description": "Sincronización automática con Attio, HubSpot, Pipedrive y más. Datos actualizados en tiempo real."
+      }
+    },
+    "benefits": {
+      "title": "Beneficios Clave",
+      "subtitle": "Resultados medibles desde el primer día",
+      "benefit1": {
+        "title": "+300% más conversiones",
+        "description": "Respuesta inmediata aumenta significativamente las ventas"
+      },
+      "benefit2": {
+        "title": "80% menos tiempo manual",
+        "description": "Tu equipo se enfoca en tareas de alto valor"
+      },
+      "benefit3": {
+        "title": "24/7 disponibilidad",
+        "description": "Nunca pierdas un cliente por horarios de atención"
+      },
+      "benefit4": {
+        "title": "ROI en 30 días",
+        "description": "Implementación rápida con resultados inmediatos"
+      }
+    },
+    "cta": {
+      "title": "¿Listo para automatizar tu negocio con IA?",
+      "subtitle": "Únete a más de 50 empresas que ya están vendiendo más con WhatsApp automatizado.",
+      "ctaDemo": "Solicita tu demo gratuita",
+      "ctaMeeting": "Agendar reunión"
+    },
+    "faq": {
+      "title": "Preguntas Frecuentes",
+      "q1": {
+        "question": "¿Cuánto tiempo tarda una implementación?",
+        "answer": "Entre 2-4 semanas dependiendo de la complejidad. Incluye configuración, entrenamiento de IA e integración con tu CRM."
+      },
+      "q2": {
+        "question": "¿Qué necesito para comenzar?",
+        "answer": "Solo necesitas una cuenta de WhatsApp Business, acceso a tu CRM (opcional) y definir los flujos que quieres automatizar."
+      },
+      "q3": {
+        "question": "¿Puedo integrar mi CRM actual?",
+        "answer": "Sí, trabajamos con todos los CRMs principales: HubSpot, Pipedrive, Attio, Salesforce y también bases de datos personalizadas."
+      },
+      "q4": {
+        "question": "¿La IA puede manejar conversaciones complejas?",
+        "answer": "Sí, entrenamos la IA con el contexto específico de tu negocio. Para casos muy complejos, escalamos automáticamente a tu equipo."
+      }
+    },
+    "contact": {
+      "title": "Solicita tu Demo Personalizada",
+      "subtitle": "Agenda una llamada de 30 minutos y te mostramos cómo funciona con tu negocio específico.",
+      "nameLabel": "Nombre completo",
+      "companyLabel": "Empresa",
+      "whatsappLabel": "WhatsApp",
+      "messageLabel": "Cuéntanos sobre tu negocio",
+      "submitButton": "Agendar Demo Gratuita",
+      "successMessage": "¡Perfecto! Te contactaremos en las próximas 2 horas para coordinar tu demo personalizada.",
+      "errorMessage": "Hubo un error al enviar el formulario. Por favor intenta nuevamente."
     }
+  }, 
+  "legal": {
+        "privacy": {
+          "title": "Política de Privacidad",
+          "description": "Descubre cómo protegemos y manejamos tu información personal en CodeNixAI",
+          "lastUpdated": "Última actualización: ",
+          "sections": {
+            "section1": {
+              "description": "Conoce qué datos recopilamos cuando interactúas con nuestros servicios de IA",
+              "title": "1. Información que recopilamos",
+              "content": "Recopilamos información que nos proporcionas directamente, como cuando creas una cuenta, utilizas nuestros servicios de IA, o nos contactas. Esto puede incluir tu nombre, dirección de email, y el contenido que generas usando nuestras herramientas de IA."
+            },
+            "section2": {
+              "description": "Entérate de cómo utilizamos tus datos para mejorar tu experiencia",
+              "title": "2. Cómo utilizamos tu información",
+              "content": "Utilizamos tu información para proporcionar, mantener y mejorar nuestros servicios, procesar transacciones, enviarte comunicaciones relacionadas con el servicio, y cumplir con obligaciones legales."
+            },
+            "section3": {
+              "description": "Transparencia sobre cómo compartimos tu información con terceros",
+              "title": "3. Compartir información",
+              "content": "No vendemos, intercambiamos ni transferimos tu información personal a terceros sin tu consentimiento, excepto como se describe en esta política o cuando sea requerido por ley."
+            },
+            "section4": {
+              "description": "Medidas de seguridad avanzadas para proteger tus datos",
+              "title": "4. Seguridad de datos",
+              "content": "Implementamos medidas de seguridad técnicas y organizativas apropiadas para proteger tu información personal contra acceso no autorizado, alteración, divulgación o destrucción."
+            },
+            "section5": {
+              "description": "Conoce tus derechos sobre tus datos personales y cómo ejercerlos",
+              "title": "5. Tus derechos",
+              "content": "Tienes derecho a acceder, actualizar, eliminar tu información personal, y retirar tu consentimiento. Puedes ejercer estos derechos contactándonos directamente."
+            },
+            "section6": {
+              "description": "Ponte en contacto con nosotros para cualquier duda sobre privacidad",
+              "title": "6. Contacto",
+              "content": "Si tienes preguntas sobre esta política de privacidad, puedes contactarnos en privacy@codenixai.com"
+            }
+          },
+          "copyright": "Todos los derechos reservados."
+        },
+        "terms": {
+          "title": "Términos y Condiciones",
+          "description": "Revisa los términos bajo los cuales puedes usar nuestros servicios",
+          "lastUpdated": "Última actualización: ",
+          "sections": {
+            "section1": {
+              "description": "Comprende los términos que aceptas al usar CodeNixAI",
+              "title": "1. Aceptación de los términos",
+              "content": "Al acceder y utilizar CodeNixAI, aceptas estar sujeto a estos Términos y Condiciones y a todas las leyes y regulaciones aplicables. Si no estás de acuerdo con alguno de estos términos, no uses nuestros servicios."
+            },
+            "section2": {
+              "description": "Conoce lo que ofrecemos y nuestro derecho a modificar el servicio",
+              "title": "2. Descripción del servicio",
+              "content": "CodeNixAI proporciona herramientas de inteligencia artificial para generar código, asistencia en programación y servicios relacionados. Nos reservamos el derecho de modificar o descontinuar cualquier aspecto del servicio en cualquier momento."
+            },
+            "section3": {
+              "description": "Directrices sobre el uso adecuado de nuestros servicios",
+              "title": "3. Uso aceptable",
+              "content": "Te comprometes a usar nuestros servicios solo para propósitos legales y de acuerdo con estos términos. No debes usar el servicio para generar contenido dañino, ilegal o que viole derechos de terceros."
+            },
+            "section4": {
+              "description": "Claridad sobre la propiedad del contenido generado y la tecnología",
+              "title": "4. Propiedad intelectual",
+              "content": "El contenido generado por nuestras herramientas de IA es tuyo, pero CodeNixAI conserva todos los derechos sobre la tecnología, software y metodologías utilizadas para proporcionar el servicio."
+            },
+            "section5": {
+              "description": "Limitaciones de nuestra responsabilidad por daños",
+              "title": "5. Limitación de responsabilidad",
+              "content": "CodeNixAI no será responsable de daños directos, indirectos, incidentales o consecuentes que resulten del uso o la imposibilidad de usar nuestros servicios."
+            },
+            "section6": {
+              "description": "Disposiciones sobre la terminación de tu acceso",
+              "title": "6. Terminación",
+              "content": "Podemos terminar o suspender tu acceso a nuestros servicios inmediatamente, sin previo aviso, por cualquier motivo, incluyendo el incumplimiento de estos términos."
+            },
+            "section7": {
+              "description": "Ley aplicable y jurisdicción para resolver disputas",
+              "title": "7. Ley aplicable",
+              "content": "Estos términos se rigen por las leyes de España. Cualquier disputa será resuelta en los tribunales de Madrid."
+            },
+            "section8": {
+              "description": "Cómo ponerte en contacto para preguntas sobre nuestros términos",
+              "title": "8. Contacto",
+              "content": "Para preguntas sobre estos términos, contáctanos en legal@codenixai.com"
+            }
+          },
+          "copyright": "Todos los derechos reservados."
+        },
+        "cookies": {
+          "title": "Cookies & Privacidad",
+          "description": "Usamos cookies para mejorar tu experiencia. Al continuar, aceptas nuestra",
+          "privacyLink": "política de privacidad",
+          "acceptButton": "Aceptar cookies"
+        }
   }
 }
