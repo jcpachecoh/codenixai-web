@@ -75,6 +75,7 @@ export default function Header() {
   const navLinks = [
     { href: `/${locale}`, label: t("home") },
     { href: `/${locale}/about`, label: t("about") },
+    { href: `/${locale}/whatsapp-automations`, label: t("whatsappAutomation") },
     { href: `/${locale}/blog`, label: t("blog") },
     { href: `/${locale}/careers`, label: t("careers") },
     { href: `/${locale}/contact`, label: t("contact") },

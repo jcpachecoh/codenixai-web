@@ -8,6 +8,7 @@
   "navigation": {
     "home": "Inicio",
     "about": "Nosotros",
+    "whatsappAutomation": "WhatsApp",
     "services": {
       "title": "Servicios",
       "services_1": "IA y automatización",
@@ -388,7 +389,6 @@
       "value": "sales@codenixai.com"
     }
   },
-
   "blog": {
     "title": "Blog de Desarrollo IA",
     "description": "Perspectivas, tutoriales y tendencias en desarrollo de software IA, automatización y transformación digital.",
@@ -408,5 +408,104 @@
     "services": "Servicios",
     "contact": "Contacto",
     "email": "info@codenixai.com"
+  },
+  "whatsappAutomation": {
+    "hero": {
+      "title": "Automatizaciones WhatsApp a la medida con IA 🤖",
+      "subtitle": "Conecta, responde y vende 24/7 con flujos inteligentes diseñados para tu negocio.",
+      "ctaDemo": "Solicitar demo",
+      "ctaConsult": "Agendar asesoría gratuita"
+    },
+    "problems": {
+      "title": "¿Tu negocio sufre estos problemas?",
+      "pain1": "Respuestas lentas que pierden clientes",
+      "pain2": "Leads que se escapan por falta de seguimiento",
+      "pain3": "Manejo manual de cientos de conversaciones",
+      "pain4": "Sin integración con tu CRM o base de datos"
+    },
+    "solution": {
+      "title": "La Solución: WhatsApp IA Personalizada",
+      "subtitle": "Creamos automatizaciones inteligentes que entienden a tus clientes y manejan conversaciones como un experto de tu equipo.",
+      "feature1": "IA entrenada con tu negocio",
+      "feature2": "Integración directa con CRM",
+      "feature3": "Respuestas 24/7 automáticas",
+      "feature4": "Escalamiento sin límites"
+    },
+    "useCases": {
+      "title": "Casos de Uso Reales",
+      "subtitle": "Automatiza procesos específicos de tu industria",
+      "case1": {
+        "title": "Atención al Cliente",
+        "description": "Respuesta automática a preguntas frecuentes, escalación inteligente a humanos cuando es necesario."
+      },
+      "case2": {
+        "title": "Seguimiento de Ventas",
+        "description": "Recordatorios automáticos, confirmación de citas, seguimiento post-venta personalizado."
+      },
+      "case3": {
+        "title": "E-commerce",
+        "description": "Confirmación de pedidos, actualizaciones de envío, recuperación de carritos abandonados."
+      },
+      "case4": {
+        "title": "Integración CRM",
+        "description": "Sincronización automática con Attio, HubSpot, Pipedrive y más. Datos actualizados en tiempo real."
+      }
+    },
+    "benefits": {
+      "title": "Beneficios Clave",
+      "subtitle": "Resultados medibles desde el primer día",
+      "benefit1": {
+        "title": "+300% más conversiones",
+        "description": "Respuesta inmediata aumenta significativamente las ventas"
+      },
+      "benefit2": {
+        "title": "80% menos tiempo manual",
+        "description": "Tu equipo se enfoca en tareas de alto valor"
+      },
+      "benefit3": {
+        "title": "24/7 disponibilidad",
+        "description": "Nunca pierdas un cliente por horarios de atención"
+      },
+      "benefit4": {
+        "title": "ROI en 30 días",
+        "description": "Implementación rápida con resultados inmediatos"
+      }
+    },
+    "cta": {
+      "title": "¿Listo para automatizar tu negocio con IA?",
+      "subtitle": "Únete a más de 50 empresas que ya están vendiendo más con WhatsApp automatizado.",
+      "ctaDemo": "Solicita tu demo gratuita",
+      "ctaMeeting": "Agendar reunión"
+    },
+    "faq": {
+      "title": "Preguntas Frecuentes",
+      "q1": {
+        "question": "¿Cuánto tiempo tarda una implementación?",
+        "answer": "Entre 2-4 semanas dependiendo de la complejidad. Incluye configuración, entrenamiento de IA e integración con tu CRM."
+      },
+      "q2": {
+        "question": "¿Qué necesito para comenzar?",
+        "answer": "Solo necesitas una cuenta de WhatsApp Business, acceso a tu CRM (opcional) y definir los flujos que quieres automatizar."
+      },
+      "q3": {
+        "question": "¿Puedo integrar mi CRM actual?",
+        "answer": "Sí, trabajamos con todos los CRMs principales: HubSpot, Pipedrive, Attio, Salesforce y también bases de datos personalizadas."
+      },
+      "q4": {
+        "question": "¿La IA puede manejar conversaciones complejas?",
+        "answer": "Sí, entrenamos la IA con el contexto específico de tu negocio. Para casos muy complejos, escalamos automáticamente a tu equipo."
+      }
+    },
+    "contact": {
+      "title": "Solicita tu Demo Personalizada",
+      "subtitle": "Agenda una llamada de 30 minutos y te mostramos cómo funciona con tu negocio específico.",
+      "nameLabel": "Nombre completo",
+      "companyLabel": "Empresa",
+      "whatsappLabel": "WhatsApp",
+      "messageLabel": "Cuéntanos sobre tu negocio",
+      "submitButton": "Agendar Demo Gratuita",
+      "successMessage": "¡Perfecto! Te contactaremos en las próximas 2 horas para coordinar tu demo personalizada.",
+      "errorMessage": "Hubo un error al enviar el formulario. Por favor intenta nuevamente."
+    }
   }
 }

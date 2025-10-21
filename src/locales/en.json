@@ -8,6 +8,7 @@
   "navigation": {
     "home": "Home",
     "about": "About",
+    "whatsappAutomation": "WhatsApp ",
     "services": {
       "title": "Services",
       "services_1": "AI & Automation",
@@ -402,5 +403,104 @@
     "services": "Services",
     "contact": "Contact",
     "email": "info@codenixai.com"
+  },
+  "whatsappAutomation": {
+    "hero": {
+      "title": "Custom WhatsApp AI Automations 🤖",
+      "subtitle": "Connect, respond, and sell 24/7 with intelligent flows designed for your business.",
+      "ctaDemo": "Request demo",
+      "ctaConsult": "Schedule free consultation"
+    },
+    "problems": {
+      "title": "Does your business suffer from these problems?",
+      "pain1": "Slow responses losing customers",
+      "pain2": "Leads slipping away due to lack of follow-up",
+      "pain3": "Manual handling of hundreds of conversations",
+      "pain4": "No integration with your CRM or database"
+    },
+    "solution": {
+      "title": "The Solution: Personalized WhatsApp AI",
+      "subtitle": "We create intelligent automations that understand your customers and handle conversations like an expert from your team.",
+      "feature1": "AI trained on your business",
+      "feature2": "Direct CRM integration",
+      "feature3": "24/7 automatic responses",
+      "feature4": "Unlimited scalability"
+    },
+    "useCases": {
+      "title": "Real Use Cases",
+      "subtitle": "Automate industry-specific processes",
+      "case1": {
+        "title": "Customer Service",
+        "description": "Automatic response to FAQs, intelligent escalation to humans when needed."
+      },
+      "case2": {
+        "title": "Sales Follow-up",
+        "description": "Automatic reminders, appointment confirmation, personalized post-sale follow-up."
+      },
+      "case3": {
+        "title": "E-commerce",
+        "description": "Order confirmation, shipping updates, abandoned cart recovery."
+      },
+      "case4": {
+        "title": "CRM Integration",
+        "description": "Automatic synchronization with Attio, HubSpot, Pipedrive and more. Real-time data updates."
+      }
+    },
+    "benefits": {
+      "title": "Key Benefits",
+      "subtitle": "Measurable results from day one",
+      "benefit1": {
+        "title": "+300% more conversions",
+        "description": "Immediate response significantly increases sales"
+      },
+      "benefit2": {
+        "title": "80% less manual time",
+        "description": "Your team focuses on high-value tasks"
+      },
+      "benefit3": {
+        "title": "24/7 availability",
+        "description": "Never lose a customer due to business hours"
+      },
+      "benefit4": {
+        "title": "ROI in 30 days",
+        "description": "Quick implementation with immediate results"
+      }
+    },
+    "cta": {
+      "title": "Ready to automate your business with AI?",
+      "subtitle": "Join 50+ companies already selling more with automated WhatsApp.",
+      "ctaDemo": "Request your free demo",
+      "ctaMeeting": "Schedule meeting"
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "q1": {
+        "question": "How long does implementation take?",
+        "answer": "Between 2-4 weeks depending on complexity. Includes setup, AI training, and CRM integration."
+      },
+      "q2": {
+        "question": "What do I need to get started?",
+        "answer": "You only need a WhatsApp Business account, access to your CRM (optional), and define the flows you want to automate."
+      },
+      "q3": {
+        "question": "Can I integrate my current CRM?",
+        "answer": "Yes, we work with all major CRMs: HubSpot, Pipedrive, Attio, Salesforce, and also custom databases."
+      },
+      "q4": {
+        "question": "Can AI handle complex conversations?",
+        "answer": "Yes, we train the AI with your business-specific context. For very complex cases, we automatically escalate to your team."
+      }
+    },
+    "contact": {
+      "title": "Request Your Personalized Demo",
+      "subtitle": "Schedule a 30-minute call and we'll show you how it works with your specific business.",
+      "nameLabel": "Full name",
+      "companyLabel": "Company",
+      "whatsappLabel": "WhatsApp",
+      "messageLabel": "Tell us about your business",
+      "submitButton": "Schedule Free Demo",
+      "successMessage": "Perfect! We'll contact you within the next 2 hours to coordinate your personalized demo.",
+      "errorMessage": "There was an error sending the form. Please try again."
+    }
   }
 }
