@@ -388,7 +388,6 @@
       "value": "sales@codenixai.com"
     }
   },
-
   "blog": {
     "title": "Blog de Desarrollo IA",
     "description": "Perspectivas, tutoriales y tendencias en desarrollo de software IA, automatización y transformación digital.",
@@ -407,6 +406,100 @@
     "about": "Nosotros",
     "services": "Servicios",
     "contact": "Contacto",
-    "email": "hello@codenixai.com"
+    "email": "info@codenixai.com"
+  },
+  "legal": {
+    "privacy": {
+      "title": "Política de Privacidad",
+      "description": "Descubre cómo protegemos y manejamos tu información personal en CodeNixAI",
+      "lastUpdated": "Última actualización: ",
+      "sections": {
+        "section1": {
+          "description": "Conoce qué datos recopilamos cuando interactúas con nuestros servicios de IA",
+          "title": "1. Información que recopilamos",
+          "content": "Recopilamos información que nos proporcionas directamente, como cuando creas una cuenta, utilizas nuestros servicios de IA, o nos contactas. Esto puede incluir tu nombre, dirección de email, y el contenido que generas usando nuestras herramientas de IA."
+        },
+        "section2": {
+          "description": "Entérate de cómo utilizamos tus datos para mejorar tu experiencia",
+          "title": "2. Cómo utilizamos tu información",
+          "content": "Utilizamos tu información para proporcionar, mantener y mejorar nuestros servicios, procesar transacciones, enviarte comunicaciones relacionadas con el servicio, y cumplir con obligaciones legales."
+        },
+        "section3": {
+          "description": "Transparencia sobre cómo compartimos tu información con terceros",
+          "title": "3. Compartir información",
+          "content": "No vendemos, intercambiamos ni transferimos tu información personal a terceros sin tu consentimiento, excepto como se describe en esta política o cuando sea requerido por ley."
+        },
+        "section4": {
+          "description": "Medidas de seguridad avanzadas para proteger tus datos",
+          "title": "4. Seguridad de datos",
+          "content": "Implementamos medidas de seguridad técnicas y organizativas apropiadas para proteger tu información personal contra acceso no autorizado, alteración, divulgación o destrucción."
+        },
+        "section5": {
+          "description": "Conoce tus derechos sobre tus datos personales y cómo ejercerlos",
+          "title": "5. Tus derechos",
+          "content": "Tienes derecho a acceder, actualizar, eliminar tu información personal, y retirar tu consentimiento. Puedes ejercer estos derechos contactándonos directamente."
+        },
+        "section6": {
+          "description": "Ponte en contacto con nosotros para cualquier duda sobre privacidad",
+          "title": "6. Contacto",
+          "content": "Si tienes preguntas sobre esta política de privacidad, puedes contactarnos en privacy@codenixai.com"
+        }
+      },
+      "copyright": "Todos los derechos reservados."
+    },
+    "terms": {
+      "title": "Términos y Condiciones",
+      "description": "Revisa los términos bajo los cuales puedes usar nuestros servicios",
+      "lastUpdated": "Última actualización: ",
+      "sections": {
+        "section1": {
+          "description": "Comprende los términos que aceptas al usar CodeNixAI",
+          "title": "1. Aceptación de los términos",
+          "content": "Al acceder y utilizar CodeNixAI, aceptas estar sujeto a estos Términos y Condiciones y a todas las leyes y regulaciones aplicables. Si no estás de acuerdo con alguno de estos términos, no uses nuestros servicios."
+        },
+        "section2": {
+          "description": "Conoce lo que ofrecemos y nuestro derecho a modificar el servicio",
+          "title": "2. Descripción del servicio",
+          "content": "CodeNixAI proporciona herramientas de inteligencia artificial para generar código, asistencia en programación y servicios relacionados. Nos reservamos el derecho de modificar o descontinuar cualquier aspecto del servicio en cualquier momento."
+        },
+        "section3": {
+          "description": "Directrices sobre el uso adecuado de nuestros servicios",
+          "title": "3. Uso aceptable",
+          "content": "Te comprometes a usar nuestros servicios solo para propósitos legales y de acuerdo con estos términos. No debes usar el servicio para generar contenido dañino, ilegal o que viole derechos de terceros."
+        },
+        "section4": {
+          "description": "Claridad sobre la propiedad del contenido generado y la tecnología",
+          "title": "4. Propiedad intelectual",
+          "content": "El contenido generado por nuestras herramientas de IA es tuyo, pero CodeNixAI conserva todos los derechos sobre la tecnología, software y metodologías utilizadas para proporcionar el servicio."
+        },
+        "section5": {
+          "description": "Limitaciones de nuestra responsabilidad por daños",
+          "title": "5. Limitación de responsabilidad",
+          "content": "CodeNixAI no será responsable de daños directos, indirectos, incidentales o consecuentes que resulten del uso o la imposibilidad de usar nuestros servicios."
+        },
+        "section6": {
+          "description": "Disposiciones sobre la terminación de tu acceso",
+          "title": "6. Terminación",
+          "content": "Podemos terminar o suspender tu acceso a nuestros servicios inmediatamente, sin previo aviso, por cualquier motivo, incluyendo el incumplimiento de estos términos."
+        },
+        "section7": {
+          "description": "Ley aplicable y jurisdicción para resolver disputas",
+          "title": "7. Ley aplicable",
+          "content": "Estos términos se rigen por las leyes de España. Cualquier disputa será resuelta en los tribunales de Madrid."
+        },
+        "section8": {
+          "description": "Cómo ponerte en contacto para preguntas sobre nuestros términos",
+          "title": "8. Contacto",
+          "content": "Para preguntas sobre estos términos, contáctanos en legal@codenixai.com"
+        }
+      },
+      "copyright": "Todos los derechos reservados."
+    },
+    "cookies": {
+      "title": "Cookies & Privacidad",
+      "description": "Usamos cookies para mejorar tu experiencia. Al continuar, aceptas nuestra",
+      "privacyLink": "política de privacidad",
+      "acceptButton": "Aceptar cookies"
+    }
   }
 }
