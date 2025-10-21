@@ -17,7 +17,8 @@
       "services_4": "Nube y DevOps",
       "services_5": "Análisis de datos",
       "services_6": "Diseño UI/UX",
-      "services_7": "Formación"
+      "services_7": "Formación",
+      "services_8": "Chatbot WhatsApp"
     },
     "careers": "Carreras",
     "blog": "Blog",
@@ -411,7 +412,7 @@
   },
   "whatsappAutomation": {
     "hero": {
-      "title": "Automatizaciones WhatsApp a la medida con IA 🤖",
+      "title": "Automatizaciones WhatsApp a la medida con IA ",
       "subtitle": "Conecta, responde y vende 24/7 con flujos inteligentes diseñados para tu negocio.",
       "ctaDemo": "Solicitar demo",
       "ctaConsult": "Agendar asesoría gratuita"

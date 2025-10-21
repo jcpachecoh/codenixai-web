@@ -48,6 +48,10 @@ export default function Header() {
       href: `/${locale}/services/training-workshops`,
       label: t("services.services_7"),
     },
+    {
+      href: `/${locale}/services/whatsapp-automations`,
+      label: t("services.services_8"),
+    },
   ];
 
   // Handle client-side mounting
@@ -75,7 +79,6 @@ export default function Header() {
   const navLinks = [
     { href: `/${locale}`, label: t("home") },
     { href: `/${locale}/about`, label: t("about") },
-    { href: `/${locale}/whatsapp-automations`, label: t("whatsappAutomation") },
     { href: `/${locale}/blog`, label: t("blog") },
     { href: `/${locale}/careers`, label: t("careers") },
     { href: `/${locale}/contact`, label: t("contact") },

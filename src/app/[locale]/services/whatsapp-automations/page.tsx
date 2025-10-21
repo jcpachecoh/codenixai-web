@@ -13,12 +13,12 @@ export async function generateMetadata({
   const locale = paramsObj.locale;
   const t = await getTranslations({
     locale,
-    namespace: "whatwhatsappAutomation.hero",
+    namespace: "whatsappAutomation.hero",
   });
 
   return {
     title: "CodenixAI - " + t("title"),
-    description: t("description"),
+    description: t("subtitle"),
   };
 }
 export default async function WhatsAppAutomation({ params }: PageParams) {

@@ -17,7 +17,8 @@
       "services_4": "Cloud & DevOps",
       "services_5": "Data Analytics",
       "services_6": "UI/UX Design",
-      "services_7": "Training "
+      "services_7": "Training",
+      "services_8": "WhatsApp Chatbot"
     },
     "careers": "Careers",
     "blog": "Blog",
@@ -406,7 +407,7 @@
   },
   "whatsappAutomation": {
     "hero": {
-      "title": "Custom WhatsApp AI Automations 🤖",
+      "title": "Custom WhatsApp AI Automations",
       "subtitle": "Connect, respond, and sell 24/7 with intelligent flows designed for your business.",
       "ctaDemo": "Request demo",
       "ctaConsult": "Schedule free consultation"

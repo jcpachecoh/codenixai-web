@@ -16,51 +16,105 @@ import { useState } from "react";
 
 const WhatsAppAutomationPage = () => {
   const t = useTranslations();
+  const tcontact = useTranslations("contact");
   const [formData, setFormData] = useState({
     name: "",
+    email: "",
+    phone: "",
     company: "",
-    whatsapp: "",
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<
-    "idle" | "success" | "error"
-  >("idle");
-
-  const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    // Simulate API call
-    try {
-      await new Promise((resolve) => setTimeout(resolve, 2000));
-      setSubmitStatus("success");
-      setFormData({ name: "", company: "", whatsapp: "", message: "" });
-    } catch {
-      setSubmitStatus("error");
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
+  const [submitStatus, setSubmitStatus] = useState<null | "success" | "error">(
+    null
+  );
+  const [errorMessage, setErrorMessage] = useState("");
   const scrollToForm = () => {
     const formElement = document.getElementById("contact-form");
     if (formElement) {
       formElement.scrollIntoView({ behavior: "smooth" });
     }
   };
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+  // Handle form submission
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus(null);
+    setErrorMessage("");
+
+    try {
+      // Get current locale from URL
+      const locale = window.location.pathname.split("/")[1] || "en";
+
+      // Get UTM parameters from URL
+      const urlParams = new URLSearchParams(window.location.search);
+      const utmSource = urlParams.get("utm_source") || undefined;
+      const utmMedium = urlParams.get("utm_medium") || undefined;
+      const utmCampaign = urlParams.get("utm_campaign") || undefined;
+
+      const leadData = {
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone || undefined,
+        company: formData.company || undefined,
+        message: formData.message,
+        locale,
+        source: "contact_form",
+        utmSource,
+        utmMedium,
+        utmCampaign,
+      };
+
+      const response = await fetch("/api/leads", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(leadData),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setSubmitStatus("success");
+        // Reset form after success
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          company: "",
+          message: "",
+        });
+
+        // Clear success message after 5 seconds
+        setTimeout(() => {
+          setSubmitStatus(null);
+        }, 5000);
+      } else {
+        setSubmitStatus("error");
+        setErrorMessage(
+          result.error || "An error occurred while submitting your message."
+        );
+      }
+    } catch (error) {
+      console.error("Form submission error:", error);
+      setSubmitStatus("error");
+      setErrorMessage(
+        "Network error. Please check your connection and try again."
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
-    <div className="min-h-screen bg-black text-white overflow-hidden">
+    <div className="min-h-screen py-12 bg-black text-white overflow-hidden">
       {/* Background Effects */}
       <div className="fixed inset-0 pointer-events-none">
         <div className="absolute top-20 left-20 w-72 h-72 bg-green-500/10 rounded-full blur-3xl animate-pulse" />
@@ -108,7 +162,7 @@ const WhatsAppAutomationPage = () => {
         </section>
 
         {/* Problems Section */}
-        <section className="py-20 px-4 bg-gradient-to-r from-red-900/20 to-orange-900/20">
+        <section className="py-20 px-4 bg-gradient-to-r bg-black">
           <div className="max-w-6xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -363,11 +417,87 @@ const WhatsAppAutomationPage = () => {
         </section>
 
         {/* Contact Form Section */}
+
+        <section className="py-20 px-4 bg-gradient-to-r from-green-900/30 to-blue-900/30">
+          <div className="max-w-4xl mx-auto text-center">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <h2 className="text-4xl md:text-5xl font-bold gradient-text mb-6">
+                {t("whatsappAutomation.cta.title")}
+              </h2>
+              <p className="text-xl text-gray-300 mb-8">
+                {t("whatsappAutomation.cta.subtitle")}
+              </p>
+
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <button
+                  onClick={scrollToForm}
+                  className="bg-gradient-to-r from-green-600 to-green-500 hover:from-green-700 hover:to-green-600 text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 flex items-center justify-center gap-2 shadow-lg hover:shadow-green-500/50 hover:scale-105"
+                >
+                  <Calendar className="w-5 h-5" />
+                  {t("whatsappAutomation.cta.ctaDemo")}
+                </button>
+                <button className="border-2 border-gray-600 hover:border-green-500 hover:bg-green-500/10 text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 flex items-center justify-center gap-2 hover:scale-105">
+                  <Phone className="w-5 h-5" />
+                  {t("whatsappAutomation.cta.ctaMeeting")}
+                </button>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* FAQ Section */}
+        <section className="py-20 px-4">
+          <div className="max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-center mb-12"
+            >
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
+                {t("whatsappAutomation.faq.title")}
+              </h2>
+            </motion.div>
+
+            <div className="space-y-6">
+              {["q1", "q2", "q3", "q4"].map((q, index) => (
+                <motion.div
+                  key={q}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  className="bg-gradient-to-br from-gray-900/80 to-gray-800/80 backdrop-blur-xl border border-gray-700/50 rounded-xl p-6 hover:border-gray-600/70 transition-all duration-300"
+                >
+                  <h3 className="text-xl font-semibold text-white mb-3">
+                    {t(`whatsappAutomation.faq.${q}.question`)}
+                  </h3>
+                  <p className="text-gray-300 leading-relaxed">
+                    {t(`whatsappAutomation.faq.${q}.answer`)}
+                  </p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Contact Form Section */}
         <section
           id="contact-form"
-          className="py-20 px-4 bg-gradient-to-r from-gray-900/50 to-gray-800/50"
+          className="py-20 px-4 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 relative overflow-hidden"
         >
-          <div className="max-w-4xl mx-auto">
+          {/* Decorative elements */}
+          <div className="absolute inset-0 bg-gradient-to-r from-green-500/5 to-blue-500/5 pointer-events-none"></div>
+          <div className="absolute top-0 left-1/4 w-96 h-96 bg-green-500/10 rounded-full blur-3xl pointer-events-none"></div>
+          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+          <div className="max-w-3xl mx-auto relative z-10">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -383,98 +513,229 @@ const WhatsAppAutomationPage = () => {
               </p>
             </motion.div>
 
-            <motion.form
-              onSubmit={handleSubmit}
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="bg-gradient-to-br from-gray-900/80 to-gray-800/80 backdrop-blur-xl border border-gray-700/50 rounded-xl p-8"
+              className="bg-gradient-to-br from-gray-800/80 to-gray-900/80 backdrop-blur-xl border border-gray-700/50 rounded-2xl p-8 md:p-10 shadow-2xl"
             >
-              {submitStatus === "success" && (
-                <div className="bg-green-900/20 border border-green-500/30 rounded-xl p-4 mb-6 text-green-400 text-center">
-                  {t("whatsappAutomation.contact.successMessage")}
-                </div>
-              )}
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label
+                      htmlFor="name"
+                      className="block text-sm font-semibold text-gray-200 mb-2 tracking-wide"
+                    >
+                      {tcontact("name_label")}
+                    </label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      required
+                      className="w-full px-4 py-3 bg-gray-900/60 border border-gray-700/70 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500/50 focus:border-green-500/50 text-white placeholder-gray-500 transition-all duration-300 hover:border-gray-600"
+                      placeholder="Juan Pérez"
+                    />
+                  </div>
 
-              {submitStatus === "error" && (
-                <div className="bg-red-900/20 border border-red-500/30 rounded-xl p-4 mb-6 text-red-400 text-center">
-                  {t("whatsappAutomation.contact.errorMessage")}
+                  <div>
+                    <label
+                      htmlFor="email"
+                      className="block text-sm font-semibold text-gray-200 mb-2 tracking-wide"
+                    >
+                      {tcontact("email_label")}
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      required
+                      className="w-full px-4 py-3 bg-gray-900/60 border border-gray-700/70 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500/50 focus:border-green-500/50 text-white placeholder-gray-500 transition-all duration-300 hover:border-gray-600"
+                      placeholder="juan@empresa.com"
+                    />
+                  </div>
                 </div>
-              )}
 
-              <div className="grid md:grid-cols-2 gap-6 mb-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label
+                      htmlFor="phone"
+                      className="block text-sm font-semibold text-gray-200 mb-2 tracking-wide"
+                    >
+                      {tcontact("phone_label")}
+                    </label>
+                    <input
+                      type="tel"
+                      id="phone"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 bg-gray-900/60 border border-gray-700/70 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500/50 focus:border-green-500/50 text-white placeholder-gray-500 transition-all duration-300 hover:border-gray-600"
+                      placeholder="+1 (555) 123-4567"
+                    />
+                  </div>
+
+                  <div>
+                    <label
+                      htmlFor="company"
+                      className="block text-sm font-semibold text-gray-200 mb-2 tracking-wide"
+                    >
+                      {tcontact("company_label")}
+                    </label>
+                    <input
+                      type="text"
+                      id="company"
+                      name="company"
+                      value={formData.company}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 bg-gray-900/60 border border-gray-700/70 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500/50 focus:border-green-500/50 text-white placeholder-gray-500 transition-all duration-300 hover:border-gray-600"
+                      placeholder={t("company_placeholder")}
+                    />
+                  </div>
+                </div>
+
                 <div>
-                  <label className="block text-white font-medium mb-2">
-                    {t("whatsappAutomation.contact.nameLabel")}
+                  <label
+                    htmlFor="message"
+                    className="block text-sm font-semibold text-gray-200 mb-2 tracking-wide"
+                  >
+                    {tcontact("message_label")}
                   </label>
-                  <input
-                    type="text"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleInputChange}
+                  <textarea
+                    id="message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
                     required
-                    className="w-full bg-gray-800/50 border border-gray-600 rounded-lg px-4 py-3 text-white focus:border-green-500 focus:outline-none transition-colors"
+                    rows={5}
+                    className="w-full px-4 py-3 bg-gray-900/60 border border-gray-700/70 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500/50 focus:border-green-500/50 text-white placeholder-gray-500 resize-none transition-all duration-300 hover:border-gray-600"
+                    placeholder="Cuéntanos sobre tu proyecto..."
                   />
                 </div>
-                <div>
-                  <label className="block text-white font-medium mb-2">
-                    {t("whatsappAutomation.contact.companyLabel")}
-                  </label>
-                  <input
-                    type="text"
-                    name="company"
-                    value={formData.company}
-                    onChange={handleInputChange}
-                    required
-                    className="w-full bg-gray-800/50 border border-gray-600 rounded-lg px-4 py-3 text-white focus:border-green-500 focus:outline-none transition-colors"
-                  />
-                </div>
-              </div>
 
-              <div className="mb-6">
-                <label className="block text-white font-medium mb-2">
-                  {t("whatsappAutomation.contact.whatsappLabel")}
-                </label>
-                <input
-                  type="tel"
-                  name="whatsapp"
-                  value={formData.whatsapp}
-                  onChange={handleInputChange}
-                  required
-                  className="w-full bg-gray-800/50 border border-gray-600 rounded-lg px-4 py-3 text-white focus:border-green-500 focus:outline-none transition-colors"
-                />
-              </div>
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full bg-gradient-to-r from-green-600 to-green-500 hover:from-green-700 hover:to-green-600 text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 flex items-center justify-center gap-3 shadow-lg hover:shadow-green-500/50 disabled:opacity-50 disabled:cursor-not-allowed hover:scale-[1.02] active:scale-[0.98]"
+                >
+                  {isSubmitting ? (
+                    <span className="flex items-center gap-3">
+                      <svg
+                        className="animate-spin h-5 w-5 text-white"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                      >
+                        <circle
+                          className="opacity-25"
+                          cx="12"
+                          cy="12"
+                          r="10"
+                          stroke="currentColor"
+                          strokeWidth="4"
+                        ></circle>
+                        <path
+                          className="opacity-75"
+                          fill="currentColor"
+                          d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                        ></path>
+                      </svg>
+                      <span className="text-lg">Enviando...</span>
+                    </span>
+                  ) : (
+                    <>
+                      <span className="text-lg">
+                        {tcontact("submit_button")}
+                      </span>
+                      <svg
+                        className="w-5 h-5"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M14 5l7 7m0 0l-7 7m7-7H3"
+                        />
+                      </svg>
+                    </>
+                  )}
+                </button>
 
-              <div className="mb-6">
-                <label className="block text-white font-medium mb-2">
-                  {t("whatsappAutomation.contact.messageLabel")}
-                </label>
-                <textarea
-                  name="message"
-                  value={formData.message}
-                  onChange={handleInputChange}
-                  required
-                  rows={4}
-                  className="w-full bg-gray-800/50 border border-gray-600 rounded-lg px-4 py-3 text-white focus:border-green-500 focus:outline-none transition-colors resize-none"
-                />
-              </div>
-
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full bg-gradient-to-r from-green-600 to-green-500 hover:from-green-700 hover:to-green-600 text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                {isSubmitting ? (
-                  <div className="w-5 h-5 border-2 border-white/20 border-t-white rounded-full animate-spin" />
-                ) : (
-                  <>
-                    <Calendar className="w-5 h-5" />
-                    {t("whatsappAutomation.contact.submitButton")}
-                  </>
+                {submitStatus === "success" && (
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    className="p-6 bg-gradient-to-r from-green-500/20 to-emerald-500/20 border-2 border-green-500/40 rounded-xl text-green-300 text-center shadow-lg"
+                  >
+                    <div className="flex items-center justify-center mb-3">
+                      <div className="bg-green-500/20 p-2 rounded-full">
+                        <svg
+                          className="w-8 h-8 text-green-400"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2.5}
+                            d="M5 13l4 4L19 7"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                    <h4 className="text-xl font-bold text-green-300 mb-2">
+                      ¡Mensaje Enviado!
+                    </h4>
+                    <p className="text-gray-300">
+                      Thank you! Your message has been sent successfully.
+                      We&apos;ll get back to you within 24 hours.
+                    </p>
+                  </motion.div>
                 )}
-              </button>
-            </motion.form>
+
+                {submitStatus === "error" && (
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    className="p-6 bg-gradient-to-r from-red-500/20 to-orange-500/20 border-2 border-red-500/40 rounded-xl text-red-300 text-center shadow-lg"
+                  >
+                    <div className="flex items-center justify-center mb-3">
+                      <div className="bg-red-500/20 p-2 rounded-full">
+                        <svg
+                          className="w-8 h-8 text-red-400"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2.5}
+                            d="M6 18L18 6M6 6l12 12"
+                          />
+                        </svg>
+                      </div>
+                    </div>
+                    <h4 className="text-xl font-bold text-red-300 mb-2">
+                      Error al Enviar
+                    </h4>
+                    <p className="text-gray-300">
+                      {errorMessage ||
+                        "There was an error sending your message. Please try again."}
+                    </p>
+                  </motion.div>
+                )}
+              </form>
+            </motion.div>
           </div>
         </section>
       </div>
